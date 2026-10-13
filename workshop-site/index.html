@@ -2505,12 +2505,8 @@ If the Related List - Single is on the Details tab instead of the Other related 
 </section>
 
 <section id="internal">
-  <h2 class="section-title">Internal Prep<span class="internal-badge">Instructor Team Only</span></h2>
-  <div id="internal-locked" style="background:#fff;border:1px solid #e0e0e0;border-radius:10px;padding:28px 24px;text-align:center;">
-    <p style="margin:0 0 16px;font-size:15px;color:#4a4a4a;">This section is restricted to the instructor team.</p>
-    <button onclick="unlockInternal()" style="background:#002855;color:#ffb81c;border:none;padding:10px 20px;border-radius:6px;font-weight:700;font-size:14px;cursor:pointer;">🔒 Enter Instructor Password</button>
-  </div>
-  <div id="internal-content" style="display:none;">
+  <h2 class="section-title">Internal Prep<span class="internal-badge">Instructor Team Only</span><span class="internal-badge" style="background:#4a893b;">Temporarily Open · Re-gate by Oct 19</span></h2>
+  <div id="internal-content">
     <p class="section-lede">Pre-workshop readiness tracker for the instructor team. Not for participant distribution.</p>
     <div class="prep-grid">
       <div class="prep-card done">
@@ -2533,7 +2529,7 @@ If the Related List - Single is on the Details tab instead of the Other related 
           <span class="prep-count">4</span>
         </div>
         <div class="prep-body">
-          <div class="prep-item"><span class="prep-todo">○</span><div>John Hill lab smoke tests (canary run, target Oct 14-15)</div></div>
+          <div class="prep-item"><span class="prep-todo">○</span><div>John Hill lab smoke tests (smoke test, target Oct 14-15)</div></div>
           <div class="prep-item"><span class="prep-todo">○</span><div>Address VC's request for intro to recent innovations (SIforce-related announcements)</div></div>
           <div class="prep-item"><span class="prep-todo">○</span><div>Determine structure for breakout activity</div></div>
           <div class="prep-item"><span class="prep-todo">○</span><div>Complete timed walkthrough of all content</div></div>
@@ -2544,81 +2540,65 @@ If the Related List - Single is on the Details tab instead of the Other related 
     <div style="margin-top: 36px; padding-top: 28px; border-top: 2px solid #e0e0e0;">
       <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 16px;">
         <div>
-          <h3 style="margin: 0 0 4px; color: #002855; font-size: 20px;">John's Canary Brief</h3>
-          <p style="margin: 0; color: #666; font-size: 13px;">Full brief for John Hill's canary run of Labs 1-7. Scoped Wed-Thu, Oct 14-15.</p>
+          <h3 style="margin: 0 0 4px; color: #002855; font-size: 20px;">John's Smoke Test Brief</h3>
+          <p style="margin: 0; color: #666; font-size: 13px;">Full brief for John Hill's smoke test of Labs 1-7. Scoped Wed-Thu, Oct 14-15.</p>
         </div>
-        <a class="btn btn-download" href="labs/John%20Canary%20Brief.docx" download style="flex-shrink:0;">Download .docx</a>
+        <a class="btn btn-download" href="labs/John%20Smoke%20Test%20Brief.docx" download style="flex-shrink:0;">Download .docx</a>
       </div>
       <div class="brief-content" style="background: #fff; border: 1px solid #e0e0e0; border-radius: 10px; padding: 20px 24px; font-size: 14px;">
-<h3 class="brief-title">John&#x27;s Canary Brief</h3>
-<p class="brief-subtitle">ServicePulse 360 Workshop | MTA | October 19-20, 2026 | Canary run: October 14-15, 2026</p>
-<h4>Thanks for doing this</h4>
-<p>John, we are 5 days from delivery and you offered to canary the material. That is enormous. Your run is the one chance we have to catch participant-level issues before 20 of them hit the same wall at 10:15 AM on Day 1. The MTA audience is going to be sharp; our material needs to hold up to a Distinguished SE&#x27;s scrutiny before it reaches them.</p>
-<div class="callout callout-verify"><span class="callout-label">What a successful canary looks like</span>You run through Labs 1-7 at a realistic participant pace, taking notes on anywhere the instructions are ambiguous, the UI diverges, or the pacing feels off. At the end you give us an honest &#x27;would I ship this on Monday?&#x27; verdict. If the answer is yes, we go. If the answer is no, we have 48 hours to fix the gaps.</div>
-<h4>Scope of the canary</h4>
-<p>Please run through, in order:</p>
-<div class="bullet">Lab 1 — Extend Case for Multi-Agency Intake (~75 min at a participant&#x27;s pace)</div>
+
+<h3 class="brief-title">John&#x27;s Smoke Test Brief</h3>
+<p class="brief-subtitle">ServicePulse 360 Workshop | MTA | October 19-20, 2026 | Smoke Test run: October 14-15, 2026</p>
+<h4>Thanks</h4>
+<p>John, this is huge. You&#x27;re helping us ship what we believe will be one of the first custom Salesforce workshops of its kind, and your run is the one chance we have to catch participant-level issues before 20 MTA folks hit the same wall at 10:15 AM Monday. Grateful.</p>
+<h4>Scope</h4>
+<div class="bullet">Lab 1 — Extend Case for Multi-Agency Intake (~75 min)</div>
+<div class="bullet">Lab 1.5 — Load MTA Sample Data (~10 min)</div>
 <div class="bullet">Lab 2 — Lightning App Builder &amp; Dynamic Forms (~45 min)</div>
 <div class="bullet">Lab 3 — Asset Hierarchy for MTA Infrastructure (~60 min)</div>
 <div class="bullet">Lab 4 — Field Service Foundations (~70 min)</div>
 <div class="bullet">Lab 5 — Service Disruption Custom Object (~75 min)</div>
 <div class="bullet">Lab 6 — Platform Showcase (~115 min)</div>
 <div class="bullet">Lab 7 — Agentforce Dispatcher Assistant (~70 min)</div>
-<p>Total content time at authored durations is roughly 8.5 hours. Realistic canary pace with notes-taking is 10-12 hours. If you can block that over Wednesday and Thursday, great. If you need to split further, Lab 7 is the one that can wait until Thursday evening if needed.</p>
-<div class="callout callout-default"><span class="callout-label">Out of scope for this canary</span>We have three more pieces in flight (a new Lab 5.5 on Case Routing + AI Classification, 60 days of pre-loaded sample data, and a pre-provisioned starter agent). None of that is in your canary. If you have residual bandwidth after the 7 labs, we would love a 2-hour pass on Lab 5.5, but it is not required.</div>
-<h4>Your canary org</h4>
-<p>Tim has pre-deployed the following to your org before you start:</p>
-<div class="bullet">v07-case-extension: Case object customizations, four MTA agency Record Types, sample Accounts and Cases for NYCT/LIRR/MNR/B&amp;T</div>
-<div class="bullet">v09-org-prep: your permission sets (Agentforce Default, Einstein Prompt Templates, ServicePulse Workshop User), time zone set to America/New_York, Manager field set to yourself for the Lab 6 Approval Process, AgentActionsTest.cls patched</div>
-<p>What is NOT pre-deployed:</p>
+<p>~8.5 hours authored. Realistic pace with notes: 10-12 hours. Wed and Thu is enough if you can block the time; Lab 7 can slide to Thursday evening if needed.</p>
+<h4>Your org</h4>
+<p>Pre-deployed before you start:</p>
+<div class="bullet">v09-org-prep: time zone set to America/New_York, AgentActionsTest.cls patched, permset state confirmed (your Pronto admin user already has Agentforce and Prompt Template permsets by default)</div>
+<p>Not pre-deployed (you build these during the labs, exactly like participants will):</p>
+<div class="bullet">Case customizations — you build these in Lab 1 from scratch</div>
 <div class="bullet">Service_Disruption__c — you build this in Lab 5</div>
-<div class="bullet">v08-sla-extension (SLA formula fields) — Tim deploys after you finish Lab 5</div>
 <div class="bullet">Lab 7&#x27;s Agentforce agent — you build this in Lab 7</div>
-<h4>What we need you to look for</h4>
-<h5>Instruction clarity</h5>
-<div class="bullet">Where did the lab say &#x27;click X&#x27; and X was not where you expected?</div>
-<div class="bullet">Where did the lab assume you knew something a participant might not know?</div>
-<div class="bullet">Where did the lab&#x27;s wording not match the UI label? (Salesforce renames things between releases; we need to know.)</div>
-<h5>Pacing</h5>
-<div class="bullet">Did any Part feel much longer or shorter than its stated duration?</div>
-<div class="bullet">Where did you lose momentum?</div>
-<div class="bullet">Where did you want more context before the next step?</div>
-<h5>The chain</h5>
-<p>Each lab&#x27;s output becomes an input to the next lab. The Golden Case from Lab 1 threads through Labs 2, 3, 4, 5 (and gets a Service Disruption lookup). Service_Disruption__c from Lab 5 is used by Lab 6 (Flow, Prompt Builder, Approval, Reports). Lab 6&#x27;s Prompt Template and Approval Process get wrapped by Lab 7&#x27;s agent. If a chain link breaks, Lab 6 or Lab 7 fails for reasons that look like &#x27;the Flow does not fire&#x27; but are actually &#x27;the Case was not linked properly in Lab 3.&#x27;</p>
-<div class="bullet">At each lab&#x27;s Final Verification, confirm the chain holds</div>
-<div class="bullet">Call out any place a chain link is implicit and should be explicit in the lab</div>
-<h5>The gotchas we already know about</h5>
-<p>These bit us during Lab 7 development. If you hit any of them, flag whether the Participant guide warns about them clearly enough:</p>
-<div class="bullet">Lab 7 Part 1: the Agentforce icon in the utility bar may be labeled &#x27;Agentforce&#x27; or still show as the old &#x27;Einstein Copilot&#x27; depending on org version. Our guide uses &#x27;Agentforce.&#x27;</div>
-<div class="bullet">Lab 7 Part 3.1: new agent creation goes through a &#x27;Name your agent&#x27; modal with a Let&#x27;s Go button. No template selection step.</div>
-<div class="bullet">Lab 7 Part 3.5: granting Agent Access via Permission Set. Without this, the agent you built does not appear in the dropdown. This is a critical teaching moment, not a bug. The guide should make it feel intentional, not like a hack.</div>
-<div class="bullet">Lab 6 Part 2.4 Create Records element: when &#x27;Manually&#x27; is selected, the How Many Records to Create option is hidden. Guide should prepare the reader for this.</div>
-<div class="bullet">Lab 6 Part 2.3 picker drill: fields are called &#x27;SObject Type Name&#x27; and &#x27;Record Type Name&#x27; in the current Flow Builder UI (not SobjectType / DeveloperName).</div>
-<h4>What to do when you hit a problem</h4>
-<p>Two paths depending on severity:</p>
-<div class="bullet">Light friction (confusing wording, UI drift, could be clearer): make a note, keep going.</div>
-<div class="bullet">Hard block (lab breaks, agent does not fire, metadata deploy fails): message Tim. He is available during business hours Wednesday and Thursday for in-the-moment debugging.</div>
-<div class="callout callout-default"><span class="callout-label">Tim&#x27;s contact</span>Slack DM is fastest. Email as backup. Tim will try to turn around a fix within an hour for anything that blocks you. For UI drift and wording issues, we batch and fix on Friday.</div>
-<h4>How to log feedback</h4>
-<p>Create a shared Google Doc (or OneNote, or whatever) and log one line per issue in this format:</p>
-<div class="bullet">LAB and PART (e.g., &#x27;Lab 3 Part 5&#x27;): what you saw, what you expected, severity (hard block / light friction / nice-to-have), and any screenshot if the UI diverged.</div>
-<p>Example entries:</p>
-<div class="bullet">Lab 3 Part 5: Instructions say &#x27;click New&#x27; but the button is labeled &#x27;New Asset Relationship&#x27; in the current UI. Light friction.</div>
-<div class="bullet">Lab 7 Part 2.4: My Create Records element did not have a &#x27;How Many Records to Create&#x27; option after selecting Manually. Guide should mention this. Light friction.</div>
-<div class="bullet">Lab 6 Part 3.4: The Screen Flow&#x27;s Prompt Template action threw &#x27;Prompt template is not active&#x27; on run. Hard block.</div>
-<h4>The verdict we need from you at the end</h4>
-<p>When you finish, give us one of three answers:</p>
-<div class="bullet">GREEN: ship it. Minor fixes documented but the labs hold up for a Distinguished SE audience.</div>
-<div class="bullet">YELLOW: ship it with specific fixes. Here are the N items we need to address before Monday.</div>
-<div class="bullet">RED: do not ship as-is. Here is what fundamentally does not work and here is what I would do differently.</div>
-<p>We will trust whichever verdict you give us.</p>
-<h4>Where to find things</h4>
-<div class="bullet">Lab Participant guides: workshop-site/labs/Lab 0N - Participant.docx (also linked from the workshop website)</div>
-<div class="bullet">Workshop website (one-stop reference): workshop-site/index.html — has agenda, prereqs, lab previews, resources</div>
-<div class="bullet">Executive Scenario Simulation (Day 2 closing, not in your canary): lab-manual/Executive Scenario Simulation.docx. Read it if curious; no need to run it.</div>
-<h4>Final note</h4>
-<p>Your canary makes this workshop better. Whatever you find, we are grateful. The MTA audience will have a much stronger first-day-of-the-workshop experience because you showed us the rough edges first. Thank you.</p>
-      </div>
+<div class="callout callout-tip"><span class="callout-label">End-of-Day-1 catchup</span>Our v09.5-day1-catchup package exists as a safety net: if a participant stalls partway through, we deploy the end-of-Day-1 metadata (v07 Case extensions + Service_Disruption__c + layouts) to their org that evening so they can start Day 2 clean. You should NOT need this during the smoke test; you&#x27;ll build everything yourself. If you want to see what we&#x27;d give stragglers, ask and I&#x27;ll walk you through it.</div>
+<p>v08-sla-extension (SLA formula fields on Service_Disruption__c) deploys after you finish Lab 5.</p>
+<h4>What to look for</h4>
+<div class="bullet">Instruction clarity: where did &#x27;click X&#x27; not match the UI? Where did we assume knowledge a participant wouldn&#x27;t have?</div>
+<div class="bullet">Pacing: any Part that felt much longer or shorter than its stated duration? Where did you lose momentum?</div>
+<div class="bullet">The chain: each lab&#x27;s output feeds the next. Golden Case from Lab 1 threads through Labs 2-5 and gets a Service Disruption lookup. SD from Lab 5 drives Lab 6&#x27;s Flow, Prompt Builder, Approval, Reports. Lab 6 artifacts get wrapped by Lab 7&#x27;s agent. If a link breaks, downstream labs fail for reasons that look wrong (the Flow does not fire) but are actually upstream (the Case was not linked in Lab 3).</div>
+<h4>Known gotchas to validate</h4>
+<p>These bit us during authoring. Confirm the guides flag them clearly:</p>
+<div class="bullet">Lab 7 Part 1: utility bar icon is labeled &#x27;Agentforce&#x27; in current orgs</div>
+<div class="bullet">Lab 7 Part 3.1: &#x27;Name your agent&#x27; modal with a Let&#x27;s Go button; no template selection step</div>
+<div class="bullet">Lab 7 Part 3.5: granting Agent Access via Permission Set is required for the agent to appear in the dropdown. Teaching moment, not a hack.</div>
+<div class="bullet">Lab 6 Part 2.4: when &#x27;Manually&#x27; is selected in Create Records, &#x27;How Many Records to Create&#x27; is hidden</div>
+<div class="bullet">Lab 6 Part 2.3: Flow Builder picker uses &#x27;SObject Type Name&#x27; and &#x27;Record Type Name&#x27; labels</div>
+<h4>When you hit something</h4>
+<div class="bullet">Light friction (wording, UI drift): note it, keep going</div>
+<div class="bullet">Hard block (lab breaks, agent won&#x27;t fire): Slack DM Tim. Expect a fix inside an hour during business hours Wed-Thu</div>
+<h4>Feedback format</h4>
+<p>Shared doc (Google Doc or whatever works). One line per issue:</p>
+<div class="bullet">Lab X Part Y: what you saw, what you expected, severity (hard block / friction / nice-to-have), screenshot if UI diverged</div>
+<h4>The verdict</h4>
+<p>At the end, one of:</p>
+<div class="bullet">GREEN: ship it. Minor fixes documented; holds up.</div>
+<div class="bullet">YELLOW: ship with specific fixes. Here are the N items to address before Monday.</div>
+<div class="bullet">RED: do not ship as-is. Here&#x27;s what fundamentally doesn&#x27;t work.</div>
+<p>We&#x27;ll trust whichever call you make.</p>
+<h4>Resources</h4>
+<div class="bullet">Workshop site (agenda, lab previews, downloads): the GitHub Pages URL Tim will send you</div>
+<div class="bullet">Executive Scenario Simulation (Day 2 closing, not in your smoke test): lab-manual/Executive Scenario Simulation.docx. Read if curious; no need to run.</div>
+<h4>One more time</h4>
+<p>Thank you. The MTA will walk out of Day 2 with something real because you helped us smooth the rough edges first. If this becomes the first great custom Salesforce workshop, that is partly because of you.</p>
+      
     </div>
   
   </div>
@@ -2649,18 +2629,8 @@ function toggleJourney() {
   container.classList.toggle('collapsed', isCollapsed);
   btn.setAttribute('aria-expanded', String(!isCollapsed));
 }
-function unlockInternal() {
-  // Social-barrier password gate. The password lives in the client-side source,
-  // which anyone can view. This keeps casual participants out, not determined viewers.
-  const pw = prompt('Instructor password:');
-  if (pw === null) return; // cancelled
-  if (pw.toLowerCase().trim() === 'mta2026') {
-    document.getElementById('internal-locked').style.display = 'none';
-    document.getElementById('internal-content').style.display = 'block';
-  } else {
-    alert('Incorrect password.');
-  }
-}
+// unlockInternal() removed temporarily — Internal Prep is open until Monday morning.
+// Re-add the gate before participant delivery on Oct 19.
 let verifyTimerInterval = null;
 function startVerifyTimer() {
   if (verifyTimerInterval) { clearInterval(verifyTimerInterval); }
