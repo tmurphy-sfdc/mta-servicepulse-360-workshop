@@ -4,7 +4,7 @@ Two-day Salesforce workshop for the Metropolitan Transportation Authority (MTA) 
 
 - **Dates:** October 19-20, 2026
 - **Location:** MTA Headquarters, NYC
-- **Live site:** published via GitHub Pages (see repo Settings > Pages for the URL)
+- **Live site:** https://tmurphy-sfdc.github.io/mta-servicepulse-360-workshop/workshop-site/
 
 ## Repo contents
 
