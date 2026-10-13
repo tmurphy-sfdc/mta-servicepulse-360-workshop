@@ -408,11 +408,8 @@ nav.topnav a.internal-link::before { content: "🔒 "; }
   <div class="prereq-list">
     <ul>
       <li><strong>Complete the pre-work Trailmix.</strong> Finish the <a href="https://trailhead.salesforce.com/users/h4ccz3afq7q00uerpi/trailmixes/mta-service-pulse-360-workshop-required-pre-work" target="_blank" rel="noopener">MTA ServicePulse 360 pre-work Trailmix</a> before Day 1. About 2.5 hours total; see the Resources section below for the module breakdown.</li>
-      <li><strong>Workshop org access.</strong> You received your org login (OrgFarm Pronto Agentforce reference org). Sign in and confirm you can see the Setup menu.</li>
-      <li><strong>Permission sets assigned.</strong> Your user has Agentforce (Default) and Einstein Prompt Templates permission sets. Confirm from Setup → Permission Set Assignments on your user record.</li>
-      <li><strong>ServicePulse 360 app available.</strong> From the App Launcher, confirm ServicePulse 360 appears in your available apps.</li>
+      <li><strong>Workshop org access.</strong> The Salesforce team will provide your username and password when you arrive in the classroom on Monday morning. No action needed before Day 1.</li>
       <li><strong>Laptop with Chrome, Firefox, or Edge.</strong> Latest two major versions. Safari works but a few Flow Builder flows render less cleanly.</li>
-      <li><strong>Working audio.</strong> Even for an in-room workshop, we may use a short Zoom bridge for shared walkthroughs. Have headphones available.</li>
       <li><strong>Review Lab 1 the morning of.</strong> Skim the first 10 minutes of Lab 1 before 9:30 AM so you are not reading the first page cold.</li>
     </ul>
   </div>
@@ -726,6 +723,104 @@ nav.topnav a.internal-link::before { content: "🔒 "; }
 <div class="bullet">Reported Date/Time or Resolution Notes don&#x27;t appear on the Lightning record page: you skipped Part 9. Return to any case then gear then Edit Page then drag the field onto the canvas from the Fields panel then Save then Activate.</div>
 <div class="bullet">MTA New York City Transit doesn&#x27;t appear in the Account Name picker: it wasn&#x27;t pre-deployed. Follow the &quot;If the MTA Accounts are missing&quot; callout in Part 10.1 to create it.</div>
 <div class="bullet">If you fall significantly behind, your instructor can fast-forward your org with a deploy of the completed extension.</div>
+  </div>
+</div>
+<div class="lab-card">
+  <div class="lab-head" onclick="toggleLab(15)">
+    <div class="lab-number" style="font-size: 15px;">1.5</div>
+    <div class="lab-meta">
+      <p class="lab-name">Lab 1.5 — Load MTA Sample Data</p>
+      <p class="lab-duration">~10 min</p>
+    </div>
+    <div class="lab-actions">
+      <a class="btn btn-download" href="labs/Lab%2001.5%20-%20Participant.docx" download>Download .docx</a>
+      <button class="btn btn-toggle" id="toggle-15" onclick="event.stopPropagation(); toggleLab(15);">Preview ▾</button>
+    </div>
+  </div>
+  <div class="lab-body" id="body-15">
+    <h2 class="lab-title">Lab 1.5 - Load MTA Sample Data</h2>
+<p class="lab-subtitle">ServicePulse 360 Workshop v0.7 (revision 1) | Estimated time: 10 minutes | Use the native Salesforce Data Import Wizard to load realistic MTA Accounts, Contacts, and Cases into your org. These records populate the related lists and reports you build across the rest of Day 1 and Day 2.</p>
+<h3>What you&#x27;re building and why</h3>
+<p>In Lab 1 you extended Case for multi-agency intake and built a Golden Case from scratch. The rest of Day 1 and Day 2 is more interesting when there is a realistic volume of records to work with: related lists populate, reports have shape, dashboards show patterns. Rather than ask you to manually create 10 Cases + 4 Accounts + 4 Contacts (about 25 minutes of clicking), you&#x27;ll load them in bulk using the Data Import Wizard that ships with every Salesforce org.</p>
+<p>Three self-service imports in sequence (each ~2 minutes):</p>
+<div class="bullet">4 MTA agency Accounts (NYCT, LIRR, MNR, B&amp;T)</div>
+<div class="bullet">4 Operations Dispatcher Contacts (one per agency)</div>
+<div class="bullet">10 realistic MTA Cases distributed across the four agencies with varied priorities and types</div>
+<div class="callout callout-tip"><span class="callout-label">Where to get the files</span>The three CSV files you&#x27;ll load are on the workshop website in the Resources tab, under the &quot;Lab 1.5 Downloads&quot; section. Click each link to download MTA Sample Accounts.csv, MTA Sample Contacts.csv, and MTA Sample Cases.csv to your laptop before you start Part 1.</div>
+<div class="callout callout-why"><span class="callout-label">Why this matters</span>The Data Import Wizard is the right tool for admin-level bulk data loads up to 50,000 records at a time. It is zero-code, scales well, and respects validation rules. For bigger loads you&#x27;d use Data Loader (desktop tool) or an integration. Knowing which tool to pick for which load size is a core admin skill.</div>
+<h3>Before you start</h3>
+<div class="bullet">Lab 1 is complete. Your org has NYCT, LIRR, MNR, and B&amp;T Record Types on Case.</div>
+<div class="bullet">You have the three CSV files downloaded to your laptop. Grab them from the workshop website: Resources tab, scroll to the &quot;Lab 1.5 Downloads&quot; section. Click each link to download.</div>
+<div class="substep">MTA Sample Accounts.csv</div>
+<div class="substep">MTA Sample Contacts.csv</div>
+<div class="substep">MTA Sample Cases.csv</div>
+<h3>Part 1 - Load the Accounts (2 min)</h3>
+<div class="step"><span class="step-num">1.</span><span class="step-text">From Setup, Quick Find: Data Import Wizard, click Data Import Wizard.</span></div>
+<div class="step"><span class="step-num">2.</span><span class="step-text">Click Launch Wizard!</span></div>
+<div class="step"><span class="step-num">3.</span><span class="step-text">What kind of data are you importing? Click the Accounts and Contacts tile.</span></div>
+<div class="step"><span class="step-num">4.</span><span class="step-text">What do you want to do? Select the Add new records radio button.</span></div>
+<div class="step"><span class="step-num">5.</span><span class="step-text">Where is your data located? Choose CSV. Click Choose File and select MTA Sample Accounts.csv. Click Next.</span></div>
+<div class="step"><span class="step-num">6.</span><span class="step-text">The Edit Field Mapping screen appears. The Wizard auto-maps most columns. Verify:</span></div>
+<div class="substep">Name maps to Account: Account Name</div>
+<div class="substep">Industry maps to Account: Industry</div>
+<div class="substep">Description maps to Account: Description</div>
+<div class="step"><span class="step-num">7.</span><span class="step-text">Click Next.</span></div>
+<div class="step"><span class="step-num">8.</span><span class="step-text">Review and click Start Import.</span></div>
+<div class="step"><span class="step-num">9.</span><span class="step-text">Click OK on the confirmation. The Wizard shows a progress indicator.</span></div>
+<div class="step"><span class="step-num">10.</span><span class="step-text">Open the Accounts tab to confirm all 4 MTA Accounts loaded. If the import takes more than 60 seconds, check your email for the import summary Salesforce sends on completion.</span></div>
+<div class="callout callout-watch"><span class="callout-label">Watch out</span>The &#x27;Accounts and Contacts&#x27; tile is correct even if you&#x27;re only loading Accounts right now. The Wizard supports loading either or both. Don&#x27;t pick the &#x27;Person Accounts&#x27; option unless your org is configured for Person Accounts (this one is not).</div>
+<h3>Part 2 - Load the Contacts (2 min)</h3>
+<div class="step"><span class="step-num">1.</span><span class="step-text">From Setup, Quick Find: Data Import Wizard, click Data Import Wizard.</span></div>
+<div class="step"><span class="step-num">2.</span><span class="step-text">Click Launch Wizard!</span></div>
+<div class="step"><span class="step-num">3.</span><span class="step-text">Click the Accounts and Contacts tile.</span></div>
+<div class="step"><span class="step-num">4.</span><span class="step-text">Select the Add new records radio button.</span></div>
+<div class="step"><span class="step-num">5.</span><span class="step-text">Choose CSV. Click Choose File and select MTA Sample Contacts.csv. Click Next.</span></div>
+<div class="step"><span class="step-num">6.</span><span class="step-text">Verify the mappings:</span></div>
+<div class="substep">FirstName maps to Contact: First Name</div>
+<div class="substep">LastName maps to Contact: Last Name</div>
+<div class="substep">Title maps to Contact: Title</div>
+<div class="substep">Account Name maps to Contact: Account Name (the Wizard uses this to look up the parent Account by name)</div>
+<div class="step"><span class="step-num">7.</span><span class="step-text">Click Next.</span></div>
+<div class="step"><span class="step-num">8.</span><span class="step-text">Click Start Import. Click OK.</span></div>
+<div class="step"><span class="step-num">9.</span><span class="step-text">Open the Contacts tab and confirm all 4 Contacts loaded, each linked to the correct MTA Account.</span></div>
+<div class="callout callout-tip"><span class="callout-label">Tip</span>The Wizard matches &#x27;Account Name&#x27; text to the actual Account record by name. If any Contact fails to link, check that the Account name in your CSV matches the Account you loaded in Part 1 exactly (including the &#x27;MTA&#x27; prefix).</div>
+<h3>Part 3 - Load the Cases (4 min)</h3>
+<div class="step"><span class="step-num">1.</span><span class="step-text">From Setup, Quick Find: Data Import Wizard, click Data Import Wizard.</span></div>
+<div class="step"><span class="step-num">2.</span><span class="step-text">Click Launch Wizard!</span></div>
+<div class="step"><span class="step-num">3.</span><span class="step-text">Click the Cases tile (under Custom objects, OR under the standard tiles depending on your org).</span></div>
+<div class="callout callout-watch"><span class="callout-label">Watch out</span>Case is a standard object but it is sometimes under the Custom objects section of the Wizard tile picker depending on org version. Look for a tile labeled &#x27;Cases&#x27; with the Case icon.</div>
+<div class="step"><span class="step-num">4.</span><span class="step-text">Select the Add new records radio button.</span></div>
+<div class="step"><span class="step-num">5.</span><span class="step-text">Which Record Type do you want to use? Select Agent is based on Record Type Column in the import file. (Different orgs may label this slightly differently; the point is: use the Record Type column from the CSV, not a fixed Record Type.)</span></div>
+<div class="step"><span class="step-num">6.</span><span class="step-text">Choose CSV. Click Choose File and select MTA Sample Cases.csv. Click Next.</span></div>
+<div class="step"><span class="step-num">7.</span><span class="step-text">Verify the mappings:</span></div>
+<div class="substep">Subject maps to Case: Subject</div>
+<div class="substep">Status maps to Case: Status</div>
+<div class="substep">Priority maps to Case: Priority</div>
+<div class="substep">Origin maps to Case: Case Origin</div>
+<div class="substep">Type maps to Case: Case Type</div>
+<div class="substep">Account Name maps to Case: Account Name (looks up the Account by name)</div>
+<div class="substep">Contact Last Name maps to Case: Contact Last Name (looks up the Contact by last name)</div>
+<div class="substep">Record Type maps to Case: Record Type (looks up the Record Type by Developer Name)</div>
+<div class="step"><span class="step-num">8.</span><span class="step-text">Click Next.</span></div>
+<div class="step"><span class="step-num">9.</span><span class="step-text">Click Start Import. Click OK.</span></div>
+<div class="step"><span class="step-num">10.</span><span class="step-text">Open the Cases tab and switch to the All list view. Confirm 10 new Cases loaded (plus your Golden Case from Lab 1 Part 10, so 11 total).</span></div>
+<div class="step"><span class="step-num">11.</span><span class="step-text">Spot-check a few Cases:</span></div>
+<div class="substep">Open Seed: Signal fault on 7 Line, Vernon Blvd. Confirm Record Type = NYCT.</div>
+<div class="substep">Open Seed: Grade crossing malfunction, Mineola. Confirm Record Type = LIRR.</div>
+<div class="substep">Open Seed: Toll gantry sensor fault, Verrazzano. Confirm Record Type = B&amp;T (listed as BandT in the Developer Name).</div>
+<div class="callout callout-verify"><span class="callout-label">Verified? Great job!</span>Your org now has a realistic multi-agency dataset. In Lab 2 you&#x27;ll build Dynamic Forms against this; in Lab 3 you&#x27;ll link Cases to Assets; in Lab 7 Agentforce will have real records to reason about.</div>
+<h3>Final verification</h3>
+<p>Three quick checks to confirm the import worked:</p>
+<div class="step"><span class="step-num">1.</span><span class="step-text">Accounts tab: 4 MTA Accounts (NYCT, LIRR, MNR, B&amp;T).</span></div>
+<div class="step"><span class="step-num">2.</span><span class="step-text">Contacts tab: 4 Operations Dispatcher Contacts.</span></div>
+<div class="step"><span class="step-num">3.</span><span class="step-text">Cases tab, All list view: 10 seed Cases plus your Golden Case = 11 total.</span></div>
+<h3>Common sticking points</h3>
+<div class="bullet">Record Type column maps but Cases load without a Record Type. Cause: the Record Type column value does not match any Developer Name in your org. Fix: open the CSV, confirm values are NYCT / LIRR / MNR / BandT exactly (case-sensitive, no spaces).</div>
+<div class="bullet">Contact Last Name mapping fails. Cause: two Contacts share the same last name in your org. Fix: unlikely for this workshop since each MTA Contact has a unique last name. If it happens, update the CSV to use a more specific lookup field.</div>
+<div class="bullet">Import takes more than a minute to complete. Normal for the first import in a new org. Salesforce queues it and emails you the summary. Open the next part of the lab while waiting.</div>
+<div class="bullet">CSV columns do not auto-map. Cause: column headers in the CSV do not match any Salesforce field name. Fix: use the Edit Mapping link next to each unmapped column and pick the right destination field.</div>
+<h3>What&#x27;s next</h3>
+<p>Lab 2 opens Lightning App Builder and configures Dynamic Forms. The sample Cases you just loaded will populate the Related Lists you build. Grab water, stretch, and continue.</p>
   </div>
 </div>
 <div class="lab-card">
