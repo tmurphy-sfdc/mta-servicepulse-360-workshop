@@ -2547,10 +2547,11 @@ If the Related List - Single is on the Details tab instead of the Other related 
       </div>
       <div class="brief-content" style="background: #fff; border: 1px solid #e0e0e0; border-radius: 10px; padding: 20px 24px; font-size: 14px;">
 
+
 <h3 class="brief-title">John&#x27;s Smoke Test Brief</h3>
 <p class="brief-subtitle">ServicePulse 360 Workshop | MTA | October 19-20, 2026 | Smoke Test run: October 14-15, 2026</p>
-<h4>Thanks</h4>
-<p>John, this is huge. You&#x27;re helping us ship what we believe will be one of the first custom Salesforce workshops of its kind, and your run is the one chance we have to catch participant-level issues before 20 MTA folks hit the same wall at 10:15 AM Monday. Grateful.</p>
+<h4>Thank You</h4>
+<p>John, thanks for offering to walk through the material. This may be one of the first fully-custom Salesforce workshops of its kind, and your run gives us a chance to catch participant-level issues before 20 MTA folks hit them on Day 1.</p>
 <h4>Scope</h4>
 <div class="bullet">Lab 1 — Extend Case for Multi-Agency Intake (~75 min)</div>
 <div class="bullet">Lab 1.5 — Load MTA Sample Data (~10 min)</div>
@@ -2560,20 +2561,13 @@ If the Related List - Single is on the Details tab instead of the Other related 
 <div class="bullet">Lab 5 — Service Disruption Custom Object (~75 min)</div>
 <div class="bullet">Lab 6 — Platform Showcase (~115 min)</div>
 <div class="bullet">Lab 7 — Agentforce Dispatcher Assistant (~70 min)</div>
-<p>~8.5 hours authored. Realistic pace with notes: 10-12 hours. Wed and Thu is enough if you can block the time; Lab 7 can slide to Thursday evening if needed.</p>
+<p>Work through what you can at the pace that fits your schedule.</p>
 <h4>Your org</h4>
-<p>Pre-deployed before you start:</p>
-<div class="bullet">v09-org-prep: time zone set to America/New_York, AgentActionsTest.cls patched, permset state confirmed (your Pronto admin user already has Agentforce and Prompt Template permsets by default)</div>
-<p>Not pre-deployed (you build these during the labs, exactly like participants will):</p>
-<div class="bullet">Case customizations — you build these in Lab 1 from scratch</div>
-<div class="bullet">Service_Disruption__c — you build this in Lab 5</div>
-<div class="bullet">Lab 7&#x27;s Agentforce agent — you build this in Lab 7</div>
-<div class="callout callout-tip"><span class="callout-label">End-of-Day-1 catchup</span>Our v09.5-day1-catchup package exists as a safety net: if a participant stalls partway through, we deploy the end-of-Day-1 metadata (v07 Case extensions + Service_Disruption__c + layouts) to their org that evening so they can start Day 2 clean. You should NOT need this during the smoke test; you&#x27;ll build everything yourself. If you want to see what we&#x27;d give stragglers, ask and I&#x27;ll walk you through it.</div>
-<p>v08-sla-extension (SLA formula fields on Service_Disruption__c) deploys after you finish Lab 5.</p>
+<p>Pre-deployed before you start: v09-org-prep (time zone set to America/New_York, AgentActionsTest.cls patched, permset state confirmed; the Pronto admin user already has Agentforce and Prompt Template permsets by default). You build everything else during the labs exactly as participants will.</p>
 <h4>What to look for</h4>
 <div class="bullet">Instruction clarity: where did &#x27;click X&#x27; not match the UI? Where did we assume knowledge a participant wouldn&#x27;t have?</div>
 <div class="bullet">Pacing: any Part that felt much longer or shorter than its stated duration? Where did you lose momentum?</div>
-<div class="bullet">The chain: each lab&#x27;s output feeds the next. Golden Case from Lab 1 threads through Labs 2-5 and gets a Service Disruption lookup. SD from Lab 5 drives Lab 6&#x27;s Flow, Prompt Builder, Approval, Reports. Lab 6 artifacts get wrapped by Lab 7&#x27;s agent. If a link breaks, downstream labs fail for reasons that look wrong (the Flow does not fire) but are actually upstream (the Case was not linked in Lab 3).</div>
+<div class="bullet">The chain: each lab&#x27;s output feeds the next. Golden Case from Lab 1 threads through Labs 2-5 and gets a Service Disruption lookup. Service Disruption from Lab 5 drives Lab 6&#x27;s Flow, Prompt Builder, Approval, Reports. Lab 6 artifacts get wrapped by Lab 7&#x27;s agent. If a link breaks, downstream labs can fail for reasons that look wrong (the Flow does not fire) but are actually upstream (the Case was not linked in Lab 3).</div>
 <h4>Known gotchas to validate</h4>
 <p>These bit us during authoring. Confirm the guides flag them clearly:</p>
 <div class="bullet">Lab 7 Part 1: utility bar icon is labeled &#x27;Agentforce&#x27; in current orgs</div>
@@ -2583,7 +2577,7 @@ If the Related List - Single is on the Details tab instead of the Other related 
 <div class="bullet">Lab 6 Part 2.3: Flow Builder picker uses &#x27;SObject Type Name&#x27; and &#x27;Record Type Name&#x27; labels</div>
 <h4>When you hit something</h4>
 <div class="bullet">Light friction (wording, UI drift): note it, keep going</div>
-<div class="bullet">Hard block (lab breaks, agent won&#x27;t fire): Slack DM Tim. Expect a fix inside an hour during business hours Wed-Thu</div>
+<div class="bullet">Hard block (lab breaks, agent won&#x27;t fire): send Tim a note so we can look at it</div>
 <h4>Feedback format</h4>
 <p>Shared doc (Google Doc or whatever works). One line per issue:</p>
 <div class="bullet">Lab X Part Y: what you saw, what you expected, severity (hard block / friction / nice-to-have), screenshot if UI diverged</div>
@@ -2593,11 +2587,9 @@ If the Related List - Single is on the Details tab instead of the Other related 
 <div class="bullet">YELLOW: ship with specific fixes. Here are the N items to address before Monday.</div>
 <div class="bullet">RED: do not ship as-is. Here&#x27;s what fundamentally doesn&#x27;t work.</div>
 <p>We&#x27;ll trust whichever call you make.</p>
-<h4>Resources</h4>
-<div class="bullet">Workshop site (agenda, lab previews, downloads): the GitHub Pages URL Tim will send you</div>
-<div class="bullet">Executive Scenario Simulation (Day 2 closing, not in your smoke test): lab-manual/Executive Scenario Simulation.docx. Read if curious; no need to run.</div>
-<h4>One more time</h4>
-<p>Thank you. The MTA will walk out of Day 2 with something real because you helped us smooth the rough edges first. If this becomes the first great custom Salesforce workshop, that is partly because of you.</p>
+<h4>Wrap</h4>
+<p>We really appreciate having you walk through what you can. Thank you!</p>
+      
       
     </div>
   
