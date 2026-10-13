@@ -1,0 +1,7 @@
+.DS_Store
+Thumbs.db
+lab-manual/archive/
+*.swp
+*~
+.idea/
+.vscode/
