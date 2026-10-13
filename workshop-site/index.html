@@ -192,23 +192,77 @@ nav.topnav a.internal-link::before { content: "🔒 "; }
 
 <nav class="topnav">
   <ul>
-    <li><a href="#journey">Journey</a></li>
     <li><a href="#agenda">Agenda</a></li>
     <li><a href="#prereqs">Prerequisites</a></li>
+    <li><a href="#journey">Lab Overviews</a></li>
     <li><a href="#labs">Lab Guides</a></li>
-    <li><a href="#team">Instructor Team</a></li>
-    <li><a href="#day2-verify">Day 2 Verify</a></li>
     <li><a href="#resources">Resources</a></li>
+    <li><a href="#day2-verify">Day 2 Verify</a></li>
+    <li><a href="#team">Instructor Team</a></li>
     <li><a href="#internal" class="internal-link">Internal Prep</a></li>
   </ul>
 </nav>
 
 <main>
 
+<section id="agenda">
+  <h2 class="section-title">Agenda</h2>
+  <p class="section-lede">Two days, seven progressively building labs. Day 1 establishes the data model and layout experience. Day 2 adds platform capabilities and wraps with Agentforce.</p>
+  <div class="agenda-grid">
+    <div class="day-card">
+      <div class="day-header">
+        <h3>Day 1 · Data Model &amp; Experience</h3>
+        <div class="day-date">Monday, October 19</div>
+      </div>
+      <div class="day-body">
+        <div class="schedule-row"><div class="sched-time">9:30 – 9:45</div><div class="sched-item"><strong>Welcome &amp; context</strong><br>Workshop goals, the day ahead, standard-first architecture</div></div>
+        <div class="schedule-row"><div class="sched-time">9:45 – 11:00</div><div class="sched-item"><strong>Lab 1</strong> · Extend Case for Multi-Agency Intake</div></div>
+        <div class="schedule-row"><div class="sched-time">11:00 – 11:10</div><div class="sched-item"><strong>Lab 1.5</strong> · Load MTA Sample Data (Data Import Wizard)</div></div>
+        <div class="schedule-row"><div class="sched-time">11:10 – 11:55</div><div class="sched-item"><strong>Lab 2</strong> · Lightning App Builder &amp; Dynamic Forms</div></div>
+        <div class="schedule-row"><div class="sched-time">11:55 – 12:55</div><div class="sched-item">Lunch (60 min)</div></div>
+        <div class="schedule-row"><div class="sched-time">12:55 – 1:55</div><div class="sched-item"><strong>Lab 3</strong> · Asset Hierarchy for MTA Infrastructure</div></div>
+        <div class="schedule-row"><div class="sched-time">1:55 – 3:05</div><div class="sched-item"><strong>Lab 4</strong> · Field Service Foundations</div></div>
+        <div class="schedule-row"><div class="sched-time">3:05 – 3:20</div><div class="sched-item">Break</div></div>
+        <div class="schedule-row"><div class="sched-time">3:20 – 4:25</div><div class="sched-item"><strong>Lab 5</strong> · Service Disruption Custom Object</div></div>
+        <div class="schedule-row"><div class="sched-time">4:25 – 4:30</div><div class="sched-item">Day 1 wrap</div></div>
+      </div>
+    </div>
+    <div class="day-card">
+      <div class="day-header">
+        <h3>Day 2 · Platform Layer &amp; Agentforce</h3>
+        <div class="day-date">Tuesday, October 20</div>
+      </div>
+      <div class="day-body">
+        <div class="schedule-row"><div class="sched-time">9:30 – 9:45</div><div class="sched-item"><strong>Day 2 Verify</strong> · 15-min self-check that your Day 1 work carried through. <a href="#day2-verify">See Day 2 Verify</a>.</div></div>
+        <div class="schedule-row"><div class="sched-time">9:45 – 11:40</div><div class="sched-item"><strong>Lab 6</strong> · Platform Showcase (Validation, Flow, AI, Approval, Reporting)</div></div>
+        <div class="schedule-row"><div class="sched-time">11:40 – 12:40</div><div class="sched-item">Lunch (60 min)</div></div>
+        <div class="schedule-row"><div class="sched-time">12:40 – 1:50</div><div class="sched-item"><strong>Lab 7</strong> · Agentforce Dispatcher Assistant</div></div>
+        <div class="schedule-row"><div class="sched-time">1:50 – 2:10</div><div class="sched-item">Break</div></div>
+        <div class="schedule-row"><div class="sched-time">2:10 – 3:00</div><div class="sched-item"><strong>Scenario simulation</strong> · end-to-end disruption drill using what you built</div></div>
+        <div class="schedule-row"><div class="sched-time">3:00 – 3:45</div><div class="sched-item"><strong>Where to go next</strong> · tour of capabilities we did not build (Summarize Open Disruptions, Notify Riders, proactive drafting, Data Cloud)</div></div>
+        <div class="schedule-row"><div class="sched-time">3:45 – 4:30</div><div class="sched-item"><strong>Open Q&amp;A and roadmap</strong> · Phase 2 scoping, follow-up actions</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="prereqs">
+  <h2 class="section-title">Prerequisites</h2>
+  <p class="section-lede">A quick checklist to confirm before Day 1. If anything is missing, flag it on your intake form so the instructor team can get it sorted before 9:30 AM Monday.</p>
+  <div class="prereq-list">
+    <ul>
+      <li><strong>Complete the pre-work Trailmix.</strong> Finish the <a href="https://trailhead.salesforce.com/users/h4ccz3afq7q00uerpi/trailmixes/mta-service-pulse-360-workshop-required-pre-work" target="_blank" rel="noopener">MTA ServicePulse 360 pre-work Trailmix</a> before Day 1. About 2.5 hours total; see the Resources section below for the module breakdown.</li>
+      <li><strong>Laptop with Chrome, Firefox, or Edge.</strong> Latest two major versions. Safari works but a few Flow Builder flows render less cleanly.</li>
+      <li><strong>Preview Lab 1 the morning of.</strong> Skim the first 10 minutes of Lab 1 before 9:30 AM so you are not reading the first page cold.</li>
+      <li><strong>Workshop org access.</strong> The Salesforce team will provide your username and password when you arrive in the classroom on Monday morning. No action needed before Day 1.</li>
+    </ul>
+  </div>
+</section>
+
 <section id="journey" style="margin-bottom: 48px;">
   <div class="journey" id="journey-container">
     <button class="journey-toggle" onclick="toggleJourney()" aria-expanded="true" aria-controls="journey-body">
-      <h2 class="journey-title">What You Will Build Over Two Days<span class="journey-chevron" id="journey-chevron">▾</span></h2>
+      <h2 class="journey-title">Lab Overviews<span class="journey-chevron" id="journey-chevron">▾</span></h2>
       <p class="journey-sub">Seven labs across two days. Each one adds a layer to the operational platform. Scroll through for a rundown of what you will build and the key features explored.</p>
     </button>
     <div class="journey-body" id="journey-body">
@@ -358,60 +412,6 @@ nav.topnav a.internal-link::before { content: "🔒 "; }
       <div class="journey-legend-item"><span class="journey-legend-dot legend-capstone"></span>Agentforce Dispatcher Assistant</div>
     </div>
     </div>
-  </div>
-</section>
-
-<section id="agenda">
-  <h2 class="section-title">Agenda</h2>
-  <p class="section-lede">Two days, seven progressively building labs. Day 1 establishes the data model and layout experience. Day 2 adds platform capabilities and wraps with Agentforce.</p>
-  <div class="agenda-grid">
-    <div class="day-card">
-      <div class="day-header">
-        <h3>Day 1 · Data Model &amp; Experience</h3>
-        <div class="day-date">Monday, October 19</div>
-      </div>
-      <div class="day-body">
-        <div class="schedule-row"><div class="sched-time">9:30 – 9:45</div><div class="sched-item"><strong>Welcome &amp; context</strong><br>Workshop goals, the day ahead, standard-first architecture</div></div>
-        <div class="schedule-row"><div class="sched-time">9:45 – 11:00</div><div class="sched-item"><strong>Lab 1</strong> · Extend Case for Multi-Agency Intake</div></div>
-        <div class="schedule-row"><div class="sched-time">11:00 – 11:10</div><div class="sched-item"><strong>Lab 1.5</strong> · Load MTA Sample Data (Data Import Wizard)</div></div>
-        <div class="schedule-row"><div class="sched-time">11:10 – 11:55</div><div class="sched-item"><strong>Lab 2</strong> · Lightning App Builder &amp; Dynamic Forms</div></div>
-        <div class="schedule-row"><div class="sched-time">11:55 – 12:55</div><div class="sched-item">Lunch (60 min)</div></div>
-        <div class="schedule-row"><div class="sched-time">12:55 – 1:55</div><div class="sched-item"><strong>Lab 3</strong> · Asset Hierarchy for MTA Infrastructure</div></div>
-        <div class="schedule-row"><div class="sched-time">1:55 – 3:05</div><div class="sched-item"><strong>Lab 4</strong> · Field Service Foundations</div></div>
-        <div class="schedule-row"><div class="sched-time">3:05 – 3:20</div><div class="sched-item">Break</div></div>
-        <div class="schedule-row"><div class="sched-time">3:20 – 4:25</div><div class="sched-item"><strong>Lab 5</strong> · Service Disruption Custom Object</div></div>
-        <div class="schedule-row"><div class="sched-time">4:25 – 4:30</div><div class="sched-item">Day 1 wrap</div></div>
-      </div>
-    </div>
-    <div class="day-card">
-      <div class="day-header">
-        <h3>Day 2 · Platform Layer &amp; Agentforce</h3>
-        <div class="day-date">Tuesday, October 20</div>
-      </div>
-      <div class="day-body">
-        <div class="schedule-row"><div class="sched-time">9:30 – 9:45</div><div class="sched-item"><strong>Day 2 Verify</strong> · 15-min self-check that your Day 1 work carried through. <a href="#day2-verify">See Day 2 Verify</a>.</div></div>
-        <div class="schedule-row"><div class="sched-time">9:45 – 11:40</div><div class="sched-item"><strong>Lab 6</strong> · Platform Showcase (Validation, Flow, AI, Approval, Reporting)</div></div>
-        <div class="schedule-row"><div class="sched-time">11:40 – 12:40</div><div class="sched-item">Lunch (60 min)</div></div>
-        <div class="schedule-row"><div class="sched-time">12:40 – 1:50</div><div class="sched-item"><strong>Lab 7</strong> · Agentforce Dispatcher Assistant</div></div>
-        <div class="schedule-row"><div class="sched-time">1:50 – 2:10</div><div class="sched-item">Break</div></div>
-        <div class="schedule-row"><div class="sched-time">2:10 – 3:00</div><div class="sched-item"><strong>Scenario simulation</strong> · end-to-end disruption drill using what you built</div></div>
-        <div class="schedule-row"><div class="sched-time">3:00 – 3:45</div><div class="sched-item"><strong>Where to go next</strong> · tour of capabilities we did not build (Summarize Open Disruptions, Notify Riders, proactive drafting, Data Cloud)</div></div>
-        <div class="schedule-row"><div class="sched-time">3:45 – 4:30</div><div class="sched-item"><strong>Open Q&amp;A and roadmap</strong> · Phase 2 scoping, follow-up actions</div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="prereqs">
-  <h2 class="section-title">Prerequisites</h2>
-  <p class="section-lede">A quick checklist to confirm before Day 1. If anything is missing, flag it on your intake form so the instructor team can get it sorted before 9:30 AM Monday.</p>
-  <div class="prereq-list">
-    <ul>
-      <li><strong>Complete the pre-work Trailmix.</strong> Finish the <a href="https://trailhead.salesforce.com/users/h4ccz3afq7q00uerpi/trailmixes/mta-service-pulse-360-workshop-required-pre-work" target="_blank" rel="noopener">MTA ServicePulse 360 pre-work Trailmix</a> before Day 1. About 2.5 hours total; see the Resources section below for the module breakdown.</li>
-      <li><strong>Workshop org access.</strong> The Salesforce team will provide your username and password when you arrive in the classroom on Monday morning. No action needed before Day 1.</li>
-      <li><strong>Laptop with Chrome, Firefox, or Edge.</strong> Latest two major versions. Safari works but a few Flow Builder flows render less cleanly.</li>
-      <li><strong>Review Lab 1 the morning of.</strong> Skim the first 10 minutes of Lab 1 before 9:30 AM so you are not reading the first page cold.</li>
-    </ul>
   </div>
 </section>
 
@@ -2328,33 +2328,6 @@ If the Related List - Single is on the Details tab instead of the Other related 
 </div>
 </section>
 
-<section id="team">
-  <h2 class="section-title">Instructor Team</h2>
-  <p class="section-lede">Reach out any time during the workshop. For post-workshop follow-up, contact Angelo or Tim.</p>
-  <div class="instructor-grid">
-    <div class="instructor-card">
-      <h3 class="instructor-name">Angelo DeMarco</h3>
-      <p class="instructor-role">Account Executive, Salesforce</p>
-      <p class="instructor-contact">Overall account relationship with the MTA · Primary post-workshop contact for Phase 2 scoping and commercial follow-up</p>
-    </div>
-    <div class="instructor-card">
-      <h3 class="instructor-name">Mike Yeganeh</h3>
-      <p class="instructor-role">VP of Solution Engineering, Salesforce</p>
-      <p class="instructor-contact">Leads all Solution Engineers across the US, including the team supporting the MTA</p>
-    </div>
-    <div class="instructor-card">
-      <h3 class="instructor-name">John Hill</h3>
-      <p class="instructor-role">Distinguished Solution Engineer, Salesforce</p>
-      <p class="instructor-contact">Deep Salesforce platform expertise · Fun fact: John's first day at Salesforce was spent learning Salesforce alongside MTA participants at a Build-an-App-in-a-Day workshop</p>
-    </div>
-    <div class="instructor-card">
-      <h3 class="instructor-name">Tim Murphy</h3>
-      <p class="instructor-role">Principal Solution Engineer, Salesforce</p>
-      <p class="instructor-contact">Covers NYC, NJ, and major transit agencies across the East and Mid-Atlantic · Workshop lead and lab author</p>
-    </div>
-  </div>
-</section>
-
 <section id="resources">
   <h2 class="section-title">Resources &amp; Further Reading</h2>
   <p class="section-lede">Start with the pre-work Trailmix. Everything below extends what we build in the workshop. Bookmark these for your post-workshop deep dives.</p>
@@ -2504,6 +2477,33 @@ If the Related List - Single is on the Details tab instead of the Other related 
   </div>
 </section>
 
+<section id="team">
+  <h2 class="section-title">Instructor Team</h2>
+  <p class="section-lede">Reach out any time during the workshop. For post-workshop follow-up, contact Angelo or Tim.</p>
+  <div class="instructor-grid">
+    <div class="instructor-card">
+      <h3 class="instructor-name">Angelo DeMarco</h3>
+      <p class="instructor-role">Account Executive, Salesforce</p>
+      <p class="instructor-contact">Overall account relationship with the MTA · Primary post-workshop contact for Phase 2 scoping and commercial follow-up</p>
+    </div>
+    <div class="instructor-card">
+      <h3 class="instructor-name">Mike Yeganeh</h3>
+      <p class="instructor-role">VP of Solution Engineering, Salesforce</p>
+      <p class="instructor-contact">Leads all Solution Engineers across the US, including the team supporting the MTA</p>
+    </div>
+    <div class="instructor-card">
+      <h3 class="instructor-name">John Hill</h3>
+      <p class="instructor-role">Distinguished Solution Engineer, Salesforce</p>
+      <p class="instructor-contact">Deep Salesforce platform expertise · Fun fact: John's first day at Salesforce was spent learning Salesforce alongside MTA participants at a Build-an-App-in-a-Day workshop</p>
+    </div>
+    <div class="instructor-card">
+      <h3 class="instructor-name">Tim Murphy</h3>
+      <p class="instructor-role">Principal Solution Engineer, Salesforce</p>
+      <p class="instructor-contact">Covers NYC, NJ, and major transit agencies across the East and Mid-Atlantic · Workshop lead and lab author</p>
+    </div>
+  </div>
+</section>
+
 <section id="internal">
   <h2 class="section-title">Internal Prep<span class="internal-badge">Instructor Team Only</span></h2>
   <div id="internal-locked" style="background:#fff;border:1px solid #e0e0e0;border-radius:10px;padding:28px 24px;text-align:center;">
@@ -2541,7 +2541,6 @@ If the Related List - Single is on the Details tab instead of the Other related 
     </div>
   </div>
 </section>
-
 </main>
 
 <footer>
