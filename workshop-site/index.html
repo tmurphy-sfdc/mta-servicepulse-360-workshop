@@ -184,6 +184,15 @@ footer .footer-accent { color: #ffb81c; font-weight: 700; }
 .internal-badge { display: inline-block; background: #c17510; color: #fff; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; font-weight: 700; padding: 3px 10px; border-radius: 4px; margin-left: 10px; vertical-align: middle; }
 nav.topnav a.internal-link { color: #ffb81c; }
 nav.topnav a.internal-link::before { content: "🔒 "; }
+.internal-gate { background: #fff; border: 2px dashed #c17510; border-radius: 10px; padding: 24px 28px; max-width: 540px; margin: 16px 0 24px; }
+.internal-gate h3 { margin: 0 0 8px; color: #000; font-size: 16px; }
+.internal-gate p { margin: 0 0 14px; font-size: 14px; color: #4a4a4a; }
+.internal-gate input[type="password"] { width: 100%; padding: 10px 12px; border: 1px solid #ccc; border-radius: 6px; font-size: 14px; margin-bottom: 10px; box-sizing: border-box; }
+.internal-gate button { background: #0053A0; color: #fff; border: none; padding: 10px 18px; border-radius: 6px; font-size: 14px; font-weight: 600; cursor: pointer; }
+.internal-gate button:hover { background: #003d75; }
+.internal-gate .gate-error { color: #c0392b; font-size: 13px; margin-top: 8px; min-height: 18px; }
+#internal-content { display: none; }
+#internal-content.unlocked { display: block; }
 .prep-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 @media (max-width: 760px) { .prep-grid { grid-template-columns: 1fr; } }
 .prep-card { background: #fff; border: 1px solid #e0e0e0; border-radius: 10px; overflow: hidden; }
@@ -2511,7 +2520,14 @@ If the Related List - Single is on the Details tab instead of the Other Related 
 </section>
 
 <section id="internal">
-  <h2 class="section-title">Internal Prep<span class="internal-badge">Instructor Team Only</span><span class="internal-badge" style="background:#4a893b;">Temporarily Open · Re-gate by Oct 19</span></h2>
+  <h2 class="section-title">Internal Prep<span class="internal-badge">Instructor Team Only</span></h2>
+  <div id="internal-gate" class="internal-gate">
+    <h3>🔒 Instructor team access</h3>
+    <p>This section is for the ServicePulse 360 instructor team only. Enter the access phrase to continue.</p>
+    <input type="password" id="internal-password" placeholder="Access phrase" autocomplete="off" onkeydown="if(event.key==='Enter'){unlockInternal();}">
+    <button type="button" onclick="unlockInternal()">Unlock</button>
+    <div class="gate-error" id="internal-gate-error"></div>
+  </div>
   <div id="internal-content">
     <p class="section-lede">Pre-workshop readiness tracker for the instructor team. Not for participant distribution.</p>
     <div class="prep-grid">
@@ -2631,8 +2647,38 @@ function toggleJourney() {
   container.classList.toggle('collapsed', isCollapsed);
   btn.setAttribute('aria-expanded', String(!isCollapsed));
 }
-// unlockInternal() removed temporarily — Internal Prep is open until Monday morning.
-// Re-add the gate before participant delivery on Oct 19.
+// Internal Prep soft-gate. Client-side only — reveals the content when the access phrase is entered.
+// Not real security: anyone can view-source to see the content or the phrase. The gate is a
+// "please don't look" barrier for casual visitors arriving at the public URL, not actual protection.
+function unlockInternal() {
+  const input = document.getElementById('internal-password');
+  const err = document.getElementById('internal-gate-error');
+  const gate = document.getElementById('internal-gate');
+  const content = document.getElementById('internal-content');
+  if (!input || !err || !gate || !content) return;
+  const entered = (input.value || '').trim().toLowerCase();
+  if (entered === 'mta2026') {
+    gate.style.display = 'none';
+    content.classList.add('unlocked');
+    err.textContent = '';
+    try { sessionStorage.setItem('sp360-internal-unlocked', '1'); } catch (e) { /* storage may be blocked */ }
+  } else {
+    err.textContent = 'Access phrase not recognized. Reach out to the instructor team if you need in.';
+    input.value = '';
+    input.focus();
+  }
+}
+// Auto-unlock within the same browser tab after a successful entry
+(function() {
+  try {
+    if (sessionStorage.getItem('sp360-internal-unlocked') === '1') {
+      const gate = document.getElementById('internal-gate');
+      const content = document.getElementById('internal-content');
+      if (gate) gate.style.display = 'none';
+      if (content) content.classList.add('unlocked');
+    }
+  } catch (e) { /* storage may be blocked; gate stays visible */ }
+})();
 let verifyTimerInterval = null;
 function startVerifyTimer() {
   if (verifyTimerInterval) { clearInterval(verifyTimerInterval); }
