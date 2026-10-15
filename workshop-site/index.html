@@ -1600,7 +1600,7 @@ If the Related List - Single is on the Details tab instead of the Other Related 
   </div>
   <div class="lab-body" id="body-6">
     <h2 class="lab-title">Lab 6 - Platform Showcase: Automation, AI, Approval, and Reporting</h2>
-<p class="lab-subtitle">ServicePulse 360 Workshop v0.7 (revision 12) | Estimated time: 115 minutes | Add platform capabilities on top of the Service Disruption object: a Validation Rule, a Record-Triggered Flow, a Quick Action that calls Prompt Builder, an Approval Process for publishing rider-facing messages, and a Report plus a Dashboard. This is where the data model becomes a working platform.</p>
+<p class="lab-subtitle">ServicePulse 360 Workshop v0.7 (revision 13) | Estimated time: 115 minutes | Add platform capabilities on top of the Service Disruption object: a Validation Rule, a Record-Triggered Flow, a Quick Action that calls Prompt Builder, an Approval Process for publishing rider-facing messages, and a Report plus a Dashboard. This is where the data model becomes a working platform.</p>
 <h3>What you&#x27;re building and why</h3>
 <p>In Labs 1 through 5 you built the data model: Cases extended for multi-agency intake, Assets modeling MTA infrastructure, Work Orders dispatching the repair, and the Service Disruption custom object. You now have an org that captures operational reality. What&#x27;s missing is the platform layer that makes the org useful without manual intervention: the automation that fires on save, the UX that lets dispatchers do their work in one click, the AI that drafts the public message, the governance that keeps a human in the loop, and the reporting that gives leadership visibility.</p>
 <p>This lab adds all of that. By the end you&#x27;ll have:</p>
@@ -1649,7 +1649,7 @@ If the Related List - Single is on the Details tab instead of the Other Related 
 <div class="step"><span class="step-num">3.</span><span class="step-text">Set Entry Conditions: Formula Evaluates to True.</span></div>
 <div class="step"><span class="step-num">4.</span><span class="step-text">In the formula box where it says &quot;Enter formula...&quot;, paste the following:</span></div>
 <div class="substep">ISCHANGED({!$Record.Status__c}) &amp;&amp; ISPICKVAL({!$Record.Status__c}, &quot;Active&quot;)</div>
-<div class="step"><span class="step-num">5.</span><span class="step-text">When to Run the Flow for Updated Records: select the radio button for &quot;Only when a record is updated to meet the condition requirements.&quot; This prevents the Flow from re-firing every time a Service Disruption that is already Active gets saved for any other reason.</span></div>
+<div class="step"><span class="step-num">5.</span><span class="step-text">When to Run the Flow for Updated Records: leave the default &quot;Every time a record is updated and meets the condition requirements.&quot; The ISCHANGED function in your formula already prevents the Flow from re-firing when Status does not change, so the stricter radio option is not needed here (and in fact Salesforce rejects the combination of ISCHANGED and the stricter radio).</span></div>
 <div class="step"><span class="step-num">6.</span><span class="step-text">Optimize the Flow for Actions and Related Records.</span></div>
 <div class="step"><span class="step-num">7.</span><span class="step-text">Click Done.</span></div>
 <h4>2.3 - Add an Update Records element</h4>
@@ -1706,7 +1706,7 @@ If the Related List - Single is on the Details tab instead of the Other Related 
 <div class="callout callout-tip"><span class="callout-label">Tip</span>Insert Resource opens a picker; it inserts the merge field in the correct {!$Input:Service_Disruption__c.FIELD_NAME__c} syntax for you. Avoid typing merge fields by hand, which is error-prone.</div>
 <div class="step"><span class="step-num">4.</span><span class="step-text">For each of these four fields, select Service Disruption as the input, then pick the specific field, then click Insert. Add a newline between each so each field appears on its own line in the prompt:</span></div>
 <div class="substep">Headline (API: Headline__c)</div>
-<div class="substep">Description (API: Public_Description__c)</div>
+<div class="substep">Description (API: Description__c)</div>
 <div class="substep">Affected Line (API: Affected_Line__c)</div>
 <div class="substep">Severity (API: Severity__c)</div>
 <div class="step"><span class="step-num">5.</span><span class="step-text">After the inserted merge fields, add a blank line and type the closing instruction:</span></div>
@@ -1946,7 +1946,7 @@ If the Related List - Single is on the Details tab instead of the Other Related 
 <div class="step"><span class="step-num">3.</span><span class="step-text">Save fails with your error message pointing at the Disruption Cleared Date/Time field.</span></div>
 <div class="step"><span class="step-num">4.</span><span class="step-text">Correct Disruption Cleared Date/Time to be AFTER Disruption Start Date/Time. Click Save. Save succeeds.</span></div>
 <h4>Check 2 - Flow</h4>
-<div class="step"><span class="step-num">1.</span><span class="step-text">Change SD-00001&#x27;s Status to Active. Related Case Status becomes Escalated automatically.</span></div>
+<div class="step"><span class="step-num">1.</span><span class="step-text">First, reset the test state: set your Golden Case Status back to New, save it, then set SD-00001&#x27;s Status back to Declared, save that. Now change SD-00001&#x27;s Status to Active. Related Case Status becomes Escalated automatically.</span></div>
 <h4>Check 3 - Prompt Builder Quick Action</h4>
 <div class="step"><span class="step-num">1.</span><span class="step-text">On SD-00001, click Draft Rider Message. The Screen Flow modal opens with AI-generated text. Finish the flow. Rider-Facing Message is populated.</span></div>
 <h4>Check 4 - Approval Process</h4>
@@ -1960,10 +1960,10 @@ If the Related List - Single is on the Details tab instead of the Other Related 
 <div class="bullet">Prompt Builder Preview returns an error: check that your prompt template references the correct field API names using {!$Input:Service_Disruption__c.FIELD_NAME__c} syntax.</div>
 <div class="bullet">Screen Flow fails at the Action step: the Prompt Template must be Activated before it surfaces as an Action. Return to Prompt Builder and click Activate on your template.</div>
 <div class="bullet">Quick Action doesn&#x27;t appear on the record page: Part 3.6 adds it to the Highlights Panel. If missing, Edit Page, click the Highlights Panel, add the action there.</div>
-<div class="bullet">Submit for Approval button missing: add it to the Service Disruption Layout&#x27;s Buttons section via Page Layouts.</div>
+<div class="bullet">Submit for Approval button missing: Part 3.6 upgraded the Service Disruption page to Dynamic Actions, so adding the button via Page Layouts does not help. Confirm Part 4.6 added the Submit for Approval button via Dynamic Actions in Lightning App Builder.</div>
 <div class="bullet">Dashboard shows empty: your Report may filter out your records. Open the Report, verify SD-00001 appears there. If not, loosen the filters.</div>
 <h3>What&#x27;s next</h3>
-<p>Lab 7 (next session) is the Executive Scenario Simulation. You&#x27;ll run the full ServicePulse 360 stack end-to-end: a disruption is declared, Cases roll in and auto-escalate, a Work Order dispatches, Prompt Builder drafts the rider message, Approval Process gates it, Dashboard reflects the live state. The capstone where everything you built from Lab 1 through Lab 6 moves together in a single scenario.</p>
+<p>Lab 7 (Day 2 afternoon) is the Agentforce Dispatcher Assistant, where you&#x27;ll wrap all of today&#x27;s capabilities inside an agent that can reason over your Service Disruption records. The optional Executive Scenario Simulation runs after Lab 7 as a Day 2 wrap exercise. You&#x27;ll run the full ServicePulse 360 stack end-to-end: a disruption is declared, Cases roll in and auto-escalate, a Work Order dispatches, Prompt Builder drafts the rider message, Approval Process gates it, Dashboard reflects the live state. The capstone where everything you built from Lab 1 through Lab 6 moves together in a single scenario.</p>
   </div>
 </div>
 <div class="lab-card">
@@ -2055,7 +2055,7 @@ If the Related List - Single is on the Details tab instead of the Other Related 
 <div class="step"><span class="step-num">8.</span><span class="step-text">Set Field Values for the Service Disruption:</span></div>
 <div class="substep">Field: Record Type ID. Value: click the resource picker. Under Get Records, click &quot;Record Type from Get_Agency_Record_Type&quot; to drill in. Scroll to find Record Type ID and click it. The value populates as {!Get_Agency_Record_Type.Id}.</div>
 <div class="substep">Field: Headline__c. Value: {!headline}.</div>
-<div class="substep">Field: Public_Description__c. Value: {!description}.</div>
+<div class="substep">Field: Description__c. Value: {!description}.</div>
 <div class="substep">Field: Affected_Line__c. Value: {!affectedLine}.</div>
 <div class="substep">Field: Status__c. Value: Active (type as literal).</div>
 <div class="substep">Field: Disruption Start Date/Time. Value: click the resource picker, then under $Flow click &quot;Running Flow Interview&quot; to drill in, then click CurrentDateTime. The value populates as {!$Flow.CurrentDateTime}.</div>
@@ -2405,7 +2405,7 @@ If the Related List - Single is on the Details tab instead of the Other Related 
 
 <section id="day2-verify">
   <h2 class="section-title">Day 2 Verify</h2>
-  <p class="section-lede">Day 2 opens with a 15-minute self-check at 9:30 AM. Confirm the chain of work you built across Labs 1 through 5 is intact in your org before Lab 5.5 begins at 9:45 AM. If anything is missing, see the fix path under that item or flag your instructor.</p>
+  <p class="section-lede">Day 2 opens with a 15-minute self-check at 9:30 AM. Confirm the chain of work you built across Labs 1 through 5 is intact in your org before Lab 6 begins at 9:45 AM. If anything is missing, see the fix path under that item or flag your instructor.</p>
   <div class="verify-timer" id="verify-timer">
     <span>Time box: 15 minutes · 9:30 AM to 9:45 AM</span>
     <button onclick="startVerifyTimer()" style="background:#002855;color:#ffb81c;border:none;padding:6px 12px;border-radius:4px;font-weight:700;cursor:pointer;margin-left:12px;">Start Countdown</button>
@@ -2417,7 +2417,7 @@ If the Related List - Single is on the Details tab instead of the Other Related 
       <div class="verify-check" onclick="this.classList.toggle('checked')"></div>
       <div class="verify-content">
         <p class="verify-item-title">1. ServicePulse 360 app loads</p>
-        <p class="verify-item-steps">App Launcher · click ServicePulse 360. Confirm the app opens and the top-nav tabs are visible (Cases, Service Disruptions, Assets, Work Orders, Dashboards).</p>
+        <p class="verify-item-steps">App Launcher · click ServicePulse 360. Confirm the app opens and the top-nav tabs are visible (Cases, Service Disruptions, Assets, Work Orders, Reports, Dashboards).</p>
         <div class="verify-gap"><strong>If missing:</strong> flag your instructor. The ServicePulse 360 Lightning App from Lab 1 Part 0 did not deploy correctly. Instructor will run the Day 1 catchup script for you.</div>
       </div>
     </div>
@@ -2426,7 +2426,7 @@ If the Related List - Single is on the Details tab instead of the Other Related 
       <div class="verify-check" onclick="this.classList.toggle('checked')"></div>
       <div class="verify-content">
         <p class="verify-item-title">2. Golden Case exists with correct Record Type</p>
-        <p class="verify-item-steps">Cases tab · find your Golden Case (the one you created in Lab 1 Part 10). Open it. Confirm the Record Type is NYCT (or whichever agency you chose). The Record Type Name field should be visible on the record page from Lab 1 Part 9.</p>
+        <p class="verify-item-steps">Cases tab · find your Golden Case (the one you created in Lab 1 Part 10). Open it. Confirm the Record Type is NYCT (or whichever agency you chose). The Case Record Type field should be visible on the record page from Lab 1 Part 9.</p>
         <div class="verify-gap"><strong>If missing or wrong Record Type:</strong> click New (top-right of Cases list view), select the correct Record Type (NYCT recommended), fill in Subject and Description, Save. 90 seconds. Use this as your Golden Case going forward.</div>
       </div>
     </div>
@@ -2453,8 +2453,8 @@ If the Related List - Single is on the Details tab instead of the Other Related 
       <div class="verify-check" onclick="this.classList.toggle('checked')"></div>
       <div class="verify-content">
         <p class="verify-item-title">5. NYCT Bus 4521 Asset with 4 components</p>
-        <p class="verify-item-steps">Assets tab · find NYCT Bus 4521. Open the record. Scroll to the Child Assets related list. Confirm 4 component Assets are listed (Brake System, HVAC, GPS, Farebox).</p>
-        <div class="verify-gap"><strong>If parent Asset is missing:</strong> Assets tab · New · fill in Name = "NYCT Bus 4521" · Save. Then Lab 3 Part 5 steps for the 4 components. 3 to 4 minutes.<br><strong>If parent exists but components are missing:</strong> on the parent record · Child Assets related list · New · one at a time create Brake System, HVAC, GPS, Farebox. 2 minutes.</div>
+        <p class="verify-item-steps">Assets tab · find NYCT Bus 4521. Open the record. Scroll to the Child Assets related list. Confirm 4 component Assets are listed (Battery Pack 4521-BP, HVAC Unit 4521-HV, Drive Motor 4521-DM, Farebox 4521-FB).</p>
+        <div class="verify-gap"><strong>If parent Asset is missing:</strong> Assets tab · New · fill in Name = "NYCT Bus 4521" · Save. Then Lab 3 Part 5 steps for the 4 components. 3 to 4 minutes.<br><strong>If parent exists but components are missing:</strong> on the parent record · Child Assets related list · New · one at a time create Battery Pack 4521-BP, HVAC Unit 4521-HV, Drive Motor 4521-DM, Farebox 4521-FB. 2 minutes.</div>
       </div>
     </div>
 
@@ -2471,8 +2471,8 @@ If the Related List - Single is on the Details tab instead of the Other Related 
       <div class="verify-check" onclick="this.classList.toggle('checked')"></div>
       <div class="verify-content">
         <p class="verify-item-title">7. SD-00001 Golden Disruption exists</p>
-        <p class="verify-item-steps">Service Disruptions tab · find SD-00001 (or whatever your first Service Disruption Number is). Open it. Confirm Headline, Public Description, Affected Line, Severity, Status, and Disruption Start Date/Time are populated. Record Type should be NYCT.</p>
-        <div class="verify-gap"><strong>If missing:</strong> Service Disruptions tab · New · select NYCT Record Type · fill in Headline ("Signal fault on 7 Line, Vernon Blvd"), Public Description (any 2-sentence summary), Affected Line (7 Line), Severity (P3), Status (Active), Disruption Start Date/Time (yesterday 7:30 AM). 90 seconds.</div>
+        <p class="verify-item-steps">Service Disruptions tab · find SD-00001 (or whatever your first Service Disruption Number is). Open it. Confirm Headline, Description, Affected Line, Severity, and Status are populated. Record Type should be NYCT. (Disruption Start Date/Time is populated later in Lab 6 Part 1.3, so it may be blank right now; that&#x27;s expected.)</p>
+        <div class="verify-gap"><strong>If missing:</strong> Service Disruptions tab · New · select NYCT Record Type · fill in Headline ("Signal fault on 7 Line, Vernon Blvd"), Description (any 2-sentence summary), Affected Line (7 Line), Severity (Moderate), Status (Declared). 90 seconds. (Leave Disruption Start Date/Time blank; Lab 6 Part 1.3 fills it in.)</div>
       </div>
     </div>
 
@@ -2488,7 +2488,7 @@ If the Related List - Single is on the Details tab instead of the Other Related 
   </div>
 
   <div class="verify-done">
-    <strong>All 8 verified?</strong> You are ready for Lab 5.5 at 9:45 AM. If any items are missing after your fix attempts, flag your instructor now so we can catch you up before Lab 5.5 starts.
+    <strong>All 8 verified?</strong> You are ready for Lab 6 at 9:45 AM. If any items are missing after your fix attempts, flag your instructor now so we can catch you up before Lab 6 starts.
   </div>
 </section>
 
