@@ -1180,7 +1180,7 @@ If the Related List - Single is on the Details tab instead of the Other Related 
   </div>
   <div class="lab-body" id="body-4">
     <h2 class="lab-title">Lab 4 - Field Service Foundations</h2>
-<p class="lab-subtitle">ServicePulse 360 Workshop v0.7 (revision 3) | Estimated time: 60 minutes | Create a Work Type, trim the Work Order Layout to the fields that matter for MTA, escalate your golden Case record into a Work Order, and verify the Case-Asset-Work Order relationship chain.</p>
+<p class="lab-subtitle">ServicePulse 360 Workshop v0.7 (revision 4) | Estimated time: 60 minutes | Create a Work Type, trim the Work Order Layout to the fields that matter for MTA, escalate your golden Case record into a Work Order, and verify the Case-Asset-Work Order relationship chain.</p>
 <h3>What you&#x27;re building and why</h3>
 <p>Field Service is Salesforce&#x27;s standard framework for coordinating work done on physical assets. In Labs 1 through 3 we modeled WHAT the system knows (Cases, Agencies, Assets). Lab 4 introduces HOW work gets scheduled against those Assets. A dispatcher takes a Case about a signal fault on NYCT Bus 4521 and escalates it into a Work Order: a work item routed to a technician, tied to the Asset, with a defined scope of work (Work Type). The chain Case to Work Order to Asset becomes the backbone of maintenance operations.</p>
 <p>In this lab you&#x27;ll create one Work Type (Signal Repair), trim the standard Work Order Layout to only the fields that matter for MTA, escalate your golden Case record from Lab 1 into a Work Order, and verify the Work Order inherits the Case&#x27;s Asset. The subsequent hands-on labs extend this with Service Appointment (scheduling) and Service Resource (technician assignment).</p>
@@ -1285,6 +1285,7 @@ If the Related List - Single is on the Details tab instead of the Other Related 
 <div class="substep">Subject: Dispatch: Signal fault repair on NYCT Bus 4521</div>
 <div class="substep">Status: New</div>
 <div class="substep">Priority: Medium</div>
+<div class="callout callout-watch"><span class="callout-label">Watch out</span>Work Order Priority uses the standard values Low/Medium/High/Critical, not the P1-P4 scale you built on Case Priority in Lab 1. Priority on Work Order is intentionally decoupled from Case Priority — the same incident can be a P2 Case (customer-facing severity) but a Medium Work Order (crew-facing scheduling urgency).</div>
 <div class="substep">Work Type: pick the picker, search Signal Repair, select it</div>
 <div class="substep">Case: should auto-populate with your golden Case record. Confirm this.</div>
 <div class="substep">Asset: pick NYCT Bus 4521 (if not auto-populated).</div>
@@ -1330,7 +1331,7 @@ If the Related List - Single is on the Details tab instead of the Other Related 
   </div>
   <div class="lab-body" id="body-5">
     <h2 class="lab-title">Lab 5 - Build the Service Disruption Custom Object</h2>
-<p class="lab-subtitle">ServicePulse 360 Workshop v0.7 (revision 4) | Estimated time: 78 minutes | Walk through the standard-fit test for a service disruption, conclude correctly that custom is justified, build Service_Disruption__c with 10 critical fields (including timestamps, a Duration formula, and a Publish Status for approval tracking) and 4 agency Record Types, configure the layout, add a Case lookup, and connect your Golden Case record to a new disruption.</p>
+<p class="lab-subtitle">ServicePulse 360 Workshop v0.7 (revision 5) | Estimated time: 75 minutes | Walk through the standard-fit test for a service disruption, conclude correctly that custom is justified, build Service_Disruption__c with 10 critical fields (including timestamps, a Duration formula, and a Publish Status for approval tracking) and 4 agency Record Types, configure the layout, add a Case lookup, and connect your Golden Case record to a new disruption.</p>
 <h3>What you&#x27;re building and why</h3>
 <p>Across Labs 1 through 4 you built an MTA Case management system entirely on standard Salesforce objects. You extended Case, modeled Assets with hierarchies, dispatched Work Orders. Every object was standard; every customization was configuration. This has been deliberate: the standard-first discipline is the dominant pattern in real Salesforce administration.</p>
 <p>Today you&#x27;ll build the workshop&#x27;s one deliberate custom object. The thing you&#x27;re modeling, a service disruption, is an operational broadcast event. The G train suspended between Hoyt-Schermerhorn and Court Square. The Verrazzano under weight-class restriction. The Hudson Line bus bridge. These events have properties that no standard object captures: they affect many riders simultaneously, they have a live state lifecycle (declared, active, updated, cleared), they generate many downstream Cases, and they drive public rider-facing communications. We&#x27;ll walk through the standard-fit test out loud, conclude that custom is justified, and then build it.</p>
@@ -1392,7 +1393,7 @@ If the Related List - Single is on the Details tab instead of the Other Related 
 <div class="step"><span class="step-num">2.</span><span class="step-text">Click the Service Disruptions tab you just added.</span></div>
 <div class="step"><span class="step-num">3.</span><span class="step-text">Click the gear icon (top-right) then Edit Object. This opens Object Manager scoped to Service Disruption. (Alternative: Setup, Quick Find: Object Manager, then click Service Disruption.)</span></div>
 <div class="step"><span class="step-num">4.</span><span class="step-text">Click Fields &amp; Relationships in the left sidebar.</span></div>
-<div class="callout callout-default"><span class="callout-label">For each of the 6 fields below</span>You will click New, choose the field type, click Next, fill out the properties below, click Next on the Field-Level Security step (keep the defaults), click Save &amp; New on the Page Layouts step (keep the default that adds the field to the Service Disruption Layout). The only exception is the LAST field (Affected Line), where you click Save instead of Save &amp; New.</div>
+<div class="callout callout-default"><span class="callout-label">For each of the 10 fields below</span>You will click New, choose the field type, click Next, fill out the properties below, click Next on the Field-Level Security step (keep the defaults), click Save &amp; New on the Page Layouts step (keep the default that adds the field to the Service Disruption Layout). The only exception is the LAST field (Publish Status), where you click Save instead of Save &amp; New.</div>
 <p>Create the fields in this order:</p>
 <h4>Field 1: Status (Picklist)</h4>
 <div class="step"><span class="step-num">1.</span><span class="step-text">Click New. Select Picklist. Click Next.</span></div>
@@ -1400,7 +1401,7 @@ If the Related List - Single is on the Details tab instead of the Other Related 
 <div class="step"><span class="step-num">3.</span><span class="step-text">Select the radio button for &quot;Enter values, with each value separated by a new line&quot;.</span></div>
 <div class="step"><span class="step-num">4.</span><span class="step-text">In the values box, enter one per line: Declared, Active, Updated, Cleared.</span></div>
 <div class="step"><span class="step-num">5.</span><span class="step-text">Check the box &quot;Use first value as default value&quot;.</span></div>
-<div class="step"><span class="step-num">6.</span><span class="step-text">Un-check the box &quot;Restrict picklist to the values defined in the value set&quot;.</span></div>
+<div class="step"><span class="step-num">6.</span><span class="step-text">Check the box &quot;Restrict picklist to the values defined in the value set&quot; (standard practice for lifecycle picklists: prevents typos and ad-hoc values that would break downstream Validation Rules and Flow logic).</span></div>
 <div class="step"><span class="step-num">7.</span><span class="step-text">Check the box &quot;Required&quot;.</span></div>
 <div class="step"><span class="step-num">8.</span><span class="step-text">Check the box &quot;Add this field to existing custom report types that contain this entity&quot;.</span></div>
 <div class="step"><span class="step-num">9.</span><span class="step-text">Click Next (Field-Level Security, keep defaults).</span></div>
@@ -1411,7 +1412,7 @@ If the Related List - Single is on the Details tab instead of the Other Related 
 <div class="step"><span class="step-num">3.</span><span class="step-text">Select the radio button for &quot;Enter values, with each value separated by a new line&quot;.</span></div>
 <div class="step"><span class="step-num">4.</span><span class="step-text">Values: Advisory, Minor, Moderate, Major.</span></div>
 <div class="step"><span class="step-num">5.</span><span class="step-text">Check &quot;Use first value as default value&quot;.</span></div>
-<div class="step"><span class="step-num">6.</span><span class="step-text">Un-check &quot;Restrict picklist to the values defined in the value set&quot;.</span></div>
+<div class="step"><span class="step-num">6.</span><span class="step-text">Check &quot;Restrict picklist to the values defined in the value set&quot; (standard practice for lifecycle picklists).</span></div>
 <div class="step"><span class="step-num">7.</span><span class="step-text">Check &quot;Add this field to existing custom report types that contain this entity&quot;.</span></div>
 <div class="step"><span class="step-num">8.</span><span class="step-text">Click Next. Click Save &amp; New.</span></div>
 <h4>Field 3: Headline (Text)</h4>
@@ -1471,7 +1472,7 @@ If the Related List - Single is on the Details tab instead of the Other Related 
 <div class="step"><span class="step-num">3.</span><span class="step-text">Select the radio button for &quot;Enter values, with each value separated by a new line&quot;.</span></div>
 <div class="step"><span class="step-num">4.</span><span class="step-text">In the values box, enter one per line: Draft, Pending Approval, Approved, Rejected.</span></div>
 <div class="step"><span class="step-num">5.</span><span class="step-text">Check the box &quot;Use first value as default value&quot;.</span></div>
-<div class="step"><span class="step-num">6.</span><span class="step-text">Un-check the box &quot;Restrict picklist to the values defined in the value set&quot;.</span></div>
+<div class="step"><span class="step-num">6.</span><span class="step-text">Check the box &quot;Restrict picklist to the values defined in the value set&quot; (standard practice for lifecycle picklists: prevents typos and ad-hoc values that would break downstream Validation Rules and Flow logic).</span></div>
 <div class="step"><span class="step-num">7.</span><span class="step-text">Check the box &quot;Add this field to existing custom report types that contain this entity&quot;.</span></div>
 <div class="step"><span class="step-num">8.</span><span class="step-text">For the &quot;establish field-level security&quot; page, click Next to accept the defaults. For the &quot;add to page layouts&quot; page, click Save to accept the defaults (this is the last field).</span></div>
 <div class="callout callout-verify"><span class="callout-label">Verified? Great job!</span>Service Disruption now has 10 custom fields in addition to the auto-number Service Disruption Number: Status, Severity, Headline, Description, Rider-Facing Message, Affected Line, Disruption Start Date/Time, Disruption Cleared Date/Time, Duration (Minutes), and Publish Status. Fields 7 through 9 set up the operational responsiveness measurement; Field 10 sets up the approval workflow in the next lab.</div>
@@ -1519,7 +1520,7 @@ If the Related List - Single is on the Details tab instead of the Other Related 
 <div class="step"><span class="step-num">2.</span><span class="step-text">Click Page Layouts in the left sidebar.</span></div>
 <div class="step"><span class="step-num">3.</span><span class="step-text">Click the layout named Service Disruption Layout.</span></div>
 <h4>5.2 - Organize the layout into clear sections</h4>
-<div class="step"><span class="step-num">1.</span><span class="step-text">Rename the default section (usually Information) by hovering it and clicking the wrench icon. Set Section Name: Information. Keep 2-Column layout. Click OK.</span></div>
+<div class="step"><span class="step-num">1.</span><span class="step-text">Confirm the first section is named Information. If you need to adjust it (rename, change the 2-Column layout, or set other properties), hover the section and click the wrench icon.</span></div>
 <div class="step"><span class="step-num">2.</span><span class="step-text">Drag a new Section onto the canvas below the Information section. Section Name: Communication. Layout: 1-Column. Click OK.</span></div>
 <div class="step"><span class="step-num">3.</span><span class="step-text">Drag another new Section below Communication. Section Name: Timing. Layout: 2-Column. Click OK.</span></div>
 <div class="step"><span class="step-num">4.</span><span class="step-text">Drag another new Section below Timing. Section Name: System Information. Layout: 2-Column. Click OK.</span></div>
@@ -1534,7 +1535,7 @@ If the Related List - Single is on the Details tab instead of the Other Related 
 <div class="step"><span class="step-num">1.</span><span class="step-text">App Launcher then Service Disruptions.</span></div>
 <div class="step"><span class="step-num">2.</span><span class="step-text">Click New to open the create record modal. The modal shows the Information section with Service Disruption Number (auto-populated at save), Record Type picker, Status, Severity, Affected Line, Headline fields.</span></div>
 <div class="step"><span class="step-num">3.</span><span class="step-text">Click Cancel for now. You will create the actual record in the next Part.</span></div>
-<div class="callout callout-verify"><span class="callout-label">Verified? Great job!</span>The Service Disruption Layout is organized into Information, Communication, and System Information sections. The create record modal shows the fields in the order you set.</div>
+<div class="callout callout-verify"><span class="callout-label">Verified? Great job!</span>The Service Disruption Layout is organized into Information, Timing, Communication, and System Information sections. The create record modal shows the fields in the order you set.</div>
 <h3>Part 6 - Create a Service Disruption and connect your Golden Case (10 min)</h3>
 <h4>6.1 - Create a new Service Disruption</h4>
 <div class="step"><span class="step-num">1.</span><span class="step-text">App Launcher then Service Disruptions then click New.</span></div>
@@ -1565,7 +1566,7 @@ If the Related List - Single is on the Details tab instead of the Other Related 
 <h4>Check 3 - Case-to-Disruption link</h4>
 <div class="step"><span class="step-num">1.</span><span class="step-text">Open your Golden Case record. The Service Disruption field shows SD-00001.</span></div>
 <div class="step"><span class="step-num">2.</span><span class="step-text">Click the SD-00001 hyperlink. The Rider Cases related list on the disruption shows your Golden Case.</span></div>
-<div class="callout callout-verify"><span class="callout-label">Verified? Great job!</span>You&#x27;ve built the workshop&#x27;s one deliberate custom object, defined 6 critical fields, added 4 agency Record Types, configured the layout, created a Case lookup to Service Disruption, and connected your Golden Case to its parent disruption. The custom object fits cleanly into the standard-object data model you built in Labs 1 through 4.</div>
+<div class="callout callout-verify"><span class="callout-label">Verified? Great job!</span>You&#x27;ve built the workshop&#x27;s one deliberate custom object, defined 10 critical fields, added 4 agency Record Types, configured the layout, created a Case lookup to Service Disruption, and connected your Golden Case to its parent disruption. The custom object fits cleanly into the standard-object data model you built in Labs 1 through 4.</div>
 <h3>Common sticking points across Lab 5</h3>
 <div class="bullet">Service Disruptions tab missing from the ServicePulse 360 app: in Part 2.3 the ServicePulse 360 checkbox may have been missed. Fix: Setup, Tabs, Service Disruption, Edit; add the tab to the ServicePulse 360 app.</div>
 <div class="bullet">Record Type picker doesn&#x27;t appear when creating a Service Disruption: at least two Record Types must be Active AND the running user&#x27;s profile must have access to them (Part 3.2 System Administrator checkbox).</div>
