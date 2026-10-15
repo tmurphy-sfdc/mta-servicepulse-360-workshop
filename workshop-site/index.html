@@ -785,37 +785,20 @@ nav.topnav a.internal-link::before { content: "🔒 "; }
   </div>
   <div class="lab-body" id="body-15">
     <h2 class="lab-title">Lab 1.5 - Load MTA Sample Data</h2>
-<p class="lab-subtitle">ServicePulse 360 Workshop v0.7 (revision 1) | Estimated time: 10 minutes | Use the native Salesforce Data Import Wizard to load realistic MTA Accounts, Contacts, and Cases into your org. These records populate the related lists and reports you build across the rest of Day 1 and Day 2.</p>
+<p class="lab-subtitle">ServicePulse 360 Workshop v0.7 (revision 2) | Estimated time: 8 minutes | Use the native Salesforce Data Import Wizard to load realistic MTA Contacts and Cases into your org. The 4 MTA agency Accounts are already pre-loaded. These records populate the related lists and reports you build across the rest of Day 1 and Day 2.</p>
 <h3>What you&#x27;re building and why</h3>
-<p>In Lab 1 you extended Case for multi-agency intake and built a Golden Case from scratch. The rest of Day 1 and Day 2 is more interesting when there is a realistic volume of records to work with: related lists populate, reports have shape, dashboards show patterns. Rather than ask you to manually create 10 Cases + 4 Accounts + 4 Contacts (about 25 minutes of clicking), you&#x27;ll load them in bulk using the Data Import Wizard that ships with every Salesforce org.</p>
-<p>Three self-service imports in sequence (each ~2 minutes):</p>
-<div class="bullet">4 MTA agency Accounts (NYCT, LIRR, MNR, B&amp;T)</div>
+<p>In Lab 1 you extended Case for multi-agency intake and built a Golden Case from scratch. The rest of Day 1 and Day 2 is more interesting when there is a realistic volume of records to work with: related lists populate, reports have shape, dashboards show patterns. Rather than ask you to manually create 10 Cases + 4 Contacts (about 15 minutes of clicking), you&#x27;ll load them in bulk using the Data Import Wizard that ships with every Salesforce org. The 4 MTA agency Accounts are already in your org from the pre-workshop deploy.</p>
+<p>Two self-service imports in sequence (each ~2-4 minutes):</p>
 <div class="bullet">4 Operations Dispatcher Contacts (one per agency)</div>
 <div class="bullet">10 realistic MTA Cases distributed across the four agencies with varied priorities and types</div>
-<div class="callout callout-tip"><span class="callout-label">Where to get the files</span>The three CSV files you&#x27;ll load are on the workshop website in the Resources tab, under the &quot;Lab 1.5 Downloads&quot; section. Click each link to download MTA Sample Accounts.csv, MTA Sample Contacts.csv, and MTA Sample Cases.csv to your laptop before you start Part 1.</div>
+<div class="callout callout-tip"><span class="callout-label">Where to get the files</span>The two CSV files you&#x27;ll load are on the workshop website in the Resources tab, under the &quot;Lab 1.5 Downloads&quot; section. Click each link to download MTA Sample Contacts.csv and MTA Sample Cases.csv to your laptop before you start Part 1.</div>
 <div class="callout callout-why"><span class="callout-label">Why this matters</span>The Data Import Wizard is the right tool for admin-level bulk data loads up to 50,000 records at a time. It is zero-code, scales well, and respects validation rules. For bigger loads you&#x27;d use Data Loader (desktop tool) or an integration. Knowing which tool to pick for which load size is a core admin skill.</div>
 <h3>Before you start</h3>
 <div class="bullet">Lab 1 is complete. Your org has NYCT, LIRR, MNR, and B&amp;T Record Types on Case.</div>
-<div class="bullet">You have the three CSV files downloaded to your laptop. Grab them from the workshop website: Resources tab, scroll to the &quot;Lab 1.5 Downloads&quot; section. Click each link to download.</div>
-<div class="substep">MTA Sample Accounts.csv</div>
+<div class="bullet">You have the two CSV files downloaded to your laptop. Grab them from the workshop website: Resources tab, scroll to the &quot;Lab 1.5 Downloads&quot; section. Click each link to download.</div>
 <div class="substep">MTA Sample Contacts.csv</div>
 <div class="substep">MTA Sample Cases.csv</div>
-<h3>Part 1 - Load the Accounts (2 min)</h3>
-<div class="step"><span class="step-num">1.</span><span class="step-text">From Setup, Quick Find: Data Import Wizard, click Data Import Wizard.</span></div>
-<div class="step"><span class="step-num">2.</span><span class="step-text">Click Launch Wizard!</span></div>
-<div class="step"><span class="step-num">3.</span><span class="step-text">What kind of data are you importing? Click the Accounts and Contacts tile.</span></div>
-<div class="step"><span class="step-num">4.</span><span class="step-text">What do you want to do? Select the Add new records radio button.</span></div>
-<div class="step"><span class="step-num">5.</span><span class="step-text">Where is your data located? Choose CSV. Click Choose File and select MTA Sample Accounts.csv. Click Next.</span></div>
-<div class="step"><span class="step-num">6.</span><span class="step-text">The Edit Field Mapping screen appears. The Wizard auto-maps most columns. Verify:</span></div>
-<div class="substep">Name maps to Account: Account Name</div>
-<div class="substep">Industry maps to Account: Industry</div>
-<div class="substep">Description maps to Account: Description</div>
-<div class="step"><span class="step-num">7.</span><span class="step-text">Click Next.</span></div>
-<div class="step"><span class="step-num">8.</span><span class="step-text">Review and click Start Import.</span></div>
-<div class="step"><span class="step-num">9.</span><span class="step-text">Click OK on the confirmation. The Wizard shows a progress indicator.</span></div>
-<div class="step"><span class="step-num">10.</span><span class="step-text">Open the Accounts tab to confirm all 4 MTA Accounts loaded. If the import takes more than 60 seconds, check your email for the import summary Salesforce sends on completion.</span></div>
-<div class="callout callout-watch"><span class="callout-label">Watch out</span>The &#x27;Accounts and Contacts&#x27; tile is correct even if you&#x27;re only loading Accounts right now. The Wizard supports loading either or both. Don&#x27;t pick the &#x27;Person Accounts&#x27; option unless your org is configured for Person Accounts (this one is not).</div>
-<h3>Part 2 - Load the Contacts (2 min)</h3>
+<h3>Part 1 - Load the Contacts (2 min)</h3>
 <div class="step"><span class="step-num">1.</span><span class="step-text">From Setup, Quick Find: Data Import Wizard, click Data Import Wizard.</span></div>
 <div class="step"><span class="step-num">2.</span><span class="step-text">Click Launch Wizard!</span></div>
 <div class="step"><span class="step-num">3.</span><span class="step-text">Click the Accounts and Contacts tile.</span></div>
@@ -829,8 +812,8 @@ nav.topnav a.internal-link::before { content: "🔒 "; }
 <div class="step"><span class="step-num">7.</span><span class="step-text">Click Next.</span></div>
 <div class="step"><span class="step-num">8.</span><span class="step-text">Click Start Import. Click OK.</span></div>
 <div class="step"><span class="step-num">9.</span><span class="step-text">Open the Contacts tab and confirm all 4 Contacts loaded, each linked to the correct MTA Account.</span></div>
-<div class="callout callout-tip"><span class="callout-label">Tip</span>The Wizard matches &#x27;Account Name&#x27; text to the actual Account record by name. If any Contact fails to link, check that the Account name in your CSV matches the Account you loaded in Part 1 exactly (including the &#x27;MTA&#x27; prefix).</div>
-<h3>Part 3 - Load the Cases (4 min)</h3>
+<div class="callout callout-tip"><span class="callout-label">Tip</span>The Wizard matches &#x27;Account Name&#x27; text to the actual Account record by name. If any Contact fails to link, check that the Account name in your CSV matches the pre-loaded MTA Account exactly (including the &#x27;MTA&#x27; prefix).</div>
+<h3>Part 2 - Load the Cases (4 min)</h3>
 <div class="step"><span class="step-num">1.</span><span class="step-text">From Setup, Quick Find: Data Import Wizard, click Data Import Wizard.</span></div>
 <div class="step"><span class="step-num">2.</span><span class="step-text">Click Launch Wizard!</span></div>
 <div class="step"><span class="step-num">3.</span><span class="step-text">Click the Cases tile (under Custom objects, OR under the standard tiles depending on your org).</span></div>
@@ -856,10 +839,9 @@ nav.topnav a.internal-link::before { content: "🔒 "; }
 <div class="substep">Open Seed: Toll gantry sensor fault, Verrazzano. Confirm Record Type = B&amp;T (listed as BandT in the Developer Name).</div>
 <div class="callout callout-verify"><span class="callout-label">Verified? Great job!</span>Your org now has a realistic multi-agency dataset. In Lab 2 you&#x27;ll build Dynamic Forms against this; in Lab 3 you&#x27;ll link Cases to Assets; in Lab 7 Agentforce will have real records to reason about.</div>
 <h3>Final verification</h3>
-<p>Three quick checks to confirm the import worked:</p>
-<div class="step"><span class="step-num">1.</span><span class="step-text">Accounts tab: 4 MTA Accounts (NYCT, LIRR, MNR, B&amp;T).</span></div>
-<div class="step"><span class="step-num">2.</span><span class="step-text">Contacts tab: 4 Operations Dispatcher Contacts.</span></div>
-<div class="step"><span class="step-num">3.</span><span class="step-text">Cases tab, All list view: 10 seed Cases plus your Golden Case = 11 total.</span></div>
+<p>Two quick checks to confirm the import worked:</p>
+<div class="step"><span class="step-num">1.</span><span class="step-text">Contacts tab: 4 Operations Dispatcher Contacts.</span></div>
+<div class="step"><span class="step-num">2.</span><span class="step-text">Cases tab, All list view: 10 seed Cases plus your Golden Case = 11 total.</span></div>
 <h3>Common sticking points</h3>
 <div class="bullet">Record Type column maps but Cases load without a Record Type. Cause: the Record Type column value does not match any Developer Name in your org. Fix: open the CSV, confirm values are NYCT / LIRR / MNR / BandT exactly (case-sensitive, no spaces).</div>
 <div class="bullet">Contact Last Name mapping fails. Cause: two Contacts share the same last name in your org. Fix: unlikely for this workshop since each MTA Contact has a unique last name. If it happens, update the CSV to use a more specific lookup field.</div>
@@ -2397,9 +2379,8 @@ If the Related List - Single is on the Details tab instead of the Other related 
     </ul>
     <h3>Lab 1.5 Downloads (sample data CSVs)</h3>
     <ul>
-      <li><a href="sample-data/MTA%20Sample%20Accounts.csv" download>MTA Sample Accounts.csv</a> · 4 MTA agency Accounts. Load first using the Data Import Wizard.</li>
-      <li><a href="sample-data/MTA%20Sample%20Contacts.csv" download>MTA Sample Contacts.csv</a> · 4 Operations Dispatcher Contacts. Load second.</li>
-      <li><a href="sample-data/MTA%20Sample%20Cases.csv" download>MTA Sample Cases.csv</a> · 10 realistic MTA Cases across all four agencies. Load third (depends on Record Types from Lab 1).</li>
+      <li><a href="sample-data/MTA%20Sample%20Contacts.csv" download>MTA Sample Contacts.csv</a> · 4 Operations Dispatcher Contacts. Load first.</li>
+      <li><a href="sample-data/MTA%20Sample%20Cases.csv" download>MTA Sample Cases.csv</a> · 10 realistic MTA Cases across all four agencies. Load second (depends on Record Types from Lab 1).</li>
     </ul>
     <h3>Standard-First Architecture</h3>
     <ul>
