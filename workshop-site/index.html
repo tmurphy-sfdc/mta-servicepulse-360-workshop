@@ -263,7 +263,7 @@ nav.topnav a.internal-link::before { content: "🔒 "; }
       <div class="day-body">
         <div class="schedule-row"><div class="sched-time">9:30 – 9:45</div><div class="sched-item"><strong>Welcome &amp; context</strong><br>Workshop goals, the day ahead, standard-first architecture</div></div>
         <div class="schedule-row"><div class="sched-time">9:45 – 11:00</div><div class="sched-item"><strong>Lab 1</strong> · Extend Case for Multi-Agency Intake</div></div>
-        <div class="schedule-row"><div class="sched-time">11:00 – 11:10</div><div class="sched-item"><strong>Lab 1.5</strong> · Load MTA Sample Data (Data Import Wizard)</div></div>
+        <div class="schedule-row"><div class="sched-time">11:00 – 11:10</div><div class="sched-item"><strong>Lab 1.5</strong> · Tour Pre-Loaded MTA Data</div></div>
         <div class="schedule-row"><div class="sched-time">11:10 – 11:55</div><div class="sched-item"><strong>Lab 2</strong> · Lightning App Builder &amp; Dynamic Forms</div></div>
         <div class="schedule-row"><div class="sched-time">11:55 – 12:55</div><div class="sched-item">Lunch (60 min)</div></div>
         <div class="schedule-row"><div class="sched-time">12:55 – 1:55</div><div class="sched-item"><strong>Lab 3</strong> · Asset Hierarchy for MTA Infrastructure</div></div>
@@ -337,8 +337,8 @@ nav.topnav a.internal-link::before { content: "🔒 "; }
           <div class="rundown-day">Day 1 · mini</div>
         </div>
         <div class="rundown-content">
-          <h3 class="rundown-title">Load MTA Sample Data</h3>
-          <p class="rundown-summary">Use the native Data Import Wizard to bulk-load 4 agency Accounts, 4 Operations Dispatcher Contacts, and 10 realistic MTA Cases. 10 minutes self-service. The rest of Day 1 and Day 2 benefits from the realistic record volume.</p>
+          <h3 class="rundown-title">Tour Pre-Loaded MTA Data</h3>
+          <p class="rundown-summary">Your org arrives with 4 MTA agency Accounts, 4 Operations Dispatcher Contacts, and 10 realistic seed Cases pre-loaded via the pre-workshop deploy. This short 5-minute lab is a tour so you understand what's there before downstream labs build against it.</p>
           <div class="rundown-features-label">Key features explored</div>
           <ul class="rundown-features">
           <li>Setup → Data Import Wizard (native, zero-code bulk load)</li>
@@ -360,7 +360,7 @@ nav.topnav a.internal-link::before { content: "🔒 "; }
           <ul class="rundown-features">
           <li>Open a record page in Lightning App Builder</li>
           <li>Add a Dynamic Forms visibility rule (NYCT-only fields)</li>
-          <li>Create an "Other related cases" tab on the record page</li>
+          <li>Create an "Other Related Cases" tab on the record page</li>
           <li>Add a Related List - Single component</li>
           </ul>
         </div>
@@ -379,7 +379,7 @@ nav.topnav a.internal-link::before { content: "🔒 "; }
           <li>Create a parent Asset (NYCT Bus 4521) and four component Assets via Child Assets</li>
           <li>Use Asset Relationship for peer-to-peer connections</li>
           <li>Link the Golden Case to the Asset</li>
-          <li>Add Asset.Cases Related List - Single to the "Other related cases" tab</li>
+          <li>Add Asset.Cases Related List - Single to the "Other Related Cases" tab</li>
           </ul>
         </div>
       </div>
@@ -728,7 +728,7 @@ nav.topnav a.internal-link::before { content: "🔒 "; }
 <div class="step"><span class="step-num">1.</span><span class="step-text">App Launcher then Accounts.</span></div>
 <div class="step"><span class="step-num">2.</span><span class="step-text">Switch the list view to All Accounts (via the dropdown).</span></div>
 <div class="step"><span class="step-num">3.</span><span class="step-text">In the search box above the list, type MTA. Confirm you see four Accounts: MTA New York City Transit, MTA Long Island Rail Road, MTA Metro-North Railroad, MTA Bridges and Tunnels.</span></div>
-<div class="callout callout-default"><span class="callout-label">If the MTA Accounts are missing</span>They should be pre-deployed in your org as part of 01b-mta-agency-accounts. If any are missing, flag your instructor — the pre-deploy didn&#x27;t land cleanly on your org. If you want to keep moving while they investigate, click New (top-right) then pick any Account record type if prompted (standard Account is fine). Account Name: MTA New York City Transit. Industry: Transportation (optional). Save. Repeat for MTA Long Island Rail Road, MTA Metro-North Railroad, MTA Bridges and Tunnels.</div>
+<div class="callout callout-default"><span class="callout-label">If the MTA Accounts are missing</span>They should be pre-deployed in your org as part of 01b-mta-sample-data. If any are missing, flag your instructor — the pre-deploy didn&#x27;t land cleanly on your org. If you want to keep moving while they investigate, click New (top-right) then pick any Account record type if prompted (standard Account is fine). Account Name: MTA New York City Transit. Industry: Transportation (optional). Save. Repeat for MTA Long Island Rail Road, MTA Metro-North Railroad, MTA Bridges and Tunnels.</div>
 <h4>10.2 — Create the Golden Record</h4>
 <div class="step"><span class="step-num">1.</span><span class="step-text">App Launcher then Cases then click New (top-right of the page).</span></div>
 <div class="step"><span class="step-num">2.</span><span class="step-text">Record Type picker: pick NYCT then Next.</span></div>
@@ -775,8 +775,8 @@ nav.topnav a.internal-link::before { content: "🔒 "; }
   <div class="lab-head" onclick="toggleLab(15)">
     <div class="lab-number" style="font-size: 15px;">1.5</div>
     <div class="lab-meta">
-      <p class="lab-name">Lab 1.5 — Load MTA Sample Data</p>
-      <p class="lab-duration">~10 min</p>
+      <p class="lab-name">Lab 1.5 — Tour your Pre-Loaded MTA Data</p>
+      <p class="lab-duration">~5 min</p>
     </div>
     <div class="lab-actions">
       <a class="btn btn-download" href="labs/Lab%2001.5%20-%20Participant.docx" download>Download .docx</a>
@@ -784,71 +784,52 @@ nav.topnav a.internal-link::before { content: "🔒 "; }
     </div>
   </div>
   <div class="lab-body" id="body-15">
-    <h2 class="lab-title">Lab 1.5 - Load MTA Sample Data</h2>
-<p class="lab-subtitle">ServicePulse 360 Workshop v0.7 (revision 2) | Estimated time: 8 minutes | Use the native Salesforce Data Import Wizard to load realistic MTA Contacts and Cases into your org. The 4 MTA agency Accounts are already pre-loaded. These records populate the related lists and reports you build across the rest of Day 1 and Day 2.</p>
-<h3>What you&#x27;re building and why</h3>
-<p>In Lab 1 you extended Case for multi-agency intake and built a Golden Case from scratch. The rest of Day 1 and Day 2 is more interesting when there is a realistic volume of records to work with: related lists populate, reports have shape, dashboards show patterns. Rather than ask you to manually create 10 Cases + 4 Contacts (about 15 minutes of clicking), you&#x27;ll load them in bulk using the Data Import Wizard that ships with every Salesforce org. The 4 MTA agency Accounts are already in your org from the pre-workshop deploy.</p>
-<p>Two self-service imports in sequence (each ~2-4 minutes):</p>
-<div class="bullet">4 Operations Dispatcher Contacts (one per agency)</div>
-<div class="bullet">10 realistic MTA Cases distributed across the four agencies with varied priorities and types</div>
-<div class="callout callout-tip"><span class="callout-label">Where to get the files</span>The two CSV files you&#x27;ll load are on the workshop website in the Resources tab, under the &quot;Lab 1.5 Downloads&quot; section. Click each link to download MTA Sample Contacts.csv and MTA Sample Cases.csv to your laptop before you start Part 1.</div>
-<div class="callout callout-why"><span class="callout-label">Why this matters</span>The Data Import Wizard is the right tool for admin-level bulk data loads up to 50,000 records at a time. It is zero-code, scales well, and respects validation rules. For bigger loads you&#x27;d use Data Loader (desktop tool) or an integration. Knowing which tool to pick for which load size is a core admin skill.</div>
-<h3>Before you start</h3>
-<div class="bullet">Lab 1 is complete. Your org has NYCT, LIRR, MNR, and B&amp;T Record Types on Case.</div>
-<div class="bullet">You have the two CSV files downloaded to your laptop. Grab them from the workshop website: Resources tab, scroll to the &quot;Lab 1.5 Downloads&quot; section. Click each link to download.</div>
-<div class="substep">MTA Sample Contacts.csv</div>
-<div class="substep">MTA Sample Cases.csv</div>
-<h3>Part 1 - Load the Contacts (2 min)</h3>
-<div class="step"><span class="step-num">1.</span><span class="step-text">From Setup, Quick Find: Data Import Wizard, click Data Import Wizard.</span></div>
-<div class="step"><span class="step-num">2.</span><span class="step-text">Click Launch Wizard!</span></div>
-<div class="step"><span class="step-num">3.</span><span class="step-text">Click the Accounts and Contacts tile.</span></div>
-<div class="step"><span class="step-num">4.</span><span class="step-text">Select the Add new records radio button.</span></div>
-<div class="step"><span class="step-num">5.</span><span class="step-text">Choose CSV. Click Choose File and select MTA Sample Contacts.csv. Click Next.</span></div>
-<div class="step"><span class="step-num">6.</span><span class="step-text">Verify the mappings:</span></div>
-<div class="substep">FirstName maps to Contact: First Name</div>
-<div class="substep">LastName maps to Contact: Last Name</div>
-<div class="substep">Title maps to Contact: Title</div>
-<div class="substep">Account Name maps to Contact: Account Name (the Wizard uses this to look up the parent Account by name)</div>
-<div class="step"><span class="step-num">7.</span><span class="step-text">Click Next.</span></div>
-<div class="step"><span class="step-num">8.</span><span class="step-text">Click Start Import. Click OK.</span></div>
-<div class="step"><span class="step-num">9.</span><span class="step-text">Open the Contacts tab and confirm all 4 Contacts loaded, each linked to the correct MTA Account.</span></div>
-<div class="callout callout-tip"><span class="callout-label">Tip</span>The Wizard matches &#x27;Account Name&#x27; text to the actual Account record by name. If any Contact fails to link, check that the Account name in your CSV matches the pre-loaded MTA Account exactly (including the &#x27;MTA&#x27; prefix).</div>
-<h3>Part 2 - Load the Cases (4 min)</h3>
-<div class="step"><span class="step-num">1.</span><span class="step-text">From Setup, Quick Find: Data Import Wizard, click Data Import Wizard.</span></div>
-<div class="step"><span class="step-num">2.</span><span class="step-text">Click Launch Wizard!</span></div>
-<div class="step"><span class="step-num">3.</span><span class="step-text">Click the Cases tile (under Custom objects, OR under the standard tiles depending on your org).</span></div>
-<div class="callout callout-watch"><span class="callout-label">Watch out</span>Case is a standard object but it is sometimes under the Custom objects section of the Wizard tile picker depending on org version. Look for a tile labeled &#x27;Cases&#x27; with the Case icon.</div>
-<div class="step"><span class="step-num">4.</span><span class="step-text">Select the Add new records radio button.</span></div>
-<div class="step"><span class="step-num">5.</span><span class="step-text">Which Record Type do you want to use? Select Agent is based on Record Type Column in the import file. (Different orgs may label this slightly differently; the point is: use the Record Type column from the CSV, not a fixed Record Type.)</span></div>
-<div class="step"><span class="step-num">6.</span><span class="step-text">Choose CSV. Click Choose File and select MTA Sample Cases.csv. Click Next.</span></div>
-<div class="step"><span class="step-num">7.</span><span class="step-text">Verify the mappings:</span></div>
-<div class="substep">Subject maps to Case: Subject</div>
-<div class="substep">Status maps to Case: Status</div>
-<div class="substep">Priority maps to Case: Priority</div>
-<div class="substep">Origin maps to Case: Case Origin</div>
-<div class="substep">Type maps to Case: Case Type</div>
-<div class="substep">Account Name maps to Case: Account Name (looks up the Account by name)</div>
-<div class="substep">Contact Last Name maps to Case: Contact Last Name (looks up the Contact by last name)</div>
-<div class="substep">Record Type maps to Case: Record Type (looks up the Record Type by Developer Name)</div>
-<div class="step"><span class="step-num">8.</span><span class="step-text">Click Next.</span></div>
-<div class="step"><span class="step-num">9.</span><span class="step-text">Click Start Import. Click OK.</span></div>
-<div class="step"><span class="step-num">10.</span><span class="step-text">Open the Cases tab and switch to the All list view. Confirm 10 new Cases loaded (plus your Golden Case from Lab 1 Part 10, so 11 total).</span></div>
-<div class="step"><span class="step-num">11.</span><span class="step-text">Spot-check a few Cases:</span></div>
-<div class="substep">Open Seed: Signal fault on 7 Line, Vernon Blvd. Confirm Record Type = NYCT.</div>
-<div class="substep">Open Seed: Grade crossing malfunction, Mineola. Confirm Record Type = LIRR.</div>
-<div class="substep">Open Seed: Toll gantry sensor fault, Verrazzano. Confirm Record Type = B&amp;T (listed as BandT in the Developer Name).</div>
-<div class="callout callout-verify"><span class="callout-label">Verified? Great job!</span>Your org now has a realistic multi-agency dataset. In Lab 2 you&#x27;ll build Dynamic Forms against this; in Lab 3 you&#x27;ll link Cases to Assets; in Lab 7 Agentforce will have real records to reason about.</div>
+    <h2 class="lab-title">Lab 1.5 - Tour your Pre-Loaded MTA Data</h2>
+<p class="lab-subtitle">ServicePulse 360 Workshop v0.7 (revision 3) | Estimated time: 5 minutes | Your org arrived with realistic MTA sample data already loaded. Tour it, understand what&#x27;s there, and spot-check the records that downstream labs will reference.</p>
+<h3>What you&#x27;re doing and why</h3>
+<p>In Lab 1 you extended Case for multi-agency intake and built one Golden Case from scratch. The rest of Day 1 and Day 2 is more interesting when there is a realistic volume of records to work with: related lists populate, reports have shape, dashboards show patterns.</p>
+<p>Your workshop org arrived with the realistic MTA dataset already loaded. You don&#x27;t need to import it. This short lab is a tour so you understand what&#x27;s there before you build against it.</p>
+<p>Pre-loaded via the pre-workshop deploy (sf data tree import):</p>
+<div class="bullet">4 MTA agency Accounts (NYCT, LIRR, MNR, B&amp;T)</div>
+<div class="bullet">4 Operations Dispatcher Contacts (Marcus Chen for NYCT, Priya Patel for LIRR, Elena Rodriguez for MNR, James O&#x27;Brien for B&amp;T)</div>
+<div class="bullet">10 realistic seed Cases distributed across the four agencies with varied priorities and types</div>
+<div class="callout callout-why"><span class="callout-label">Why this matters</span>In production, bulk data loads happen via Data Loader, an integration (like MuleSoft), or sf data tree import. The Salesforce Data Import Wizard handles most objects but has edition-specific gaps around Case loading in Pronto DE orgs. Knowing which tool to pick for which situation is a core admin skill.</div>
+<div class="callout callout-tip"><span class="callout-label">Why Case Record Type shows &quot;—&quot; or Master</span>The seed Cases load with Record Type = Master (null) because the 4 agency Record Types (NYCT/LIRR/MNR/BandT) did not exist on Case until you built them in Lab 1 Part 5. The pre-workshop deploy ran BEFORE Lab 1. In production you would backfill Record Types onto legacy data via a one-time Flow or Apex script; for this workshop, we leave seed Cases on Master and your Golden Case shows the NYCT Record Type you built yourself.</div>
+<h3>Part 1 - Tour the Accounts (1 min)</h3>
+<div class="step"><span class="step-num">1.</span><span class="step-text">App Launcher then Accounts.</span></div>
+<div class="step"><span class="step-num">2.</span><span class="step-text">Switch the list view to All Accounts (via the dropdown).</span></div>
+<div class="step"><span class="step-num">3.</span><span class="step-text">In the search box above the list, type MTA. Confirm you see four Accounts: MTA New York City Transit, MTA Long Island Rail Road, MTA Metro-North Railroad, MTA Bridges and Tunnels.</span></div>
+<div class="step"><span class="step-num">4.</span><span class="step-text">Click MTA New York City Transit to open it. Notice the Related tab (or Related Lists section): you&#x27;ll see Contacts and Cases related lists.</span></div>
+<div class="callout callout-verify"><span class="callout-label">Verified? Great job!</span>Your 4 MTA agency Accounts are present and clickable.</div>
+<h3>Part 2 - Tour the Contacts (1 min)</h3>
+<div class="step"><span class="step-num">1.</span><span class="step-text">App Launcher then Contacts.</span></div>
+<div class="step"><span class="step-num">2.</span><span class="step-text">Switch the list view to All Contacts.</span></div>
+<div class="step"><span class="step-num">3.</span><span class="step-text">You should see at least 4 contacts titled Operations Dispatcher: Marcus Chen, Priya Patel, Elena Rodriguez, James O&#x27;Brien. (The org may also have Pronto template Contacts; those are unrelated to the workshop.)</span></div>
+<div class="step"><span class="step-num">4.</span><span class="step-text">Click Marcus Chen. Confirm his Account is MTA New York City Transit.</span></div>
+<div class="callout callout-verify"><span class="callout-label">Verified? Great job!</span>4 Operations Dispatcher Contacts exist, each linked to the right MTA agency Account.</div>
+<h3>Part 3 - Tour the Cases (2 min)</h3>
+<div class="step"><span class="step-num">1.</span><span class="step-text">App Launcher then Cases.</span></div>
+<div class="step"><span class="step-num">2.</span><span class="step-text">Switch to the All list view. You should see 11 total: 10 seed Cases (Subject starts with &quot;Seed:&quot;) plus your Golden Case from Lab 1 Part 10.</span></div>
+<div class="step"><span class="step-num">3.</span><span class="step-text">Spot-check a few seed Cases to see the distribution:</span></div>
+<div class="substep">Open &quot;Seed: Signal fault on 7 Line, Vernon Blvd&quot;. Account: MTA New York City Transit. Contact: Marcus Chen. Type: Signal Issue. Priority: P2 - High.</div>
+<div class="substep">Open &quot;Seed: Grade crossing malfunction, Mineola&quot;. Account: MTA Long Island Rail Road. Contact: Priya Patel. Priority: P1 - Critical.</div>
+<div class="substep">Open &quot;Seed: Toll gantry sensor fault, Verrazzano&quot;. Account: MTA Bridges and Tunnels. Contact: James O&#x27;Brien. Type: Toll System Issue.</div>
+<div class="step"><span class="step-num">4.</span><span class="step-text">Look at the Case Record Type column in the list view. Seed Cases show &quot;—&quot; (Master); your Golden Case shows &quot;NYCT&quot;. This is intentional (see the callout above).</span></div>
+<div class="callout callout-verify"><span class="callout-label">Verified? Great job!</span>You have 10 seed Cases plus your Golden Case = 11 total, distributed across the 4 agencies, with varied Priority and Type values. The remaining labs now have realistic data to build Reports, Dashboards, and Dynamic Forms against.</div>
+<h3>Part 4 - What the labs ahead will do with this data</h3>
+<div class="bullet">Lab 2 (Dynamic Forms): the visibility rule tests use your Golden Case; the related-list components surface the seed Cases on the Account.</div>
+<div class="bullet">Lab 3 (Asset Hierarchy): you&#x27;ll create an Asset tree and link a Case to one of the Assets. Having 11 Cases in the org makes the lookup picker realistic.</div>
+<div class="bullet">Lab 5 (Service Disruption): you&#x27;ll build a Service_Disruption__c custom object with its own Record Types. Seed Cases will later get a Service Disruption lookup.</div>
+<div class="bullet">Lab 6 (Platform Showcase): Reports group Service Disruptions by agency. Dashboards visualize the agency distribution.</div>
 <h3>Final verification</h3>
-<p>Two quick checks to confirm the import worked:</p>
-<div class="step"><span class="step-num">1.</span><span class="step-text">Contacts tab: 4 Operations Dispatcher Contacts.</span></div>
-<div class="step"><span class="step-num">2.</span><span class="step-text">Cases tab, All list view: 10 seed Cases plus your Golden Case = 11 total.</span></div>
-<h3>Common sticking points</h3>
-<div class="bullet">Record Type column maps but Cases load without a Record Type. Cause: the Record Type column value does not match any Developer Name in your org. Fix: open the CSV, confirm values are NYCT / LIRR / MNR / BandT exactly (case-sensitive, no spaces).</div>
-<div class="bullet">Contact Last Name mapping fails. Cause: two Contacts share the same last name in your org. Fix: unlikely for this workshop since each MTA Contact has a unique last name. If it happens, update the CSV to use a more specific lookup field.</div>
-<div class="bullet">Import takes more than a minute to complete. Normal for the first import in a new org. Salesforce queues it and emails you the summary. Open the next part of the lab while waiting.</div>
-<div class="bullet">CSV columns do not auto-map. Cause: column headers in the CSV do not match any Salesforce field name. Fix: use the Edit Mapping link next to each unmapped column and pick the right destination field.</div>
+<p>Three quick checks confirm the pre-load worked:</p>
+<div class="step"><span class="step-num">1.</span><span class="step-text">Accounts tab: 4 MTA Accounts (NYCT, LIRR, MNR, B&amp;T).</span></div>
+<div class="step"><span class="step-num">2.</span><span class="step-text">Contacts tab: 4 Operations Dispatcher Contacts.</span></div>
+<div class="step"><span class="step-num">3.</span><span class="step-text">Cases tab, All list view: 10 seed Cases plus your Golden Case = 11 total.</span></div>
+<h3>If any records are missing</h3>
+<p>Tell your instructor. Missing records mean the pre-workshop deploy did not run cleanly on your org. The instructor can rerun the 01b-mta-sample-data loader against your org in about 10 seconds. In the meantime, you can continue to Lab 2 using the Golden Case; the seed records aren&#x27;t blockers for Lab 2&#x27;s main teaching moments.</p>
 <h3>What&#x27;s next</h3>
-<p>Lab 2 opens Lightning App Builder and configures Dynamic Forms. The sample Cases you just loaded will populate the Related Lists you build. Grab water, stretch, and continue.</p>
+<p>Lab 2 opens Lightning App Builder and configures Dynamic Forms visibility rules against your Golden Case. The seed Cases populate the Related Lists you build. Grab water, stretch, and continue.</p>
   </div>
 </div>
 <div class="lab-card">
@@ -865,7 +846,7 @@ nav.topnav a.internal-link::before { content: "🔒 "; }
   </div>
   <div class="lab-body" id="body-2">
     <h2 class="lab-title">Lab 2 — Lightning App Builder &amp; Dynamic Forms</h2>
-<p class="lab-subtitle">ServicePulse 360 Workshop v0.7 (revision 6) | Estimated time: 60 minutes | Using the Golden Record you built in Lab 1, you will configure the Case record page using Dynamic Forms to show agency-specific fields based on Record Type, then add a Related List - Single component to surface the Golden Record&#x27;s Contact-related Cases.</p>
+<p class="lab-subtitle">ServicePulse 360 Workshop v0.7 (revision 7) | Estimated time: 45 minutes | Using the Golden Record you built in Lab 1, you will configure the Case record page using Dynamic Forms to show agency-specific fields based on Record Type, then add a Related List - Single component to surface the Golden Record&#x27;s Contact-related Cases.</p>
 <h3>What you&#x27;re building and why</h3>
 <p>Lab 01 ended with your Golden Record: an NYCT Case tied to MTA New York City Transit with a Contact populated, and three fields placed on the Dynamic Forms canvas (Reported Date/Time, Resolution Notes, and Case Record Type). In this lab you&#x27;ll make the record page adaptive. Different Record Types can show different fields on the same Lightning record page, driven by Dynamic Forms visibility rules.</p>
 <p>In Part 2 you&#x27;ll configure the Case record page so Reported Date/Time only appears when the Record Type is NYCT. You&#x27;ll test it by switching your Golden Record&#x27;s Record Type and watching the field disappear and reappear.</p>
@@ -912,25 +893,25 @@ nav.topnav a.internal-link::before { content: "🔒 "; }
 <div class="step"><span class="step-num">5.</span><span class="step-text">Change the Case Record Type back to NYCT and Save. Confirm Reported Date/Time reappears. Your Golden Record is now back to its original state.</span></div>
 <div class="callout callout-watch"><span class="callout-label">Watch out</span>In production, switching a Case&#x27;s Record Type can trigger Validation Rules, Flow automation, and Approval Processes attached to the originating Record Type. In this workshop context (no automation yet), it&#x27;s safe. In a real org, always analyze impact before changing Record Type on existing records.</div>
 <div class="callout callout-why"><span class="callout-label">Why this matters</span>The field isn&#x27;t deleted when hidden; it&#x27;s just removed from the UI. Reports, SOQL, and automation still read it. Dynamic Forms visibility rules are a UI concern, not a data concern. If you want to enforce data integrity (such as require a field under certain conditions), that&#x27;s a Validation Rule, not a visibility rule.</div>
-<h3>Part 3 — Create an Other related cases tab and add a Related List - Single component (15 min)</h3>
-<p>We&#x27;ll add a new tab on the Case Lightning record page, label it &quot;Other related cases,&quot; and drop a Related List - Single component into it. The tab will host related-cases components from Lab 2 (Contact-based) and Lab 3 (Asset-based) together, keeping the Details tab clean while making related cases one click away.</p>
+<h3>Part 3 — Create an Other Related Cases tab and add a Related List - Single component (15 min)</h3>
+<p>We&#x27;ll add a new tab on the Case Lightning record page, label it &quot;Other Related Cases,&quot; and drop a Related List - Single component into it. The tab will host related-cases components from Lab 2 (Contact-based) and Lab 3 (Asset-based) together, keeping the Details tab clean while making related cases one click away.</p>
 <div class="callout callout-why"><span class="callout-label">Why a dedicated tab?</span>Case record pages get crowded quickly. A dedicated tab for related cases prevents the Details tab from becoming a scroll-fest and gives dispatchers a predictable place to look for context.</div>
 <h4>3.1 — Open the App Builder from your Golden Record</h4>
 <div class="step"><span class="step-num">1.</span><span class="step-text">Return to your Golden Record (App Launcher then Cases then click your Golden Record).</span></div>
 <div class="step"><span class="step-num">2.</span><span class="step-text">Click the gear icon (top-right) then Edit Page. The App Builder opens.</span></div>
-<h4>3.2 — Add an Other related cases tab to the record page</h4>
-<div class="step"><span class="step-num">1.</span><span class="step-text">On the canvas, locate the Tabs component (it holds the Details, Related, and Feed tabs by default). Click the Tabs component to select it. The right panel updates to show its properties.</span></div>
+<h4>3.2 — Add an Other Related Cases tab to the record page</h4>
+<div class="step"><span class="step-num">1.</span><span class="step-text">On the canvas, locate the Tabs component in the LEFT COLUMN (the one that holds Details and Related). The Pronto template places Feed in a SEPARATE Tabs component in the right sidebar; don&#x27;t click that one. Click the left-column Tabs component to select it. The right panel updates to show its properties.</span></div>
 <div class="step"><span class="step-num">2.</span><span class="step-text">In the right panel, under Tabs, click Add Tab. A new tab appears, typically labeled &quot;Details&quot; or similar as a default placeholder.</span></div>
 <div class="step"><span class="step-num">3.</span><span class="step-text">Click the new tab&#x27;s label to open its properties.</span></div>
-<div class="step"><span class="step-num">4.</span><span class="step-text">Set the tab Label to Custom and enter &quot;Other related cases&quot; in the Custom Label field.</span></div>
-<div class="step"><span class="step-num">5.</span><span class="step-text">Position the tab: use the drag handle in the Tabs properties list to move Other related cases so it appears to the right of Feed (so tab order is Feed, Details, Related, Other related cases, or whichever order you prefer).</span></div>
-<div class="callout callout-verify"><span class="callout-label">Verify</span>The canvas now shows four tabs including &quot;Other related cases&quot; (currently empty).</div>
+<div class="step"><span class="step-num">4.</span><span class="step-text">Set the tab Label to Custom and enter &quot;Other Related Cases&quot; in the Custom Label field.</span></div>
+<div class="step"><span class="step-num">5.</span><span class="step-text">Position the tab: use the drag handle in the Tabs properties list to arrange the tab order. Suggested: Details, Related, Other Related Cases (Feed stays in its own Tabs component in the right sidebar, so you can&#x27;t put it in the same order list).</span></div>
+<div class="callout callout-verify"><span class="callout-label">Verify</span>The canvas now shows four tabs including &quot;Other Related Cases&quot; (currently empty).</div>
 <h4>3.3 — Drop the Related List - Single component into the new tab</h4>
 <div class="callout callout-watch"><span class="callout-label">Watch out</span>The Components palette has five components with &#x27;related&#x27; in their name: Dynamic Related List - Single, Related List - Single, Related List Quick Links, Related Lists (plural), and Related Record. For this lab you want Related List - Single specifically. The others do different things and will not produce the result this lab describes.</div>
-<div class="step"><span class="step-num">1.</span><span class="step-text">Click the Other related cases tab on the canvas to select it as the drop target.</span></div>
+<div class="step"><span class="step-num">1.</span><span class="step-text">Click the Other Related Cases tab on the canvas to select it as the drop target.</span></div>
 <div class="step"><span class="step-num">2.</span><span class="step-text">In the left-hand Components palette, click into the search box and type related. The Standard component list filters.</span></div>
 <div class="step"><span class="step-num">3.</span><span class="step-text">Locate the component named Related List - Single.</span></div>
-<div class="step"><span class="step-num">4.</span><span class="step-text">Drag Related List - Single onto the Other related cases tab area.</span></div>
+<div class="step"><span class="step-num">4.</span><span class="step-text">Drag Related List - Single onto the Other Related Cases tab area.</span></div>
 <div class="step"><span class="step-num">5.</span><span class="step-text">The component is placed and selected. The right panel updates to show its properties.</span></div>
 <h4>3.4 — Configure the component</h4>
 <div class="step"><span class="step-num">1.</span><span class="step-text">In the right panel, configure the component:</span></div>
@@ -942,24 +923,24 @@ nav.topnav a.internal-link::before { content: "🔒 "; }
 <div class="step"><span class="step-num">1.</span><span class="step-text">Save the page (top-right) then Activate (if prompted).</span></div>
 <div class="step"><span class="step-num">2.</span><span class="step-text">Click Back to return to the Golden Record page.</span></div>
 <div class="step"><span class="step-num">3.</span><span class="step-text">Refresh the browser.</span></div>
-<div class="step"><span class="step-num">4.</span><span class="step-text">Click the Other related cases tab. The Cases related list (scoped to the Golden Record&#x27;s Contact) is now visible there.</span></div>
+<div class="step"><span class="step-num">4.</span><span class="step-text">Click the Other Related Cases tab. The Cases related list (scoped to the Golden Record&#x27;s Contact) is now visible there.</span></div>
 <div class="step"><span class="step-num">5.</span><span class="step-text">Your Golden Record appears in this list because the Golden Record itself is one of the Contact&#x27;s cases.</span></div>
-<div class="callout callout-verify"><span class="callout-label">Verified? Great job.</span>This means your Other related cases tab is wired correctly and the Related List - Single component is pulling related data via a Contact traversal. In Lab 3 you&#x27;ll add a second Related List - Single component to this same tab, pulling cases via the Asset relationship.</div>
-<div class="callout callout-default"><span class="callout-label">Common sticking points</span>If the Other related cases tab is missing after refresh: you forgot to Activate (or Save) the page. Return to Edit Page then confirm Activation.
+<div class="callout callout-verify"><span class="callout-label">Verified? Great job.</span>This means your Other Related Cases tab is wired correctly and the Related List - Single component is pulling related data via a Contact traversal. In Lab 3 you&#x27;ll add a second Related List - Single component to this same tab, pulling cases via the Asset relationship.</div>
+<div class="callout callout-default"><span class="callout-label">Common sticking points</span>If the Other Related Cases tab is missing after refresh: you forgot to Activate (or Save) the page. Return to Edit Page then confirm Activation.
 
 If the Related List - Single shows no data: your Golden Record doesn&#x27;t have a Contact populated. Return to the Golden Record and populate Contact Name.
 
-If the Related List - Single is on the Details tab instead of the Other related cases tab: you dropped it before selecting the new tab. Delete the component, click the Other related cases tab, then re-drag.</div>
+If the Related List - Single is on the Details tab instead of the Other Related Cases tab: you dropped it before selecting the new tab. Delete the component, click the Other Related Cases tab, then re-drag.</div>
 <h3>Final verification (5 min)</h3>
 <p>Two quick checks confirm Dynamic Forms visibility and the Related List - Single component are working as expected.</p>
 <h4>Check 1 — Field visibility by Record Type</h4>
 <div class="step"><span class="step-num">1.</span><span class="step-text">On your Golden Record (NYCT), confirm Reported Date/Time is visible.</span></div>
 <div class="step"><span class="step-num">2.</span><span class="step-text">Change the Record Type to B&amp;T, Save, Refresh. Reported Date/Time should NOT be visible.</span></div>
 <div class="step"><span class="step-num">3.</span><span class="step-text">Change the Record Type back to NYCT, Save, Refresh. Reported Date/Time should reappear.</span></div>
-<h4>Check 2 — Related List - Single shows data in the Other related cases tab</h4>
-<div class="step"><span class="step-num">1.</span><span class="step-text">On your Golden Record (NYCT), click the Other related cases tab.</span></div>
-<div class="step"><span class="step-num">2.</span><span class="step-text">The Related List - Single component on that tab displays at least 1 Case (the Golden Record itself, self-referentially).</span></div>
-<div class="callout callout-verify"><span class="callout-label">Verify</span>Both checks pass. You&#x27;ve configured the Case record page to adapt its field visibility based on Record Type, and you&#x27;ve surfaced the Contact&#x27;s related Cases prominently on the Details tab.</div>
+<h4>Check 2 — Related List - Single shows data in the Other Related Cases tab</h4>
+<div class="step"><span class="step-num">1.</span><span class="step-text">On your Golden Record (NYCT), click the Other Related Cases tab.</span></div>
+<div class="step"><span class="step-num">2.</span><span class="step-text">The Related List - Single component on that tab displays at least 1 Case (the Golden Record itself, self-referentially). If Lab 1.5 pre-loaded seed Cases on Marcus Chen (the NYCT dispatcher), you&#x27;ll see 3 additional seed Cases here as well.</span></div>
+<div class="callout callout-verify"><span class="callout-label">Verify</span>Both checks pass. You&#x27;ve configured the Case record page to adapt its field visibility based on Record Type, and you&#x27;ve surfaced the Contact&#x27;s related Cases on the Other Related Cases tab.</div>
 <h3>What&#x27;s next</h3>
 <p>Lab 3 models MTA infrastructure using the standard Asset object. You&#x27;ll build a parent Asset (an NYCT bus) with child component Assets (battery pack, HVAC unit, drive motor) linked via AssetRelationship. The Related List - Single pattern you just learned becomes Asset.Cases, with your Golden Record connected to that bus.</p>
 <h3>If you got stuck</h3>
@@ -990,7 +971,7 @@ If the Related List - Single is on the Details tab instead of the Other related 
 <p class="lab-subtitle">ServicePulse 360 Workshop v0.7 (revision 3) | Estimated time: 92 minutes | Using the standard Asset object, you will prepare the Asset Layout, model an NYCT bus as a parent Asset with four component Assets (battery pack, HVAC unit, drive motor, farebox), create peer relationships via Asset Relationship, and connect your golden Case record to the bus Asset.</p>
 <h3>What you&#x27;re building and why</h3>
 <p>MTA operates physical infrastructure: buses, trains, bridges, tunnels, signal cabins, station equipment, fare collection systems. Each is an Asset. Each is also made of components that break down, get replaced, and need their own service history. A bus has a battery pack, a drive motor, an HVAC unit, a farebox. Each component is itself an Asset.</p>
-<p>The standard Salesforce Asset object (plus its sibling Asset Relationship) models this directly. In this lab you&#x27;ll prepare the Asset Layout to show the fields and related lists you need, create one parent Asset (an NYCT bus) with four child component Assets built directly from the parent&#x27;s Child Assets related list, link one component to another via Asset Relationship, and connect your golden Case record from Lab 1 to the parent bus. The Case record page&#x27;s Other related cases tab (built in Lab 2) will gain a second Related List - Single component showing the Asset&#x27;s Cases.</p>
+<p>The standard Salesforce Asset object (plus its sibling Asset Relationship) models this directly. In this lab you&#x27;ll prepare the Asset Layout to show the fields and related lists you need, create one parent Asset (an NYCT bus) with four child component Assets built directly from the parent&#x27;s Child Assets related list, link one component to another via Asset Relationship, and connect your golden Case record from Lab 1 to the parent bus. The Case record page&#x27;s Other Related Cases tab (built in Lab 2) will gain a second Related List - Single component showing the Asset&#x27;s Cases.</p>
 <div class="callout callout-why"><span class="callout-label">Why this matters</span>Asset is the standard-first way to model physical infrastructure in Salesforce. Teams unfamiliar with Asset often build custom objects (Equipment__c, Vehicle__c, Component__c) to model the same thing. Standard Asset gives you Asset Relationship for parent-child hierarchies, Asset State Period for state history, Maintenance Plan integration for preventive maintenance scheduling (via Work Orders), and a direct link to Case for service history, all without custom-building anything. The Maintenance Plan integration is particularly powerful: define a maintenance cadence on the Asset, and Salesforce auto-generates Work Orders on schedule.</div>
 <h3>The hierarchy we&#x27;re building</h3>
 <p>Three levels, five Assets total:</p>
@@ -1000,7 +981,7 @@ If the Related List - Single is on the Details tab instead of the Other related 
 <h3>Before you start</h3>
 <div class="bullet">You&#x27;ve completed Lab 1 and Lab 2.</div>
 <div class="bullet">Your golden Case record exists (an NYCT Case tied to MTA New York City Transit, with a Contact populated).</div>
-<div class="bullet">The Case record page has your Lab 2 customizations: Dynamic Forms visibility rule for Reported Date/Time (NYCT only), an Other related cases tab, and a Related List - Single component inside that tab surfacing the Contact&#x27;s Cases.</div>
+<div class="bullet">The Case record page has your Lab 2 customizations: Dynamic Forms visibility rule for Reported Date/Time (NYCT only), an Other Related Cases tab, and a Related List - Single component inside that tab surfacing the Contact&#x27;s Cases.</div>
 <div class="bullet">The Asset field is on your Case record page (added in Lab 1 Part 9).</div>
 <div class="bullet">You&#x27;re inside the ServicePulse 360 app.</div>
 <h3>Part 1 — Add the Assets tab to the ServicePulse 360 app (5 min)</h3>
@@ -1146,15 +1127,15 @@ If the Related List - Single is on the Details tab instead of the Other related 
 <div class="step"><span class="step-num">3.</span><span class="step-text">Your golden Case record appears there.</span></div>
 <div class="callout callout-verify"><span class="callout-label">Verified? Great job.</span>The Case-Asset bidirectional link is working. A dispatcher looking at a bus can see every Case ever opened against it; a field tech resolving a Case can click to see the Asset.</div>
 <div class="callout callout-default"><span class="callout-label">Common sticking points</span>If the Asset field isn&#x27;t visible on the Case record page: it wasn&#x27;t added to the Dynamic Forms canvas in Lab 1 Part 9.5. Return to the Case record page, gear icon then Edit Page, drag Asset from the Fields panel onto the canvas, Save and Activate.</div>
-<h3>Part 8 — Add an Asset.Cases Related List - Single to the Other related cases tab (10 min)</h3>
+<h3>Part 8 — Add an Asset.Cases Related List - Single to the Other Related Cases tab (10 min)</h3>
 <p>You already know this pattern from Lab 2: the Related List - Single component surfaces one specific related list prominently. In Lab 2 you pointed it at the Contact&#x27;s Cases. Now we&#x27;ll add that same Related List - Single component pointed to the Asset&#x27;s Cases, so a dispatcher viewing a Case can see every other Case ever opened against the same Asset.</p>
 <h4>8.1 — Open the App Builder from your golden Case record</h4>
 <div class="step"><span class="step-num">1.</span><span class="step-text">Return to your golden Case record.</span></div>
 <div class="step"><span class="step-num">2.</span><span class="step-text">Click the gear icon (top-right) then Edit Page.</span></div>
-<h4>8.2 — Add a second Related List - Single inside the Other related cases tab</h4>
-<div class="step"><span class="step-num">1.</span><span class="step-text">Click the Other related cases tab on the canvas to make it the drop target.</span></div>
+<h4>8.2 — Add a second Related List - Single inside the Other Related Cases tab</h4>
+<div class="step"><span class="step-num">1.</span><span class="step-text">Click the Other Related Cases tab on the canvas to make it the drop target.</span></div>
 <div class="step"><span class="step-num">2.</span><span class="step-text">In the left-hand Components palette, search related.</span></div>
-<div class="step"><span class="step-num">3.</span><span class="step-text">Drag Related List - Single onto the Other related cases tab area. It appears below the existing Contact.Cases component.</span></div>
+<div class="step"><span class="step-num">3.</span><span class="step-text">Drag Related List - Single onto the Other Related Cases tab area. It appears below the existing Contact.Cases component.</span></div>
 <h4>8.3 — Configure the new component</h4>
 <div class="step"><span class="step-num">1.</span><span class="step-text">In the right panel, configure:</span></div>
 <div class="substep">Parent Record: click the lookup icon. Pick Asset.</div>
@@ -1163,10 +1144,10 @@ If the Related List - Single is on the Details tab instead of the Other related 
 <div class="step"><span class="step-num">2.</span><span class="step-text">Save the page then Activate if prompted.</span></div>
 <div class="step"><span class="step-num">3.</span><span class="step-text">Click Back then refresh the browser.</span></div>
 <h4>8.4 — Verify</h4>
-<div class="step"><span class="step-num">1.</span><span class="step-text">On your golden Case record, click the Other related cases tab.</span></div>
+<div class="step"><span class="step-num">1.</span><span class="step-text">On your golden Case record, click the Other Related Cases tab.</span></div>
 <div class="step"><span class="step-num">2.</span><span class="step-text">Two Related List - Single components are now visible: one showing the Contact&#x27;s Cases (Lab 2) and one showing the Asset&#x27;s Cases (Lab 3).</span></div>
 <div class="step"><span class="step-num">3.</span><span class="step-text">Your golden Case record appears in both because it&#x27;s linked to both.</span></div>
-<div class="callout callout-verify"><span class="callout-label">Verified? Great job.</span>Your Other related cases tab now has two Related List - Single components giving dispatchers two angles on related cases: by the person reporting (Contact) and by the asset affected (Asset).</div>
+<div class="callout callout-verify"><span class="callout-label">Verified? Great job.</span>Your Other Related Cases tab now has two Related List - Single components giving dispatchers two angles on related cases: by the person reporting (Contact) and by the asset affected (Asset).</div>
 <h3>Final verification (5 min)</h3>
 <div class="step"><span class="step-num">1.</span><span class="step-text">Access the Assets tab from the ServicePulse 360 app.</span></div>
 <h4>Check 1 — Asset hierarchy</h4>
@@ -1177,7 +1158,7 @@ If the Related List - Single is on the Details tab instead of the Other related 
 <div class="step"><span class="step-num">2.</span><span class="step-text">On the Related Assets related list, confirm one row with HVAC Unit 4521-HV as the Related Asset, Replacement as the Relationship Type.</span></div>
 <h4>Check 3 — Case linked to Asset</h4>
 <div class="step"><span class="step-num">1.</span><span class="step-text">Open your golden Case record. Confirm Asset = NYCT Bus 4521.</span></div>
-<div class="step"><span class="step-num">2.</span><span class="step-text">Click the Other related cases tab. Both Related List - Single components show at least 1 case.</span></div>
+<div class="step"><span class="step-num">2.</span><span class="step-text">Click the Other Related Cases tab. Both Related List - Single components show at least 1 case.</span></div>
 <div class="callout callout-verify"><span class="callout-label">Verified? Great job.</span>This means you&#x27;ve modeled MTA infrastructure as Assets, built a parent-child hierarchy via Parent Asset, created a peer relationship via Asset Relationship, connected your golden Case record to the bus, and surfaced the Asset&#x27;s Cases on the Case record page.</div>
 <div class="callout callout-default"><span class="callout-label">Common sticking points across Lab 3</span>Asset field missing on the Case record page: Lab 1 Part 9.5 should have added it. Return to Edit Page and drag Asset onto the canvas.\n\nChild Assets related list empty on NYCT Bus 4521: you created the children via the Assets tab&#x27;s New button instead of from the parent&#x27;s Child Assets related list. Edit each child and populate Parent Asset = NYCT Bus 4521.\n\nRelated Assets related list missing from Battery Pack 4521-BP: Lab 3 Part 3.5 should have added it to the Asset Layout. Return to the Asset Layout and add Related Assets to the Related Lists section.\n\nAsset.Cases Related List - Single shows no data: confirm your golden Case record&#x27;s Asset field is populated with NYCT Bus 4521.</div>
 <h3>What&#x27;s next</h3>
@@ -2377,11 +2358,7 @@ If the Related List - Single is on the Details tab instead of the Other related 
         </ul>
       </li>
     </ul>
-    <h3>Lab 1.5 Downloads (sample data CSVs)</h3>
-    <ul>
-      <li><a href="sample-data/MTA%20Sample%20Contacts.csv" download>MTA Sample Contacts.csv</a> · 4 Operations Dispatcher Contacts. Load first.</li>
-      <li><a href="sample-data/MTA%20Sample%20Cases.csv" download>MTA Sample Cases.csv</a> · 10 realistic MTA Cases across all four agencies. Load second (depends on Record Types from Lab 1).</li>
-    </ul>
+
     <h3>Standard-First Architecture</h3>
     <ul>
       <li><a href="https://architect.salesforce.com/" target="_blank" rel="noopener">Salesforce Architects Portal</a> · reference architectures for Case, Service Cloud, and multi-agency setups.</li>
@@ -2581,7 +2558,7 @@ If the Related List - Single is on the Details tab instead of the Other related 
 <p>John, thanks for offering to walk through the material. This may be one of the first fully-custom Salesforce workshops of its kind, and your run gives us a chance to catch participant-level issues before 20 MTA folks hit them on Day 1.</p>
 <h4>Scope</h4>
 <div class="bullet">Lab 1 — Extend Case for Multi-Agency Intake (~75 min)</div>
-<div class="bullet">Lab 1.5 — Load MTA Sample Data (~10 min)</div>
+<div class="bullet">Lab 1.5 — Tour Pre-Loaded MTA Data (~5 min)</div>
 <div class="bullet">Lab 2 — Lightning App Builder &amp; Dynamic Forms (~45 min)</div>
 <div class="bullet">Lab 3 — Asset Hierarchy for MTA Infrastructure (~60 min)</div>
 <div class="bullet">Lab 4 — Field Service Foundations (~70 min)</div>
@@ -2593,7 +2570,7 @@ If the Related List - Single is on the Details tab instead of the Other related 
 <p>Pre-deployed before you start, in two packages:</p>
 <div class="bullet"><strong>00-pre-workshop-setup</strong>: time zone set to America/New_York (both User and Org), AgentActionsTest.cls patched, Agentforce Default and Einstein Prompt Templates permsets confirmed.</div>
 <div class="bullet"><strong>01-case-type-picklist</strong>: 13 transit values on standard Case Type (Lab 1 Part 2.2), restaurant-themed "Missing items" removed as Case Reason default (Lab 1 Part 10.2 Golden Record save), Case Record Page swapped to standard Highlights Panel so the compact layout you build in Lab 1 Part 7 actually renders.</div>
-<div class="bullet"><strong>01b-mta-agency-accounts</strong>: 4 MTA agency Accounts loaded (NYCT, LIRR, MNR, B&amp;T) for Lab 1 Part 10.1.</div>
+<div class="bullet"><strong>01b-mta-sample-data</strong>: Full sample dataset loaded via `sf data tree import` — 4 MTA agency Accounts (NYCT, LIRR, MNR, B&amp;T) for Lab 1 Part 10.1, 4 Operations Dispatcher Contacts, and 10 realistic seed Cases distributed across the agencies for Lab 1.5 and beyond. Seed Cases load with Record Type = Master because the agency Record Types don&#x27;t exist until participants complete Lab 1 Part 5.</div>
 <p>You build everything else during the labs exactly as participants will.</p>
 <h4>What to look for</h4>
 <div class="bullet">Instruction clarity: where did &#x27;click X&#x27; not match the UI? Where did we assume knowledge a participant wouldn&#x27;t have?</div>
