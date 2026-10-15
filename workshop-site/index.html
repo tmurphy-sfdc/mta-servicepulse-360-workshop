@@ -226,7 +226,7 @@ nav.topnav a.internal-link::before { content: "🔒 "; }
       </div>
       <div class="hero-fact">
         <div class="fact-label">Time</div>
-        <div class="fact-value">9:30 AM – 4:30 PM</div>
+        <div class="fact-value">9:30 AM – 4:55 PM</div>
       </div>
       <div class="hero-fact">
         <div class="fact-label">Format</div>
@@ -263,14 +263,14 @@ nav.topnav a.internal-link::before { content: "🔒 "; }
       <div class="day-body">
         <div class="schedule-row"><div class="sched-time">9:30 – 9:45</div><div class="sched-item"><strong>Welcome &amp; context</strong><br>Workshop goals, the day ahead, standard-first architecture</div></div>
         <div class="schedule-row"><div class="sched-time">9:45 – 11:00</div><div class="sched-item"><strong>Lab 1</strong> · Extend Case for Multi-Agency Intake</div></div>
-        <div class="schedule-row"><div class="sched-time">11:00 – 11:10</div><div class="sched-item"><strong>Lab 1.5</strong> · Tour Pre-Loaded MTA Data</div></div>
-        <div class="schedule-row"><div class="sched-time">11:10 – 11:55</div><div class="sched-item"><strong>Lab 2</strong> · Lightning App Builder &amp; Dynamic Forms</div></div>
-        <div class="schedule-row"><div class="sched-time">11:55 – 12:55</div><div class="sched-item">Lunch (60 min)</div></div>
-        <div class="schedule-row"><div class="sched-time">12:55 – 1:55</div><div class="sched-item"><strong>Lab 3</strong> · Asset Hierarchy for MTA Infrastructure</div></div>
-        <div class="schedule-row"><div class="sched-time">1:55 – 3:05</div><div class="sched-item"><strong>Lab 4</strong> · Field Service Foundations</div></div>
-        <div class="schedule-row"><div class="sched-time">3:05 – 3:20</div><div class="sched-item">Break</div></div>
-        <div class="schedule-row"><div class="sched-time">3:20 – 4:25</div><div class="sched-item"><strong>Lab 5</strong> · Service Disruption Custom Object</div></div>
-        <div class="schedule-row"><div class="sched-time">4:25 – 4:30</div><div class="sched-item">Day 1 wrap</div></div>
+        <div class="schedule-row"><div class="sched-time">11:00 – 11:05</div><div class="sched-item"><strong>Lab 1.5</strong> · Tour Pre-Loaded MTA Data</div></div>
+        <div class="schedule-row"><div class="sched-time">11:05 – 11:50</div><div class="sched-item"><strong>Lab 2</strong> · Lightning App Builder &amp; Dynamic Forms</div></div>
+        <div class="schedule-row"><div class="sched-time">11:50 – 12:50</div><div class="sched-item">Lunch (60 min)</div></div>
+        <div class="schedule-row"><div class="sched-time">12:50 – 2:20</div><div class="sched-item"><strong>Lab 3</strong> · Asset Hierarchy for MTA Infrastructure</div></div>
+        <div class="schedule-row"><div class="sched-time">2:20 – 3:30</div><div class="sched-item"><strong>Lab 4</strong> · Field Service Foundations</div></div>
+        <div class="schedule-row"><div class="sched-time">3:30 – 3:45</div><div class="sched-item">Break</div></div>
+        <div class="schedule-row"><div class="sched-time">3:45 – 4:50</div><div class="sched-item"><strong>Lab 5</strong> · Service Disruption Custom Object</div></div>
+        <div class="schedule-row"><div class="sched-time">4:50 – 4:55</div><div class="sched-item">Day 1 wrap</div></div>
       </div>
     </div>
     <div class="day-card">
@@ -959,7 +959,7 @@ If the Related List - Single is on the Details tab instead of the Other Related 
     <div class="lab-number">3</div>
     <div class="lab-meta">
       <p class="lab-name">Lab 03 — Asset Hierarchy for MTA Infrastructure</p>
-      <p class="lab-duration">~60 min</p>
+      <p class="lab-duration">~90 min</p>
     </div>
     <div class="lab-actions">
       <a class="btn btn-download" href="labs/Lab%2003%20-%20Participant.docx" download>Download .docx</a>
@@ -968,16 +968,16 @@ If the Related List - Single is on the Details tab instead of the Other Related 
   </div>
   <div class="lab-body" id="body-3">
     <h2 class="lab-title">Lab 3 — Asset Hierarchy for MTA Infrastructure</h2>
-<p class="lab-subtitle">ServicePulse 360 Workshop v0.7 (revision 3) | Estimated time: 92 minutes | Using the standard Asset object, you will prepare the Asset Layout, model an NYCT bus as a parent Asset with four component Assets (battery pack, HVAC unit, drive motor, farebox), create peer relationships via Asset Relationship, and connect your golden Case record to the bus Asset.</p>
+<p class="lab-subtitle">ServicePulse 360 Workshop v0.7 (revision 4) | Estimated time: 90 minutes | Using the standard Asset object, you will prepare the Asset Layout, model an NYCT bus as a parent Asset with four component Assets (battery pack, HVAC unit, drive motor, farebox), create peer relationships via Asset Relationship, and connect your golden Case record to the bus Asset.</p>
 <h3>What you&#x27;re building and why</h3>
 <p>MTA operates physical infrastructure: buses, trains, bridges, tunnels, signal cabins, station equipment, fare collection systems. Each is an Asset. Each is also made of components that break down, get replaced, and need their own service history. A bus has a battery pack, a drive motor, an HVAC unit, a farebox. Each component is itself an Asset.</p>
 <p>The standard Salesforce Asset object (plus its sibling Asset Relationship) models this directly. In this lab you&#x27;ll prepare the Asset Layout to show the fields and related lists you need, create one parent Asset (an NYCT bus) with four child component Assets built directly from the parent&#x27;s Child Assets related list, link one component to another via Asset Relationship, and connect your golden Case record from Lab 1 to the parent bus. The Case record page&#x27;s Other Related Cases tab (built in Lab 2) will gain a second Related List - Single component showing the Asset&#x27;s Cases.</p>
 <div class="callout callout-why"><span class="callout-label">Why this matters</span>Asset is the standard-first way to model physical infrastructure in Salesforce. Teams unfamiliar with Asset often build custom objects (Equipment__c, Vehicle__c, Component__c) to model the same thing. Standard Asset gives you Asset Relationship for parent-child hierarchies, Asset State Period for state history, Maintenance Plan integration for preventive maintenance scheduling (via Work Orders), and a direct link to Case for service history, all without custom-building anything. The Maintenance Plan integration is particularly powerful: define a maintenance cadence on the Asset, and Salesforce auto-generates Work Orders on schedule.</div>
 <h3>The hierarchy we&#x27;re building</h3>
-<p>Three levels, five Assets total:</p>
+<p>Two levels, five Assets total (one parent bus, four children):</p>
 <div class="bullet">Level 1 (parent): NYCT Bus 4521, the whole bus.</div>
 <div class="bullet">Level 2 (children): Battery Pack 4521-BP, HVAC Unit 4521-HV, Drive Motor 4521-DM, Farebox 4521-FB.</div>
-<p>Each component is a child of the bus via an Asset Relationship record. The children can have their own Cases (an issue specific to the battery pack vs. the bus overall), and both the bus and each component can appear on the Related List - Single component you built in Lab 2.</p>
+<p>Each component is a child of the bus via the Parent Asset field (the direct hierarchy you&#x27;ll build in Parts 4-5). Asset Relationships (Part 6) model peer-to-peer links between Assets at the same level, not the hierarchy itself. The children can have their own Cases (an issue specific to the battery pack vs. the bus overall), and both the bus and each component can appear on the Related List - Single component you built in Lab 2.</p>
 <h3>Before you start</h3>
 <div class="bullet">You&#x27;ve completed Lab 1 and Lab 2.</div>
 <div class="bullet">Your golden Case record exists (an NYCT Case tied to MTA New York City Transit, with a Contact populated).</div>
@@ -998,7 +998,7 @@ If the Related List - Single is on the Details tab instead of the Other Related 
 <h4>1.2 — Confirm the tab appeared (and fallback if it didn&#x27;t)</h4>
 <div class="step"><span class="step-num">1.</span><span class="step-text">Return to the ServicePulse 360 app (close Setup or switch tabs).</span></div>
 <div class="step"><span class="step-num">2.</span><span class="step-text">Look at the navigation bar at the top. Assets should appear.</span></div>
-<div class="callout callout-default"><span class="callout-label">Fallback if Assets isn&#x27;t visible</span>Setup UI changes sometimes take a minute to propagate. If Assets doesn&#x27;t appear in the nav bar after returning to the app, use the manual personalize-nav approach instead: on any page in the ServicePulse 360 app, click the pencil icon on the far right of the navigation bar. The Edit [App] Navigation Items dialog opens. Click Add More Items. Search Assets, pick it, click Add 1 Nav Item. Save. Assets now appears.</div>
+<div class="callout callout-default"><span class="callout-label">Fallback if Assets isn&#x27;t visible</span>In most workshop orgs the Asset tab is pre-set to Default On via the pre-workshop deploy, so adding Assets to the App Launcher is enough. If your org wasn&#x27;t pre-deployed (or the setting didn&#x27;t take), use the pencil-icon fallback. If Assets doesn&#x27;t appear in the nav bar after returning to the app, use the manual personalize-nav approach instead: on any page in the ServicePulse 360 app, click the pencil icon on the far right of the navigation bar. The Edit [App] Navigation Items dialog opens. Click Add More Items. Search Assets, pick it, click Add 1 Nav Item. Save. Assets now appears.</div>
 <div class="callout callout-verify"><span class="callout-label">Verified? Great job.</span>This means the Assets tab is accessible from the ServicePulse 360 app. We&#x27;ll use it throughout Lab 3.</div>
 <h3>Part 2 — Tour the standard Asset object (5 min)</h3>
 <p>Before building, see what Asset gives you out of the box.</p>
@@ -1011,7 +1011,7 @@ If the Related List - Single is on the Details tab instead of the Other Related 
 <p>Before we create any Assets, let&#x27;s set up the Asset Layout to show only the fields and related lists we care about. This includes adding the Parent Asset field, trimming unused fields, adding a Child Assets related list configured with the right columns, and adding a Related Assets related list beneath it.</p>
 <div class="callout callout-why"><span class="callout-label">Why layout-first?</span>If we create Assets first and then edit the layout, we have to go back and forth. Doing the layout once up front means every Asset we create is already clean and complete.</div>
 <h4>3.1 — Open the Asset Layout</h4>
-<div class="step"><span class="step-num">1.</span><span class="step-text">In the Page Layouts list, click the layout named &quot;Asset Layout&quot;.</span></div>
+<div class="step"><span class="step-num">1.</span><span class="step-text">Navigate: Setup &gt; Object Manager &gt; Asset &gt; Page Layouts. In the Page Layouts list, click the layout named &quot;Asset Layout&quot;.</span></div>
 <h4>3.2 — Add Parent Asset to the layout</h4>
 <div class="step"><span class="step-num">1.</span><span class="step-text">From the palette at the top, use Quick Find to search Parent Asset.</span></div>
 <div class="step"><span class="step-num">2.</span><span class="step-text">Drag Parent Asset onto the canvas. A good placement is below Asset Name.</span></div>
@@ -1033,7 +1033,7 @@ If the Related List - Single is on the Details tab instead of the Other Related 
 <div class="substep">Account Name</div>
 <div class="substep">Status</div>
 <div class="step"><span class="step-num">5.</span><span class="step-text">Click OK.</span></div>
-<h4>3.5 — Add the Related Assets related list below Child Assets</h4>
+<h4>3.5 — Add the Related Assets and Primary Assets related lists below Child Assets</h4>
 <div class="step"><span class="step-num">1.</span><span class="step-text">From the palette, drag Related Assets into the Related Lists section, directly beneath Child Assets.</span></div>
 <div class="step"><span class="step-num">2.</span><span class="step-text">Click the wrench icon on the Related Assets related list header.</span></div>
 <div class="step"><span class="step-num">3.</span><span class="step-text">In the Selected Fields list, configure columns:</span></div>
@@ -1041,6 +1041,7 @@ If the Related List - Single is on the Details tab instead of the Other Related 
 <div class="substep">Related Asset</div>
 <div class="substep">Relationship Type</div>
 <div class="step"><span class="step-num">4.</span><span class="step-text">Click OK.</span></div>
+<div class="step"><span class="step-num">5.</span><span class="step-text">From the palette, drag Primary Assets into the Related Lists section, directly beneath Related Assets. In Part 6 you&#x27;ll create an Asset Relationship from Battery Pack to HVAC Unit. Related Assets shows that record on Battery Pack (the primary side); Primary Assets shows the same record on HVAC Unit (the reverse side). One Asset Relationship record, two views, driven by which Asset you&#x27;re looking at.</span></div>
 <h4>3.6 - Add the Work Orders related list to the Asset Layout</h4>
 <div class="step"><span class="step-num">1.</span><span class="step-text">From the palette, drag Work Orders into the Related Lists section (below Child Assets and Related Assets).</span></div>
 <div class="step"><span class="step-num">2.</span><span class="step-text">Click the wrench icon on the Work Orders related list header to edit its columns.</span></div>
@@ -2560,7 +2561,7 @@ If the Related List - Single is on the Details tab instead of the Other Related 
 <div class="bullet">Lab 1 — Extend Case for Multi-Agency Intake (~75 min)</div>
 <div class="bullet">Lab 1.5 — Tour Pre-Loaded MTA Data (~5 min)</div>
 <div class="bullet">Lab 2 — Lightning App Builder &amp; Dynamic Forms (~45 min)</div>
-<div class="bullet">Lab 3 — Asset Hierarchy for MTA Infrastructure (~60 min)</div>
+<div class="bullet">Lab 3 — Asset Hierarchy for MTA Infrastructure (~90 min)</div>
 <div class="bullet">Lab 4 — Field Service Foundations (~70 min)</div>
 <div class="bullet">Lab 5 — Service Disruption Custom Object (~75 min)</div>
 <div class="bullet">Lab 6 — Platform Showcase (~115 min)</div>
