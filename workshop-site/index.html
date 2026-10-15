@@ -1502,9 +1502,9 @@ If the Related List - Single is on the Details tab instead of the Other Related 
 <p>Record Type 3 (MNR):</p>
 <div class="step"><span class="step-num">11.</span><span class="step-text">Record Type Label: MNR. Record Type Name: MNR. Description: Metro-North Railroad disruptions. Check Active. Scroll down and check the box on the line for System Administrator. Click Next. Click Save &amp; New.</span></div>
 <p>Record Type 4 (B&amp;T):</p>
-<div class="step"><span class="step-num">12.</span><span class="step-text">Record Type Label: B&amp;T. Record Type Name: BandT (API names can&#x27;t contain ampersands; the Name field will auto-fill to a sanitized version. If the auto-fill shows B_T or similar, correct it to BandT manually.)</span></div>
+<div class="step"><span class="step-num">12.</span><span class="step-text">Record Type Label: B&amp;T. Record Type Name: BandT (API names can&#x27;t contain ampersands; the Name field will auto-fill to a sanitized version. If the auto-fill shows BandT or similar, correct it to BandT manually.)</span></div>
 <div class="step"><span class="step-num">13.</span><span class="step-text">Description: MTA Bridges and Tunnels disruptions. Check Active. Scroll down and check the box on the line for System Administrator. Click Next. Click Save (not Save &amp; New, this is the last Record Type).</span></div>
-<div class="callout callout-watch"><span class="callout-label">Watch out</span>The B&amp;T Record Type Name may render as B_T when the Label is B&amp;T. If so, manually change the Name to BandT before saving so the API name is consistent with Lab 1&#x27;s Case Record Type.</div>
+<div class="callout callout-watch"><span class="callout-label">Watch out</span>The B&amp;T Record Type Name may render as BandT when the Label is B&amp;T. If so, manually change the Name to BandT before saving so the API name is consistent with Lab 1&#x27;s Case Record Type.</div>
 <div class="callout callout-verify"><span class="callout-label">Verified? Great job!</span>Service Disruption has four Active Record Types (NYCT, LIRR, MNR, B&amp;T), mirroring the Case Record Type pattern from Lab 1.</div>
 <h3>Part 4 - Add a Case lookup to Service Disruption (8 min)</h3>
 <p>One disruption can spawn many Cases. We add a Service Disruption lookup field on Case so each Case can optionally reference its parent disruption.</p>
@@ -1581,7 +1581,7 @@ If the Related List - Single is on the Details tab instead of the Other Related 
 <div class="bullet">Record Type picker doesn&#x27;t appear when creating a Service Disruption: at least two Record Types must be Active AND the running user&#x27;s profile must have access to them (Part 3.2 System Administrator checkbox).</div>
 <div class="bullet">Service Disruption field not visible on the Case record page: Part 4.1 includes the Dynamic Forms-enabled record page step. If missed, open the Case record page in Edit Page and drag Service Disruption onto the canvas from the Fields panel.</div>
 <div class="bullet">Rider Cases related list empty on the disruption: your Golden Case&#x27;s Service Disruption lookup isn&#x27;t populated. Return to the Case and set it.</div>
-<div class="bullet">B&amp;T Record Type Name shows as B_T instead of BandT: manually correct it to BandT when creating the Record Type to match the Case Record Type pattern from Lab 1.</div>
+<div class="bullet">B&amp;T Record Type Name shows as BandT instead of BandT: manually correct it to BandT when creating the Record Type to match the Case Record Type pattern from Lab 1.</div>
 <h3>What&#x27;s next</h3>
 <p>The subsequent hands-on lab wires Agentforce into Service Disruption. You&#x27;ll build an Agent Action that reads the active Service Disruptions for a given agency, then build a Prompt Template that generates rider-facing message text from the disruption&#x27;s Headline and Description. The Rider-Facing Message field you left empty in Part 6.1 becomes the Prompt Template&#x27;s output destination. The Executive Scenario Simulation that closes the workshop ties the full chain together: a disruption is declared, Cases roll in, a Work Order dispatches, Agentforce drafts the public message, the dashboard reflects the live state.</p>
   </div>
@@ -1980,20 +1980,20 @@ If the Related List - Single is on the Details tab instead of the Other Related 
   </div>
   <div class="lab-body" id="body-7">
     <h2 class="lab-title">Lab 7 - Agentforce Dispatcher Assistant</h2>
-<p class="lab-subtitle">ServicePulse 360 Workshop v0.7 (revision 2) | Estimated time: 70 minutes | Build an Agentforce Employee Agent that collapses the full Service Disruption lifecycle into a single natural-language sentence. The dispatcher types one sentence, the agent creates the record, drafts the Rider-Facing Message via the Prompt Template you built in Lab 6, submits for approval, and quotes the drafted message back in the chat. The payoff for everything you built in Labs 1 through 6.</p>
+<p class="lab-subtitle">ServicePulse 360 Workshop v0.7 (revision 3) | Estimated time: 70 minutes (base) or 85 minutes with the optional Part 5 stretch | Build an Agentforce Employee Agent that collapses the full Service Disruption lifecycle into a single natural-language sentence. The dispatcher types one sentence, the agent creates the record, drafts the Rider-Facing Message via the Prompt Template you built in Lab 6, submits for approval, and quotes the drafted message back in the chat. The payoff for everything you built in Labs 1 through 6.</p>
 <h3>What you&#x27;re building and why</h3>
 <p>It is 7:14 AM at the MTA Operations Center. A radio report comes in: signal fault at Vernon Blvd on the 7 Line, 20-minute delays expected. The dispatcher could do what you did in Lab 6: click New Service Disruption, fill five fields, Save, click Draft Rider Message, review the AI output, click Save, click Submit for Approval. About 15 clicks and 90 seconds of attention.</p>
 <p>Or the dispatcher could type one sentence to an Agentforce assistant.</p>
 <p>In this lab you build the agent. One Topic, one Flow-based Action. The agent takes a sentence like &quot;File a Service Disruption. NYCT, 7 Line, signal fault near Vernon Blvd station, 20-minute delays expected.&quot; and performs the whole lifecycle: creates the Service Disruption record, calls your Rider Facing Message Generator prompt template, writes the AI-drafted message back to the record, submits for approval, and replies in chat with the drafted message quoted so the dispatcher can see what rode out the door.</p>
 <p>By the end you will have:</p>
 <div class="bullet">An autolaunched Flow called File Service Disruption that takes four inputs (agency, affected line, headline, description) and performs the full create-draft-submit lifecycle.</div>
-<div class="bullet">A cloned Agentforce Employee Agent for the MTA Dispatcher persona.</div>
+<div class="bullet">A new Agentforce Employee Agent for the MTA Dispatcher persona.</div>
 <div class="bullet">A Topic called Service Disruption Management with slot-filling instructions, so if the dispatcher omits an input the agent asks only for what is missing.</div>
 <div class="bullet">An Agent Action that wraps the Flow and surfaces it to natural-language prompts.</div>
 <div class="bullet">A tested wow moment in the agent panel where one sentence produces a filed, drafted, approval-routed Service Disruption.</div>
 <div class="bullet">Optional stretch: a Resolve Disruption action for &quot;close out SD-00042, we&#x27;re back up&quot; style natural-language clearing.</div>
 <h3>Before you start</h3>
-<div class="bullet">Labs 1 through 6 are complete. SD-00001 exists with Headline, Public Description, and Rider-Facing Message populated. The Rider Facing Message Generator prompt template is active.</div>
+<div class="bullet">Labs 1 through 6 are complete. SD-00001 exists with Headline, Description, and Rider-Facing Message populated. The Rider Facing Message Generator prompt template is active.</div>
 <div class="bullet">Agentforce (Default) permission set is assigned to your user. (If an agent conversation never surfaces, this is the first thing to check.)</div>
 <div class="bullet">Einstein Prompt Templates permission set is assigned to your user. (Required so your user can call the Rider Facing Message Generator template inside the Flow.)</div>
 <div class="bullet">The Approval Process built in Lab 6 Part 4 is active on Service Disruption.</div>
@@ -2001,11 +2001,11 @@ If the Related List - Single is on the Details tab instead of the Other Related 
 <h3>Part 1 - Open the Agent panel and confirm prerequisites (5 min)</h3>
 <h4>1.1 - Open the Agentforce panel</h4>
 <div class="step"><span class="step-num">1.</span><span class="step-text">App Launcher then open the ServicePulse 360 app.</span></div>
-<div class="step"><span class="step-num">2.</span><span class="step-text">Click the Service Disruptions tab. You should see at least SD-00001 in the list view.</span></div>
+<div class="step"><span class="step-num">2.</span><span class="step-text">Click the Service Disruptions tab. You should see at least SD-00001 in the list view.</span></div><div class="callout callout-watch"><span class="callout-label">Watch out</span>If the Service Disruptions tab shows only Recently Viewed and SD-00001 is not visible, create an All list view: click the list view dropdown, click New, Name = All Service Disruptions, All records, Save. Records that an agent creates later in Lab 7 are never &quot;recently viewed&quot;, so you need an All view to see them.</div>
 <div class="step"><span class="step-num">3.</span><span class="step-text">Open SD-00001 to confirm Rider-Facing Message is populated (from Lab 6 Part 3.7) and Publish Status is Approved (from Lab 6 Part 4.6).</span></div>
 <div class="step"><span class="step-num">4.</span><span class="step-text">In the top-right of the Salesforce UI, locate the Agentforce icon (a dark-blue circle with a stylized robot face, tooltip reads &quot;Agentforce&quot; on hover). Click it to open the Agent panel on the right side of the screen.</span></div>
 <div class="callout callout-watch"><span class="callout-label">Watch out</span>If the Agentforce icon is missing, confirm Agentforce (Default) permission set is assigned to your user. Setup &gt; Permission Set Assignments &gt; click your user &gt; verify Agentforce (Default) is in the list. If missing, add it, refresh the browser, and try again.</div>
-<div class="step"><span class="step-num">5.</span><span class="step-text">You should see a chat panel titled &quot;Merchant Management Assistant&quot; (the Pronto template&#x27;s default agent) with a &quot;Let&#x27;s chat!&quot; greeting and three starter prompt chips. Note the agent name at the top-left of the panel. We&#x27;ll replace this with our MTA Dispatcher Agent in Part 3.</span></div>
+<div class="step"><span class="step-num">5.</span><span class="step-text">You should see a chat panel titled &quot;Merchant Management Agent&quot; (the Pronto template&#x27;s default agent) with a &quot;Let&#x27;s chat!&quot; greeting and three starter prompt chips. Note the agent name at the top-left of the panel. We&#x27;ll replace this with our MTA Dispatcher Agent in Part 3.</span></div>
 <h4>1.2 - Confirm the Prompt Template is active</h4>
 <div class="step"><span class="step-num">1.</span><span class="step-text">From Setup, Quick Find: Prompt Builder, click Prompt Builder.</span></div>
 <div class="step"><span class="step-num">2.</span><span class="step-text">Confirm Rider Facing Message Generator appears in the list with Status = Active. If it is Draft, click into it and click Activate (top-right).</span></div>
@@ -2015,7 +2015,7 @@ If the Related List - Single is on the Details tab instead of the Other Related 
 <h4>2.1 - Create a new autolaunched Flow</h4>
 <div class="step"><span class="step-num">1.</span><span class="step-text">From Setup, Quick Find: Flows, click Flows.</span></div>
 <div class="step"><span class="step-num">2.</span><span class="step-text">Click New Flow (top-right).</span></div>
-<div class="step"><span class="step-num">3.</span><span class="step-text">Select Start From Scratch, click Next.</span></div>
+<div class="step"><span class="step-num">3.</span><span class="step-text">Click Next.</span></div>
 <div class="step"><span class="step-num">4.</span><span class="step-text">Select Autolaunched Flow (No Trigger). Click Create.</span></div>
 <div class="callout callout-watch"><span class="callout-label">Watch out</span>Do not pick Record-Triggered Flow (that was Lab 6). Autolaunched Flow is what the Agent Action will call.</div>
 <h4>2.2 - Create the four input variables</h4>
@@ -2039,8 +2039,8 @@ If the Related List - Single is on the Details tab instead of the Other Related 
 <div class="step"><span class="step-num">4.</span><span class="step-text">API Name: Get_Agency_Record_Type (auto-fills).</span></div>
 <div class="step"><span class="step-num">5.</span><span class="step-text">Object: Record Type.</span></div>
 <div class="step"><span class="step-num">6.</span><span class="step-text">Filter Record Type Records: All Conditions Are Met.</span></div>
-<div class="substep">Condition 1: Field: SobjectType. Operator: Equals. Value: Service_Disruption__c (type it as a literal string, with the __c suffix).</div>
-<div class="substep">Condition 2 (click Add Condition): Field: DeveloperName. Operator: Equals. Value: click the resource picker and select agencyRecordType.</div>
+<div class="substep">Condition 1: Field: SObject Type Name. Operator: Equals. Value: Service_Disruption__c (type it as a literal string, with the __c suffix).</div>
+<div class="substep">Condition 2 (click Add Condition): Field: Record Type Name. Operator: Equals. Value: click the resource picker and select agencyRecordType.</div>
 <div class="step"><span class="step-num">7.</span><span class="step-text">How Many Records to Store: Only the first record.</span></div>
 <div class="step"><span class="step-num">8.</span><span class="step-text">How to Store Record Data: Automatically store all fields.</span></div>
 <div class="step"><span class="step-num">9.</span><span class="step-text">Click Done.</span></div>
@@ -2174,7 +2174,7 @@ If the Related List - Single is on the Details tab instead of the Other Related 
 <div class="step"><span class="step-num">5.</span><span class="step-text">Classification Description: paste this text. (This is what the main agent uses to decide when to route to this subagent.)</span></div>
 <div class="substep">The user wants to file, draft, or submit a Service Disruption for the MTA. Service Disruptions describe operational problems on NYCT subways, LIRR commuter rail, Metro-North commuter rail, or Bridges and Tunnels. The user will describe the agency, the affected line or roadway, a brief headline of what happened, and a description including any delay estimate or location detail.</div>
 <div class="step"><span class="step-num">6.</span><span class="step-text">Reasoning Instructions: paste this text. (This is the free-text field inside the Subagent that guides how the agent reasons when this Subagent is active.)</span></div>
-<div class="substep">Help MTA dispatchers file Service Disruption records, draft rider-facing messages using the Rider Facing Message Generator prompt template, and route them through the approval process. Confirm agency, affected line, headline, and description before firing the action. If any of the four required inputs (agency, affected line, headline, description) is missing from the user&#x27;s request, ask the user for only the specific missing fields. Do not re-ask for fields that have already been provided. Agency must be one of: NYCT, LIRR, MNR, B_T. If the user says the 7 Line or N train, infer NYCT. If the user says the Hudson Line or Harlem Line, infer MNR. If the user says the Montauk Branch or Port Washington Branch, infer LIRR. If the user says a bridge or tunnel name like Verrazzano, Throgs Neck, or Lincoln Tunnel, infer B_T. State the inferred agency in your reply so the dispatcher can correct it. After the File Service Disruption action completes, reply with the new Service Disruption Name and quote the drafted Rider-Facing Message verbatim so the dispatcher can see what was drafted before the Communications Lead approves it.</div>
+<div class="substep">Help MTA dispatchers file Service Disruption records, draft rider-facing messages using the Rider Facing Message Generator prompt template, and route them through the approval process. Confirm agency, affected line, headline, and description before firing the action. If any of the four required inputs (agency, affected line, headline, description) is missing from the user&#x27;s request, ask the user for only the specific missing fields. Do not re-ask for fields that have already been provided. Agency must be one of: NYCT, LIRR, MNR, BandT. If the user says the 7 Line or N train, infer NYCT. If the user says the Hudson Line or Harlem Line, infer MNR. If the user says the Montauk Branch or Port Washington Branch, infer LIRR. If the user says a bridge or tunnel name like Verrazzano, Throgs Neck, or Lincoln Tunnel, infer BandT. State the inferred agency in your reply so the dispatcher can correct it. After the File Service Disruption action completes, reply with the new Service Disruption Name and quote the drafted Rider-Facing Message verbatim so the dispatcher can see what was drafted before the Communications Lead approves it.</div>
 <div class="step"><span class="step-num">7.</span><span class="step-text">Click Save (or the equivalent commit action).</span></div>
 <h4>3.3 - Add the File Service Disruption Action to the Subagent</h4>
 <p>With Service Disruption Management selected, scroll down in the center area until you see the Actions Available For Reasoning section. This is where you register the Flow as an Action the agent can call.</p>
@@ -2183,7 +2183,7 @@ If the Related List - Single is on the Details tab instead of the Other Related 
 <div class="step"><span class="step-num">3.</span><span class="step-text">Click Create a custom action. The Add Action modal opens.</span></div>
 <div class="step"><span class="step-num">4.</span><span class="step-text">Action Name (required, top of modal): File Service Disruption. (The API Name is derived automatically; you may not see a separate API Name field in this modal.)</span></div>
 <div class="step"><span class="step-num">5.</span><span class="step-text">Description (required, directly below Action Name): paste this text. (This field is what Salesforce documentation calls &quot;Agent Action Instructions&quot; — it tells the agent when and how to call this action.)</span></div>
-<div class="substep">Call this action when the user wants to file a new MTA Service Disruption. Required inputs are agency (NYCT, LIRR, MNR, or B_T), affected line, headline, and description. If any input is missing, ask the user for just the missing one. After the action returns, quote the newSDName and draftedMessage in your reply.</div>
+<div class="substep">Call this action when the user wants to file a new MTA Service Disruption. Required inputs are agency (NYCT, LIRR, MNR, or BandT), affected line, headline, and description. If any input is missing, ask the user for just the missing one. After the action returns, quote the newSDName and draftedMessage in your reply.</div>
 <div class="step"><span class="step-num">6.</span><span class="step-text">Reference Action Type (dropdown below Description): select Flow.</span></div>
 <div class="step"><span class="step-num">7.</span><span class="step-text">Reference Action (search box to the right of Reference Action Type): search File Service Disruption and select the Flow you built in Part 2. A details card appears below showing the Flow&#x27;s Status (Active), Last Modified, and Description.</span></div>
 <div class="step"><span class="step-num">8.</span><span class="step-text">Click Create and Open (bottom-right of the modal). The modal closes and the center area of Agentforce Builder now shows the File Service Disruption action detail view. The action also appears as a child node under Service Disruption Management in the left Explorer panel.</span></div>
@@ -2191,7 +2191,7 @@ If the Related List - Single is on the Details tab instead of the Other Related 
 <div class="step"><span class="step-num">9.</span><span class="step-text">You are now on the File Service Disruption action detail view. Scroll down past the Basic Information section (Action Name, Description, Reference Action Type, Reference Action) until you reach the Inputs section header.</span></div>
 <div class="step"><span class="step-num">10.</span><span class="step-text">Configure the Inputs. The Inputs section lists the four Flow input variables (agencyRecordType, affectedLine, headline, description). For each one, click to expand it (or click into its Instructions / Agent Instructions / Description text box) and paste the matching text below. These guide the agent on what to extract from the user&#x27;s message and pass to the Flow:</span></div>
 <div class="substep">affectedLine: &quot;The subway line, commuter rail line, or bridge/tunnel affected. For example: 7 Line, Hudson Line, Montauk Branch, Verrazzano-Narrows Bridge.&quot;</div>
-<div class="substep">agencyRecordType: &quot;The MTA operating agency. One of: NYCT, LIRR, MNR, B_T. Infer from context if the user mentions a specific line or bridge/tunnel.&quot;</div>
+<div class="substep">agencyRecordType: &quot;The MTA operating agency. One of: NYCT, LIRR, MNR, BandT. Infer from context if the user mentions a specific line or bridge/tunnel.&quot;</div>
 <div class="substep">description: &quot;A longer description including the issue, location detail, and any delay estimate. For example: Signal fault near Vernon Blvd station on the 7 Line. 20-minute delays expected eastbound.&quot;</div>
 <div class="substep">headline: &quot;A short, factual headline for the disruption. For example: Signal fault near Vernon Blvd station.&quot;</div>
 <div class="callout callout-tip"><span class="callout-label">Tip</span>If an input row doesn&#x27;t expand on click, look for a pencil (edit) icon or a chevron (&gt;) at the right of the row. Different Builder versions use different affordances to open the detail. If you don&#x27;t see a free-text Instructions / Description field for an input, the input is still usable at runtime without one, but the agent will have less guidance about what to extract.</div>
@@ -2249,7 +2249,7 @@ If the Related List - Single is on the Details tab instead of the Other Related 
 <div class="substep">Record Type: NYCT</div>
 <div class="substep">Affected Line: 7 Line</div>
 <div class="substep">Headline: Signal fault near Vernon Blvd station</div>
-<div class="substep">Public Description: Signal fault near Vernon Blvd station, 20-minute delays expected eastbound (or similar).</div>
+<div class="substep">Description: Signal fault near Vernon Blvd station, 20-minute delays expected eastbound (or similar).</div>
 <div class="substep">Status: Active</div>
 <div class="substep">Disruption Start Date/Time: today, roughly now</div>
 <div class="substep">Rider-Facing Message: populated with the AI draft</div>
@@ -2271,7 +2271,7 @@ If the Related List - Single is on the Details tab instead of the Other Related 
 <p>For fast movers. Build a second Agent Action so the dispatcher can clear a disruption with a sentence like &quot;close out SD-00042, we&#x27;re back up&quot;. Skip this part if time is tight.</p>
 <h4>5.1 - Build the Resolve Disruption autolaunched Flow</h4>
 <div class="step"><span class="step-num">1.</span><span class="step-text">From Setup, Quick Find: Flows, click Flows.</span></div>
-<div class="step"><span class="step-num">2.</span><span class="step-text">Click New Flow then Start From Scratch then Autolaunched Flow (No Trigger). Click Create.</span></div>
+<div class="step"><span class="step-num">2.</span><span class="step-text">Click New Flow then Autolaunched Flow (No Trigger). Click Create.</span></div>
 <div class="step"><span class="step-num">3.</span><span class="step-text">Create two input variables (New Resource &gt; Variable &gt; Available for Input):</span></div>
 <div class="substep">sdName - Text (for the SD-##### the dispatcher names)</div>
 <div class="substep">resolutionNotes - Text</div>
@@ -2288,7 +2288,7 @@ If the Related List - Single is on the Details tab instead of the Other Related 
 <div class="substep">Set Field Values:</div>
 <div class="substep">Status: Cleared.</div>
 <div class="substep">Disruption Cleared Date/Time: click the resource picker, then under $Flow click &quot;Running Flow Interview&quot; to drill in, then click CurrentDateTime. The value populates as {!$Flow.CurrentDateTime}.</div>
-<div class="substep">Resolution_Notes__c: {!resolutionNotes}.</div>
+<div class="callout callout-watch"><span class="callout-label">Note</span>Resolution Notes is on the Case object, not Service Disruption. If you want to persist resolution notes on the Service Disruption, add a Resolution_Notes__c field to Lab 5&#x27;s data model first; the stretch skips this write.</div>
 <div class="step"><span class="step-num">6.</span><span class="step-text">Save and Activate.</span></div>
 <div class="substep">Flow Label: Resolve Service Disruption.</div>
 <div class="substep">Description: Clears a Service Disruption identified by Name. Sets Status to Cleared, Disruption Cleared Date/Time to now, and writes resolution notes.</div>
@@ -2312,7 +2312,7 @@ If the Related List - Single is on the Details tab instead of the Other Related 
 <div class="step"><span class="step-num">1.</span><span class="step-text">In the Agent panel, type:</span></div>
 <div class="substep">Close out SD-00042, we&#x27;re back up. Signal cleared, trains running normally.</div>
 <div class="step"><span class="step-num">2.</span><span class="step-text">The agent should recognize this as a Resolve action, call the Flow, and reply confirming the SD is cleared.</span></div>
-<div class="step"><span class="step-num">3.</span><span class="step-text">Open SD-00042. Verify Status = Cleared, Disruption Cleared Date/Time is populated, Resolution Notes contains &quot;Signal cleared, trains running normally&quot;, and Duration (Minutes) is now populated (because both timestamps exist).</span></div>
+<div class="step"><span class="step-num">3.</span><span class="step-text">Open SD-00042. Verify Status = Cleared, Disruption Cleared Date/Time is populated, Duration (Minutes) is now populated (because both timestamps exist).</span></div>
 <div class="callout callout-verify"><span class="callout-label">Verified? Great job!</span>Two actions, one Topic. The agent now handles both ends of the Service Disruption lifecycle through natural language. This is the shape a production MTA Agentforce deployment would take.</div>
 <h3>Part 6 - Where to go next (5 min)</h3>
 <p>You just built the core of an MTA Agentforce deployment. In a real engagement we&#x27;d layer on three more capabilities. Walk through these mentally; don&#x27;t build them in the lab.</p>
