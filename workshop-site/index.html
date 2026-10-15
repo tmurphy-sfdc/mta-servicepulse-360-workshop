@@ -2534,7 +2534,7 @@ If the Related List - Single is on the Details tab instead of the Other Related 
       <div class="prep-card done">
         <div class="prep-header">
           <h3>Steps Completed</h3>
-          <span class="prep-count">6</span>
+          <span class="prep-count">7</span>
         </div>
         <div class="prep-body">
           <div class="prep-item"><span class="prep-check">✓</span><div>Workshop content created</div></div>
@@ -2543,82 +2543,21 @@ If the Related List - Single is on the Details tab instead of the Other Related 
           <div class="prep-item"><span class="prep-check">✓</span><div>Planning email sent to participants and MTA leadership</div></div>
           <div class="prep-item"><span class="prep-check">✓</span><div>Lab and workshop content hosting determined (GitHub Pages, public repo)</div></div>
           <div class="prep-item"><span class="prep-check">✓</span><div>Aligned on Mike and John presenting latest innovations relevant to GovCloud customers with existing investments in PSS, Marketing Cloud, Slack, MuleSoft, and Tableau</div></div>
+          <div class="prep-item"><span class="prep-check">✓</span><div>John Hill lab smoke tests complete (Oct 14-15); feedback for Labs 1-7 + Day 2 Verify all addressed and pushed</div></div>
         </div>
       </div>
       <div class="prep-card open">
         <div class="prep-header">
           <h3>Open Items</h3>
-          <span class="prep-count">4</span>
+          <span class="prep-count">3</span>
         </div>
         <div class="prep-body">
-          <div class="prep-item"><span class="prep-todo">○</span><div>John Hill lab smoke tests (smoke test, target Oct 14-15)</div></div>
           <div class="prep-item"><span class="prep-todo">○</span><div>Address VC's request for intro to recent innovations (SIforce-related announcements)</div></div>
           <div class="prep-item"><span class="prep-todo">○</span><div>Determine structure for breakout activity</div></div>
           <div class="prep-item"><span class="prep-todo">○</span><div>Complete timed walkthrough of all content</div></div>
         </div>
       </div>
     </div>
-
-    <div style="margin-top: 36px; padding-top: 28px; border-top: 2px solid #e0e0e0;">
-      <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 16px;">
-        <div>
-          <h3 style="margin: 0 0 4px; color: #002855; font-size: 20px;">John's Smoke Test Brief</h3>
-          <p style="margin: 0; color: #666; font-size: 13px;">Full brief for John Hill's smoke test of Labs 1-7. Scoped Wed-Thu, Oct 14-15.</p>
-        </div>
-        <a class="btn btn-download" href="labs/John%20Smoke%20Test%20Brief.docx" download style="flex-shrink:0;">Download .docx</a>
-      </div>
-      <div class="brief-content" style="background: #fff; border: 1px solid #e0e0e0; border-radius: 10px; padding: 20px 24px; font-size: 14px;">
-
-
-<h3 class="brief-title">John&#x27;s Smoke Test Brief</h3>
-<p class="brief-subtitle">ServicePulse 360 Workshop | MTA | October 19-20, 2026 | Smoke Test run: October 14-15, 2026</p>
-<h4>Thank You</h4>
-<p>John, thanks for offering to walk through the material. This may be one of the first fully-custom Salesforce workshops of its kind, and your run gives us a chance to catch participant-level issues before 20 MTA folks hit them on Day 1.</p>
-<h4>Scope</h4>
-<div class="bullet">Lab 1 — Extend Case for Multi-Agency Intake (~75 min)</div>
-<div class="bullet">Lab 1.5 — Tour Pre-Loaded MTA Data (~5 min)</div>
-<div class="bullet">Lab 2 — Lightning App Builder &amp; Dynamic Forms (~45 min)</div>
-<div class="bullet">Lab 3 — Asset Hierarchy for MTA Infrastructure (~90 min)</div>
-<div class="bullet">Lab 4 — Field Service Foundations (~70 min)</div>
-<div class="bullet">Lab 5 — Service Disruption Custom Object (~75 min)</div>
-<div class="bullet">Lab 6 — Platform Showcase (~115 min)</div>
-<div class="bullet">Lab 7 — Agentforce Dispatcher Assistant (~70 min)</div>
-<p>Work through what you can at the pace that fits your schedule.</p>
-<h4>Your org</h4>
-<p>Pre-deployed before you start, in two packages:</p>
-<div class="bullet"><strong>00-pre-workshop-setup</strong>: time zone set to America/New_York (both User and Org), AgentActionsTest.cls patched, Agentforce Default and Einstein Prompt Templates permsets confirmed.</div>
-<div class="bullet"><strong>01-case-type-picklist</strong>: 13 transit values on standard Case Type (Lab 1 Part 2.2), restaurant-themed "Missing items" removed as Case Reason default (Lab 1 Part 10.2 Golden Record save), Case Record Page swapped to standard Highlights Panel so the compact layout you build in Lab 1 Part 7 actually renders.</div>
-<div class="bullet"><strong>01b-mta-sample-data</strong>: Full sample dataset loaded via `sf data tree import` — 4 MTA agency Accounts (NYCT, LIRR, MNR, B&amp;T) for Lab 1 Part 10.1, 4 Operations Dispatcher Contacts, and 10 realistic seed Cases distributed across the agencies for Lab 1.5 and beyond. Seed Cases load with Record Type = Master because the agency Record Types don&#x27;t exist until participants complete Lab 1 Part 5.</div>
-<p>You build everything else during the labs exactly as participants will.</p>
-<h4>What to look for</h4>
-<div class="bullet">Instruction clarity: where did &#x27;click X&#x27; not match the UI? Where did we assume knowledge a participant wouldn&#x27;t have?</div>
-<div class="bullet">Pacing: any Part that felt much longer or shorter than its stated duration? Where did you lose momentum?</div>
-<div class="bullet">The chain: each lab&#x27;s output feeds the next. Golden Case from Lab 1 threads through Labs 2-5 and gets a Service Disruption lookup. Service Disruption from Lab 5 drives Lab 6&#x27;s Flow, Prompt Builder, Approval, Reports. Lab 6 artifacts get wrapped by Lab 7&#x27;s agent. If a link breaks, downstream labs can fail for reasons that look wrong (the Flow does not fire) but are actually upstream (the Case was not linked in Lab 3).</div>
-<h4>Known gotchas to validate</h4>
-<p>These bit us during authoring. Confirm the guides flag them clearly:</p>
-<div class="bullet">Lab 7 Part 1: utility bar icon is labeled &#x27;Agentforce&#x27; in current orgs</div>
-<div class="bullet">Lab 7 Part 3.1: &#x27;Name your agent&#x27; modal with a Let&#x27;s Go button; no template selection step</div>
-<div class="bullet">Lab 7 Part 3.5: granting Agent Access via Permission Set is required for the agent to appear in the dropdown. Teaching moment, not a hack.</div>
-<div class="bullet">Lab 6 Part 2.4: when &#x27;Manually&#x27; is selected in Create Records, &#x27;How Many Records to Create&#x27; is hidden</div>
-<div class="bullet">Lab 6 Part 2.3: Flow Builder picker uses &#x27;SObject Type Name&#x27; and &#x27;Record Type Name&#x27; labels</div>
-<h4>When you hit something</h4>
-<div class="bullet">Light friction (wording, UI drift): note it, keep going</div>
-<div class="bullet">Hard block (lab breaks, agent won&#x27;t fire): send Tim a note so we can look at it</div>
-<h4>Feedback format</h4>
-<p>Shared doc (Google Doc or whatever works). One line per issue:</p>
-<div class="bullet">Lab X Part Y: what you saw, what you expected, severity (hard block / friction / nice-to-have), screenshot if UI diverged</div>
-<h4>The verdict</h4>
-<p>At the end, one of:</p>
-<div class="bullet">GREEN: ship it. Minor fixes documented; holds up.</div>
-<div class="bullet">YELLOW: ship with specific fixes. Here are the N items to address before Monday.</div>
-<div class="bullet">RED: do not ship as-is. Here&#x27;s what fundamentally doesn&#x27;t work.</div>
-<p>We&#x27;ll trust whichever call you make.</p>
-<h4>Wrap</h4>
-<p>We really appreciate having you walk through what you can. Thank you!</p>
-      
-      
-    </div>
-  
   </div>
 </section>
 </main>
