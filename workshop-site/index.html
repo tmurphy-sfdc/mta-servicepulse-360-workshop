@@ -506,7 +506,7 @@ nav.topnav a.internal-link::before { content: "🔒 "; }
   </div>
   <div class="lab-body" id="body-1">
     <h2 class="lab-title">Lab 1 — Extend the Case Object for Multi-Agency Intake</h2>
-<p class="lab-subtitle">ServicePulse 360 Workshop v0.7 (revision 10) | Estimated time: 104 minutes | You will create the ServicePulse 360 Lightning App, customize the standard Salesforce Case object (Priority field, Type field) for MTA&#x27;s multi-agency operations, add two custom fields where standard genuinely can&#x27;t fit, place those fields on the Lightning record page via Dynamic Forms, and finish by creating a Golden Record you&#x27;ll use throughout the rest of the workshop.</p>
+<p class="lab-subtitle">ServicePulse 360 Workshop v0.7 (revision 11) | Estimated time: 104 minutes | You will create the ServicePulse 360 Lightning App, customize the standard Salesforce Case object (Priority field, Type field) for MTA&#x27;s multi-agency operations, add two custom fields where standard genuinely can&#x27;t fit, place those fields on the Lightning record page via Dynamic Forms, and finish by creating a Golden Record you&#x27;ll use throughout the rest of the workshop.</p>
 <h3>What you&#x27;re building and why</h3>
 <p>MTA&#x27;s production Salesforce environment (Cassie) runs on the standard Case object. So does almost every Service Cloud implementation. This lab teaches the most common pattern in real-world Salesforce administration: taking standard objects and standard fields and configuring them to match a specific business context. You won&#x27;t build a parallel custom object. You won&#x27;t even add custom picklists for things the standard fields can already model. You&#x27;ll customize the standard picklists&#x27; values.</p>
 <p>By the end of this lab, your org will have a dedicated ServicePulse 360 Lightning App, four agency-specific Record Types on the standard Case object (NYCT, LIRR, MNR, B&amp;T), the standard Priority and Type picklists customized to MTA&#x27;s vocabulary (P1 through P4 for Priority, 13 transit-specific values for Type), two custom fields where standard genuinely doesn&#x27;t fit, a tailored page layout, both custom fields placed on the Lightning record page&#x27;s canvas via Dynamic Forms, and a Golden Record (a well-populated Case) that you&#x27;ll use as the central example throughout the rest of the two-day workshop.</p>
@@ -538,7 +538,7 @@ nav.topnav a.internal-link::before { content: "🔒 "; }
 <h4>Navigate</h4>
 <p>Click the gear icon (top-right of the screen) then Setup. Setup opens in a new browser tab. In the Quick Find box (top-left of Setup), type App Manager and click the result.</p>
 <h4>Create the app</h4>
-<div class="step"><span class="step-num">1.</span><span class="step-text">On the Lightning Experience App Manager page, click New Lightning App (top-right).</span></div>
+<div class="step"><span class="step-num">1.</span><span class="step-text">On the Lightning Experience App Manager page, click New App (top-right) then select New Lightning App from the menu.</span></div>
 <div class="step"><span class="step-num">2.</span><span class="step-text">App Details: App Name = ServicePulse 360. Developer Name = ServicePulse_360 (auto-fills). Description = Multi-agency service management for NYCT, LIRR, MNR, and B&amp;T. Click Next.</span></div>
 <div class="step"><span class="step-num">3.</span><span class="step-text">App Options: leave Standard navigation selected. Click Next.</span></div>
 <div class="step"><span class="step-num">4.</span><span class="step-text">Utility Items: leave empty for now. Click Next.</span></div>
@@ -547,18 +547,19 @@ nav.topnav a.internal-link::before { content: "🔒 "; }
 <h4>Open the app</h4>
 <div class="step"><span class="step-num">1.</span><span class="step-text">Click the App Launcher (nine-dot grid in the top-left of the navigation bar).</span></div>
 <div class="step"><span class="step-num">2.</span><span class="step-text">Search ServicePulse 360 and click the result. The ServicePulse 360 app opens.</span></div>
+<div class="step"><span class="step-num">3.</span><span class="step-text">Right-click the App Launcher (nine-dot grid), click View All, find ServicePulse 360 in the Apps list, then drag it to the top of the list so it&#x27;s easy to find from Setup and other pages.</span></div>
 <div class="callout callout-verify"><span class="callout-label">Verify</span>The navigation bar at the top-left reads &quot;ServicePulse 360&quot; rather than &quot;Sales&quot; or another default. From here on, every &quot;App Launcher ...&quot; instruction in this lab assumes you are inside the ServicePulse 360 app.</div>
 <h3>Part 1 — Tour the standard Case object (5 min)</h3>
 <p>Before customizing Case, see what&#x27;s already there. Standard-first means knowing what you don&#x27;t have to build.</p>
 <div class="step"><span class="step-num">1.</span><span class="step-text">From Setup, in the Quick Find box, type Object Manager and click the result.</span></div>
-<div class="step"><span class="step-num">2.</span><span class="step-text">In the Object Manager list, find Case and click the label.</span></div>
+<div class="step"><span class="step-num">2.</span><span class="step-text">In the Object Manager list, find Case and click the label. Tip: use the Quick Find box at the top of the Object Manager list to filter to &#x27;Case&#x27; instead of scrolling.</span></div>
 <div class="step"><span class="step-num">3.</span><span class="step-text">Click Fields &amp; Relationships in the left sidebar. Scroll the list. Notice the standard fields already there, listed alphabetically: Account Name, Case Number, Contact Name, Description, Origin, Owner, Priority, Status, Subject, Type, plus dozens more. Every one of them is already wired into reports, automation, and the case lifecycle.</span></div>
 <div class="step"><span class="step-num">4.</span><span class="step-text">Click Priority. Scroll down to the &quot;Case Priority Picklist Values&quot; section. Notice the existing picklist values (likely High, Medium, Low). We&#x27;ll change these in Part 2.1.</span></div>
 <div class="step"><span class="step-num">5.</span><span class="step-text">Click back to Fields &amp; Relationships then click Type. Scroll down to the &quot;Case Type Picklist Values&quot; section. Notice the existing values already include MTA&#x27;s transit values. These were pre-deployed for time. We&#x27;ll tour them in Part 2.2.</span></div>
 <div class="step"><span class="step-num">6.</span><span class="step-text">Click Record Types in the left sidebar. The list is empty. Standard Case ships without Record Types; we add them in Part 5.</span></div>
 <div class="callout callout-why"><span class="callout-label">Why this matters</span>Every field you saw already works. Status drives case lifecycle. Priority feeds escalation rules. Contact Name creates a relationship between the case and the contact record within Cassie. You&#x27;re not replacing any of that. You&#x27;re tailoring the values.</div>
 <h3>Part 2 — Customize the standard Priority and Type picklists (10 min)</h3>
-<p>Same physical interface as adding a new picklist field, but instead of creating a new field, you&#x27;re modifying the values on an existing standard one. This is the most common Salesforce admin task: configure standard fields to match the business.</p>
+<p>Navigation: From Setup, use the Quick Find box to search &#x27;Object Manager&#x27;, click it, then find Case and click it. Click Fields &amp; Relationships in the left sidebar. You&#x27;ll land on the field list where you can click Priority (Part 2.1) and Type (Part 2.2).</p>
 <h4>2.1 — Customize Priority (replace High/Medium/Low with P1 through P4) (hands-on)</h4>
 <div class="step"><span class="step-num">1.</span><span class="step-text">On the Priority field detail page, scroll to the Case Priority Picklist Values section. You&#x27;ll see the current values (High, Medium, Low).</span></div>
 <div class="step"><span class="step-num">2.</span><span class="step-text">In the Case Priority Picklist Values section, click the New button.</span></div>
@@ -570,28 +571,31 @@ nav.topnav a.internal-link::before { content: "🔒 "; }
 <div class="substep">P4 - Low</div>
 <div class="callout callout-tip"><span class="callout-label">Tip</span>Each value goes on its own line. This is how Salesforce parses them.</div>
 <div class="step"><span class="step-num">4.</span><span class="step-text">Click Save.</span></div>
-<div class="step"><span class="step-num">5.</span><span class="step-text">You&#x27;re back on the Priority detail page. Now deactivate the existing values you no longer want:</span></div>
+<div class="step"><span class="step-num">5.</span><span class="step-text">You&#x27;re back on the Priority detail page. First, set P3 - Medium as the default: find P3 - Medium in the Active Values section, click Edit, check the Default checkbox, then Save.</span></div>
+<div class="step"><span class="step-num">6.</span><span class="step-text">Now deactivate the three current defaults by clicking Deactivate next to each:</span></div>
 <div class="substep">Click Deactivate next to High then confirm.</div>
 <div class="substep">Click Deactivate next to Medium then confirm.</div>
 <div class="substep">Click Deactivate next to Low then confirm.</div>
+<div class="callout callout-watch"><span class="callout-label">Watch out</span>Deactivations can take 15-30 seconds to register in the UI. If a value still appears in Active Values after you confirm Deactivate, refresh the page to see the updated state before deactivating the next one.</div>
 <div class="callout callout-watch"><span class="callout-label">Watch out</span>Deactivating a value that&#x27;s referenced by existing records is allowed. Salesforce keeps those records intact, marks the value with an asterisk in the picklist editor, and continues to display it on existing records. New records can no longer pick the deactivated values.</div>
-<div class="step"><span class="step-num">6.</span><span class="step-text">Now set P3 - Medium as the default. Find P3 - Medium in the Active Values section then click Edit then check the Default checkbox then Save.</span></div>
 <div class="callout callout-verify"><span class="callout-label">Verify</span>On Setup then Object Manager then Case then Fields &amp; Relationships then Priority then Case Priority Picklist Values section: the Active Values list shows P1 - Critical, P2 - High, P3 - Medium (with a checkmark in the Default column), P4 - Low. The Inactive Values list below shows High, Medium, Low.</div>
 <h4>2.2 — Tour the customized Type picklist (already pre-deployed)</h4>
 <p>Type uses the same customization pattern you just applied to Priority, but at scale: 13 new active values and multiple restaurant-themed defaults deactivated. Doing all of those clicks manually would be 5 or more minutes of repetition that doesn&#x27;t teach you anything new. So Type was pre-deployed for you.</p>
-<div class="step"><span class="step-num">1.</span><span class="step-text">Scroll to the Case Type Picklist Values section.</span></div>
-<div class="step"><span class="step-num">2.</span><span class="step-text">Look at the Case Type Picklist Values list. You should see 13 transit-specific values in the Active Values section: Track Defect, Station Incident, Train Delay, Signal Issue, MTA Police Response, Equipment Failure, Crossing Incident, Catenary Issue, Toll System Issue, Traffic Incident, E-ZPass Dispute, Bridge/Tunnel Closure, Maintenance Required.</span></div>
-<div class="step"><span class="step-num">3.</span><span class="step-text">Look at the Inactive Values list below. At minimum you&#x27;ll see seven restaurant-themed values (Account &amp; Profile, Customer Order Issue, Delivery &amp; Driver Issue, Feedback &amp; Reviews, Merchant Operations, Platform / Technical Issue, Refund / Compensation), and possibly additional defaults depending on when your org was provisioned.</span></div>
+<div class="step"><span class="step-num">1.</span><span class="step-text">Navigate to Setup &gt; Object Manager &gt; Case &gt; Fields &amp; Relationships. In the field list, find and click the field named &#x27;Type&#x27; (not any heading containing the word &#x27;Type&#x27; — just click the row whose Field Label is &#x27;Type&#x27;).</span></div>
+<div class="step"><span class="step-num">2.</span><span class="step-text">Scroll to the Case Type Picklist Values section.</span></div>
+<div class="step"><span class="step-num">3.</span><span class="step-text">Look at the Case Type Picklist Values list. You should see 13 transit-specific values in the Active Values section: Track Defect, Station Incident, Train Delay, Signal Issue, MTA Police Response, Equipment Failure, Crossing Incident, Catenary Issue, Toll System Issue, Traffic Incident, E-ZPass Dispute, Bridge/Tunnel Closure, Maintenance Required.</span></div>
+<div class="step"><span class="step-num">4.</span><span class="step-text">Look at the Inactive Values list below. At minimum you&#x27;ll see seven restaurant-themed values (Account &amp; Profile, Customer Order Issue, Delivery &amp; Driver Issue, Feedback &amp; Reviews, Merchant Operations, Platform / Technical Issue, Refund / Compensation), and possibly additional defaults depending on when your org was provisioned.</span></div>
 <div class="callout callout-why"><span class="callout-label">Why this matters</span>This is the same pattern you applied to Priority, just bigger. The mechanic is identical. In production you&#x27;d do this work yourself; here we did it for you because the lesson is the principle, not the click count.</div>
 <h3>Part 3 — Add the two custom fields (10 min)</h3>
 <p>Now we add the two custom fields. For each one, we&#x27;ll see why standard couldn&#x27;t fit.</p>
 <h4>3.1 — Resolution Notes (Long Text Area)</h4>
 <p>Test: does standard Case have a dedicated resolution-narrative field? No. Description holds the original report. There&#x27;s no standard equivalent for resolution notes. Custom is justified.</p>
-<div class="step"><span class="step-num">1.</span><span class="step-text">Click the New button.</span></div>
-<div class="step"><span class="step-num">2.</span><span class="step-text">Choose Text Area (Long) then Next.</span></div>
-<div class="step"><span class="step-num">3.</span><span class="step-text">Field Label: Resolution Notes. Length: 32768. Visible Lines: 5.</span></div>
-<div class="step"><span class="step-num">4.</span><span class="step-text">Description: Notes captured when the case is resolved.</span></div>
-<div class="step"><span class="step-num">5.</span><span class="step-text">Click Next then Next (FLS defaults) then Next (Page Layouts default) then Save &amp; New.</span></div>
+<div class="step"><span class="step-num">1.</span><span class="step-text">From the Case object, click Fields &amp; Relationships in the left sidebar if you aren&#x27;t already there.</span></div>
+<div class="step"><span class="step-num">2.</span><span class="step-text">Click the New button.</span></div>
+<div class="step"><span class="step-num">3.</span><span class="step-text">Choose Text Area (Long) then Next.</span></div>
+<div class="step"><span class="step-num">4.</span><span class="step-text">Field Label: Resolution Notes. Length: 32768. Visible Lines: 5.</span></div>
+<div class="step"><span class="step-num">5.</span><span class="step-text">Description: Notes captured when the case is resolved.</span></div>
+<div class="step"><span class="step-num">6.</span><span class="step-text">Click Next then Next (FLS defaults) then Next (Page Layouts default) then Save &amp; New.</span></div>
 <h4>3.2 — Reported Date/Time (Date/Time, default NOW())</h4>
 <p>Test: does standard Case.CreatedDate cover this? Almost. It&#x27;s a Date/Time field that auto-populates. But it&#x27;s read-only. Operators sometimes need to back-date cases entered later in the shift. Configuration can&#x27;t make CreatedDate writable. Custom is justified.</p>
 <div class="step"><span class="step-num">1.</span><span class="step-text">Choose Date/Time then Next.</span></div>
@@ -603,16 +607,18 @@ nav.topnav a.internal-link::before { content: "🔒 "; }
 <h3>Part 4 — Confirm Status and build the MTA Case Support Process (4 min)</h3>
 <p>Before building Record Types, confirm what Status values exist on Case, then build the Support Process that controls which Status values are valid per Record Type.</p>
 <h4>4.1 — Confirm Status picklist values</h4>
-<div class="step"><span class="step-num">1.</span><span class="step-text">Scroll to Case Status Picklist Values. You should see four active values: New (default), On Hold, Escalated, Closed.</span></div>
+<div class="step"><span class="step-num">1.</span><span class="step-text">From the Case object&#x27;s Fields &amp; Relationships list, click the field named &#x27;Status&#x27; (the field is called &#x27;Status&#x27; in the field list; don&#x27;t confuse it with sections or picklists titled &#x27;Case Status&#x27;).</span></div>
+<div class="step"><span class="step-num">2.</span><span class="step-text">Scroll to Case Status Picklist Values. You should see four active values: New (default), On Hold, Escalated, Closed.</span></div>
 <h4>4.2 — Build the MTA Case Support Process</h4>
 <p>Case Record Types require a Support Process. Salesforce uses this to control which Status values are valid for the Record Type.</p>
-<div class="step"><span class="step-num">1.</span><span class="step-text">Click New.</span></div>
-<div class="step"><span class="step-num">2.</span><span class="step-text">Existing Support Process: --Master-- (leave it).</span></div>
-<div class="step"><span class="step-num">3.</span><span class="step-text">Support Process Name: MTA Case Support Process.</span></div>
-<div class="step"><span class="step-num">4.</span><span class="step-text">Description: Status lifecycle for MTA Cases.</span></div>
-<div class="step"><span class="step-num">5.</span><span class="step-text">Click Save.</span></div>
-<div class="step"><span class="step-num">6.</span><span class="step-text">On the Available Values list, ensure New, On Hold, Escalated, and Closed are in the Selected Values column. Use the &gt; and &lt; arrows to move values between columns if needed.</span></div>
-<div class="step"><span class="step-num">7.</span><span class="step-text">Click Save.</span></div>
+<div class="step"><span class="step-num">1.</span><span class="step-text">Navigate: From Setup, in the Quick Find box, type &#x27;Support Processes&#x27; and click the result. (Support Processes is a top-level Setup page, not under Object Manager.)</span></div>
+<div class="step"><span class="step-num">2.</span><span class="step-text">On the Case Support Processes page, click New.</span></div>
+<div class="step"><span class="step-num">3.</span><span class="step-text">Existing Support Process: --Master-- (leave it).</span></div>
+<div class="step"><span class="step-num">4.</span><span class="step-text">Support Process Name: MTA Case Support Process.</span></div>
+<div class="step"><span class="step-num">5.</span><span class="step-text">Description: Status lifecycle for MTA Cases.</span></div>
+<div class="step"><span class="step-num">6.</span><span class="step-text">Click Save.</span></div>
+<div class="step"><span class="step-num">7.</span><span class="step-text">On the Available Values list, ensure New, On Hold, Escalated, and Closed are in the Selected Values column. Use the &gt; and &lt; arrows to move values between columns if needed.</span></div>
+<div class="step"><span class="step-num">8.</span><span class="step-text">Click Save.</span></div>
 <div class="callout callout-verify"><span class="callout-label">Verify</span>MTA Case Support Process appears in the Active Support Processes list. Click into it: Selected Values shows New, On Hold, Escalated, Closed.</div>
 <h3>Part 5 — Create the four Record Types (15 min)</h3>
 <p>Record Types let one Case object behave differently per agency.</p>
@@ -622,45 +628,49 @@ nav.topnav a.internal-link::before { content: "🔒 "; }
 <div class="bullet">MNR: Track Defect, Train Delay, Catenary Issue, Signal Issue, Equipment Failure</div>
 <div class="bullet">B&amp;T: Toll System Issue, Traffic Incident, E-ZPass Dispute, Bridge/Tunnel Closure, Maintenance Required</div>
 <h4>5.1 — NYCT Record Type</h4>
-<div class="step"><span class="step-num">1.</span><span class="step-text">Existing Record Type: --Master-- (leave it).</span></div>
-<div class="step"><span class="step-num">2.</span><span class="step-text">Record Type Label: NYCT.</span></div>
-<div class="step"><span class="step-num">3.</span><span class="step-text">Record Type Name: NYCT (auto-fills from the label).</span></div>
-<div class="step"><span class="step-num">4.</span><span class="step-text">Support Process: select MTA Case Support Process.</span></div>
-<div class="step"><span class="step-num">5.</span><span class="step-text">Description: New York City Transit (subway and bus operations).</span></div>
-<div class="step"><span class="step-num">6.</span><span class="step-text">Active: check.</span></div>
-<div class="step"><span class="step-num">7.</span><span class="step-text">Make Available: check the box next to System Administrator. Click Next.</span></div>
+<div class="step"><span class="step-num">1.</span><span class="step-text">Navigate: From Setup, in the Quick Find box, type &#x27;Object Manager&#x27;, click it, then find Case and click it. In the left sidebar, click Record Types. On the Case Record Types page, click New.</span></div>
+<div class="step"><span class="step-num">2.</span><span class="step-text">Existing Record Type: --Master-- (leave it).</span></div>
+<div class="step"><span class="step-num">3.</span><span class="step-text">Record Type Label: NYCT.</span></div>
+<div class="step"><span class="step-num">4.</span><span class="step-text">Record Type Name: NYCT (auto-fills from the label).</span></div>
+<div class="step"><span class="step-num">5.</span><span class="step-text">Support Process: select MTA Case Support Process.</span></div>
+<div class="step"><span class="step-num">6.</span><span class="step-text">Description: New York City Transit (subway and bus operations).</span></div>
+<div class="step"><span class="step-num">7.</span><span class="step-text">Active: check.</span></div>
+<div class="step"><span class="step-num">8.</span><span class="step-text">Make Available: check the box next to System Administrator. Click Next.</span></div>
 <div class="callout callout-watch"><span class="callout-label">Watch out</span>The default is zero profiles having access. If you don&#x27;t explicitly check System Administrator here, you&#x27;ll build the Record Type but won&#x27;t be able to use it anywhere.</div>
-<div class="step"><span class="step-num">8.</span><span class="step-text">Page Layout assignment: leave default then Save.</span></div>
-<div class="step"><span class="step-num">9.</span><span class="step-text">On the NYCT Record Type detail page, scroll to Picklists Available for Editing then click Edit next to Type.</span></div>
-<div class="step"><span class="step-num">10.</span><span class="step-text">Selected Values shows all 13 transit values. Use the &lt; button to remove every value EXCEPT the six NYCT values: Track Defect, Station Incident, Train Delay, Signal Issue, MTA Police Response, Equipment Failure.</span></div>
-<div class="step"><span class="step-num">11.</span><span class="step-text">Click Save.</span></div>
+<div class="step"><span class="step-num">9.</span><span class="step-text">Page Layout assignment: in the dropdown, select &#x27;Case Layout&#x27; for System Administrator (the first row). Click Save.</span></div>
+<div class="step"><span class="step-num">10.</span><span class="step-text">On the NYCT Record Type detail page, scroll to Picklists Available for Editing then click Edit next to Type.</span></div>
+<div class="step"><span class="step-num">11.</span><span class="step-text">Selected Values shows all 13 transit values. Use the &lt; button to remove every value EXCEPT the six NYCT values: Track Defect, Station Incident, Train Delay, Signal Issue, MTA Police Response, Equipment Failure.</span></div>
+<div class="step"><span class="step-num">12.</span><span class="step-text">Click Save.</span></div>
 <h4>5.2 — LIRR Record Type</h4>
-<div class="step"><span class="step-num">1.</span><span class="step-text">Existing Record Type: --Master-- (do NOT clone from NYCT).</span></div>
-<div class="step"><span class="step-num">2.</span><span class="step-text">Record Type Label: LIRR. Record Type Name: LIRR.</span></div>
-<div class="step"><span class="step-num">3.</span><span class="step-text">Support Process: MTA Case Support Process.</span></div>
-<div class="step"><span class="step-num">4.</span><span class="step-text">Description: Long Island Rail Road.</span></div>
-<div class="step"><span class="step-num">5.</span><span class="step-text">Active: check.</span></div>
-<div class="step"><span class="step-num">6.</span><span class="step-text">Make Available: check System Administrator. Click Next.</span></div>
-<div class="step"><span class="step-num">7.</span><span class="step-text">Default Page Layout then Save.</span></div>
-<div class="step"><span class="step-num">8.</span><span class="step-text">Edit Type picklist. Selected: Track Defect, Crossing Incident, Train Delay, Signal Issue, Equipment Failure. Save.</span></div>
+<div class="step"><span class="step-num">1.</span><span class="step-text">On the previous Record Type&#x27;s detail page, click &#x27;Record Types&#x27; in the left sidebar (or breadcrumb). On the Case Record Types page, click New.</span></div>
+<div class="step"><span class="step-num">2.</span><span class="step-text">Existing Record Type: --Master-- (do NOT clone from NYCT).</span></div>
+<div class="step"><span class="step-num">3.</span><span class="step-text">Record Type Label: LIRR. Record Type Name: LIRR.</span></div>
+<div class="step"><span class="step-num">4.</span><span class="step-text">Support Process: MTA Case Support Process.</span></div>
+<div class="step"><span class="step-num">5.</span><span class="step-text">Description: Long Island Rail Road.</span></div>
+<div class="step"><span class="step-num">6.</span><span class="step-text">Active: check.</span></div>
+<div class="step"><span class="step-num">7.</span><span class="step-text">Make Available: check System Administrator. Click Next.</span></div>
+<div class="step"><span class="step-num">8.</span><span class="step-text">Page Layout assignment: in the dropdown, select &#x27;Case Layout&#x27; for System Administrator (the first row). Click Save.</span></div>
+<div class="step"><span class="step-num">9.</span><span class="step-text">Edit Type picklist. Selected: Track Defect, Crossing Incident, Train Delay, Signal Issue, Equipment Failure. Save.</span></div>
 <h4>5.3 — MNR Record Type</h4>
-<div class="step"><span class="step-num">1.</span><span class="step-text">Existing Record Type: --Master--.</span></div>
-<div class="step"><span class="step-num">2.</span><span class="step-text">Record Type Label: MNR. Record Type Name: MNR.</span></div>
-<div class="step"><span class="step-num">3.</span><span class="step-text">Support Process: MTA Case Support Process.</span></div>
-<div class="step"><span class="step-num">4.</span><span class="step-text">Description: Metro-North Railroad.</span></div>
-<div class="step"><span class="step-num">5.</span><span class="step-text">Active: check.</span></div>
-<div class="step"><span class="step-num">6.</span><span class="step-text">Make Available: check System Administrator. Click Next.</span></div>
-<div class="step"><span class="step-num">7.</span><span class="step-text">Default Page Layout then Save.</span></div>
-<div class="step"><span class="step-num">8.</span><span class="step-text">Edit Type. Selected: Track Defect, Train Delay, Catenary Issue, Signal Issue, Equipment Failure. Save.</span></div>
+<div class="step"><span class="step-num">1.</span><span class="step-text">On the previous Record Type&#x27;s detail page, click &#x27;Record Types&#x27; in the left sidebar (or breadcrumb). On the Case Record Types page, click New.</span></div>
+<div class="step"><span class="step-num">2.</span><span class="step-text">Existing Record Type: --Master--.</span></div>
+<div class="step"><span class="step-num">3.</span><span class="step-text">Record Type Label: MNR. Record Type Name: MNR.</span></div>
+<div class="step"><span class="step-num">4.</span><span class="step-text">Support Process: MTA Case Support Process.</span></div>
+<div class="step"><span class="step-num">5.</span><span class="step-text">Description: Metro-North Railroad.</span></div>
+<div class="step"><span class="step-num">6.</span><span class="step-text">Active: check.</span></div>
+<div class="step"><span class="step-num">7.</span><span class="step-text">Make Available: check System Administrator. Click Next.</span></div>
+<div class="step"><span class="step-num">8.</span><span class="step-text">Page Layout assignment: in the dropdown, select &#x27;Case Layout&#x27; for System Administrator (the first row). Click Save.</span></div>
+<div class="step"><span class="step-num">9.</span><span class="step-text">Edit Type. Selected: Track Defect, Train Delay, Catenary Issue, Signal Issue, Equipment Failure. Save.</span></div>
 <h4>5.4 — B&amp;T Record Type</h4>
-<div class="step"><span class="step-num">1.</span><span class="step-text">Existing Record Type: --Master--.</span></div>
-<div class="step"><span class="step-num">2.</span><span class="step-text">Record Type Label: B&amp;T. Record Type Name: BandT (API names can&#x27;t contain ampersands, so the Name field strips it automatically).</span></div>
-<div class="step"><span class="step-num">3.</span><span class="step-text">Support Process: MTA Case Support Process.</span></div>
-<div class="step"><span class="step-num">4.</span><span class="step-text">Description: MTA Bridges and Tunnels.</span></div>
-<div class="step"><span class="step-num">5.</span><span class="step-text">Active: check.</span></div>
-<div class="step"><span class="step-num">6.</span><span class="step-text">Make Available: check System Administrator. Click Next.</span></div>
-<div class="step"><span class="step-num">7.</span><span class="step-text">Default Page Layout then Save.</span></div>
-<div class="step"><span class="step-num">8.</span><span class="step-text">Edit Type. Selected: Toll System Issue, Traffic Incident, E-ZPass Dispute, Bridge/Tunnel Closure, Maintenance Required. Save.</span></div>
+<div class="step"><span class="step-num">1.</span><span class="step-text">On the previous Record Type&#x27;s detail page, click &#x27;Record Types&#x27; in the left sidebar (or breadcrumb). On the Case Record Types page, click New.</span></div>
+<div class="step"><span class="step-num">2.</span><span class="step-text">Existing Record Type: --Master--.</span></div>
+<div class="step"><span class="step-num">3.</span><span class="step-text">Record Type Label: B&amp;T. Record Type Name: BandT (API names can&#x27;t contain ampersands, so the Name field strips it automatically).</span></div>
+<div class="step"><span class="step-num">4.</span><span class="step-text">Support Process: MTA Case Support Process.</span></div>
+<div class="step"><span class="step-num">5.</span><span class="step-text">Description: MTA Bridges and Tunnels.</span></div>
+<div class="step"><span class="step-num">6.</span><span class="step-text">Active: check.</span></div>
+<div class="step"><span class="step-num">7.</span><span class="step-text">Make Available: check System Administrator. Click Next.</span></div>
+<div class="step"><span class="step-num">8.</span><span class="step-text">Page Layout assignment: in the dropdown, select &#x27;Case Layout&#x27; for System Administrator (the first row). Click Save.</span></div>
+<div class="step"><span class="step-num">9.</span><span class="step-text">Edit Type. Selected: Toll System Issue, Traffic Incident, E-ZPass Dispute, Bridge/Tunnel Closure, Maintenance Required. Save.</span></div>
 <div class="callout callout-verify"><span class="callout-label">Verify</span>On Setup then Object Manager then Case then Record Types: the page shows four Active Record Types (NYCT, LIRR, MNR, B&amp;T).</div>
 <h3>Part 6 — Configure the classic page layout (12 min)</h3>
 <div class="callout callout-why"><span class="callout-label">Why this matters</span>Classic page layouts and Lightning record pages are two different rendering systems. The classic page layout controls: (1) field order in the create-record modal (the New Case popup), (2) which fields are available in the Lightning record page&#x27;s Fields palette, (3) Related Lists that appear on the Related tab, (4) buttons available in record detail actions. It does NOT control the field arrangement on the Lightning record page itself. In Part 9 we&#x27;ll place fields on the Lightning record page via Dynamic Forms (which is a separate system). Right now in Part 6 we&#x27;re configuring the classic Case Layout for its real jobs.</div>
