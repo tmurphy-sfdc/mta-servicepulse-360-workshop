@@ -126,6 +126,16 @@ section .section-lede { font-size: 15px; color: #4a4a4a; margin: 8px 0 24px; max
 .lab-body .callout-why .callout-label { color: #4a893b; }
 .lab-body .callout-verify { border-left-color: #6b4ba3; background: #f3f0f9; }
 .lab-body .callout-verify .callout-label { color: #6b4ba3; }
+.lab-body .callout-golden { border-left-color: #b8860b; background: #fdf8ed; }
+.lab-body .callout-golden .callout-label { color: #b8860b; }
+.lab-body .callout-teaching { border-left-color: #a35029; background: #fbf1ec; }
+.lab-body .callout-teaching .callout-label { color: #a35029; }
+.lab-body .callout-error { border-left-color: #c0392b; background: #fdeeec; }
+.lab-body .callout-error .callout-label { color: #c0392b; }
+.lab-body .callout-listen { border-left-color: #8e44ad; background: #f6eff9; }
+.lab-body .callout-listen .callout-label { color: #8e44ad; }
+.lab-body .callout-watch2 { border-left-color: #b45f06; background: #fdf1e6; }
+.lab-body .callout-watch2 .callout-label { color: #b45f06; }
 /* Instructors */
 .instructor-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
 .instructor-card { background: #fff; border: 1px solid #e0e0e0; border-radius: 10px; padding: 18px 20px; }
@@ -742,14 +752,15 @@ nav.topnav a.internal-link::before { content: "🔒 "; }
 <div class="step"><span class="step-num">5.</span><span class="step-text">Visibility: All users can see this list view then Save.</span></div>
 <div class="step"><span class="step-num">6.</span><span class="step-text">Filter by Owner: change to All Cases then Done.</span></div>
 <div class="step"><span class="step-num">7.</span><span class="step-text">Click Add Filter. In the filter dialog: set Field to &#x27;Status&#x27;, Operator to &#x27;not equal to&#x27;, Value to &#x27;Closed&#x27;. Click Save.</span></div>
-<div class="step"><span class="step-num">8.</span><span class="step-text">Click the gear icon then Select Fields to Display. Add: Case Number, Case Record Type, Priority, Status, Type, Reported Date/Time, Contact Name. Click Save.</span></div>
+<div class="step"><span class="step-num">8.</span><span class="step-text">Click Add Filter again. In the filter dialog: set Field to &#x27;Account Name&#x27;, Operator to &#x27;contains&#x27;, Value to &#x27;MTA&#x27;. Click Save. This keeps the list focused on MTA agency Cases and filters out the Pronto template&#x27;s demo Cases.</span></div>
+<div class="step"><span class="step-num">9.</span><span class="step-text">Click the gear icon then Select Fields to Display. Add: Case Number, Case Record Type, Priority, Status, Type, Reported Date/Time, Contact Name. Click Save.</span></div>
 <h4>8.2: All Cases (via Clone)</h4>
 <div class="step"><span class="step-num">1.</span><span class="step-text">Navigate: From the ServicePulse 360 app, click the Cases tab. From the list view selector (dropdown near the top-left of the list), choose the &#x27;Open Cases&#x27; list view. The Open Cases list view opens.</span></div>
 <div class="step"><span class="step-num">2.</span><span class="step-text">With Open Cases selected, click the gear icon then Clone.</span></div>
 <div class="step"><span class="step-num">3.</span><span class="step-text">Click the Filter icon (funnel shape, top-right of the list view). Note: on some screen sizes the Filter panel may already be visible, if you can see the Filter panel on the right side of the list view, you can skip this step.</span></div>
 <div class="step"><span class="step-num">4.</span><span class="step-text">List Name: All Cases. API Name: All_Cases. All users can see then Save.</span></div>
 <div class="step"><span class="step-num">5.</span><span class="step-text">Click the gear icon then Edit List Filters.</span></div>
-<div class="step"><span class="step-num">6.</span><span class="step-text">Remove the Status filter (click the X next to it) then Save.</span></div>
+<div class="step"><span class="step-num">6.</span><span class="step-text">Remove the Status filter (click the X next to it). Leave the Account Name filter in place, it carried over from the clone. Click Save.</span></div>
 <h3>Part 9: Place custom fields, Case Record Type, and Asset on the Lightning record page via Dynamic Forms (12 min)</h3>
 <p>Your custom fields (Reported Date/Time, Resolution Notes) now exist on the Case object, and you added them to the classic Case Layout in Part 6. But the Case Lightning record page in your org is a separate rendering surface that uses Dynamic Forms. Its field sections don&#x27;t automatically mirror the classic layout. We need to explicitly place Reported Date/Time, Resolution Notes, Case Record Type, AND Asset on the Lightning record page&#x27;s canvas. Having Case Record Type on the canvas lets users see (and change) which agency a case belongs to without leaving the record page (which Lab 2 will use). Having Asset on the canvas lets users link cases to physical infrastructure (which Lab 3 will use).</p>
 <div class="callout callout-why"><span class="callout-label">Why this matters</span>This is where many admins get confused. The classic Case Layout from Part 6 controls several things (field order in the create-record modal, Related Lists, available fields in the Lightning palette), but it does NOT drive the Lightning record page&#x27;s field display when Dynamic Forms is in use. Dynamic Forms requires you to explicitly place each field as a component on the Lightning record page&#x27;s canvas.</div>
@@ -865,7 +876,7 @@ nav.topnav a.internal-link::before { content: "🔒 "; }
 <div class="callout callout-verify"><span class="callout-label">Verified? Great job!</span>4 Operations Dispatcher Contacts exist, each linked to the right MTA agency Account.</div>
 <h3>Part 3 - Tour the Cases (2 min)</h3>
 <div class="step"><span class="step-num">1.</span><span class="step-text">App Launcher then Cases.</span></div>
-<div class="step"><span class="step-num">2.</span><span class="step-text">Switch to the All list view. You should see 11 total: 10 seed Cases (Subject starts with &#x27;Seed:&#x27;) plus your Golden Case from Lab 1 Part 10.</span></div>
+<div class="step"><span class="step-num">2.</span><span class="step-text">Switch to the All Cases list view (the one you built in Lab 1 Part 8). You should see 11 total: 10 seed Cases (Subject starts with &#x27;Seed:&#x27;) plus your Golden Case from Lab 1 Part 10.</span></div>
 <div class="step"><span class="step-num">3.</span><span class="step-text">Spot-check a few seed Cases to see the distribution:</span></div>
 <div class="bullet">Open &#x27;Seed: Signal fault on 7 Line, Vernon Blvd&#x27;. Account: MTA New York City Transit. Contact: Marcus Chen. Type: Signal Issue. Priority: P2 - High.</div>
 <div class="bullet">Open &#x27;Seed: Grade crossing malfunction, Mineola&#x27;. Account: MTA Long Island Rail Road. Contact: Priya Patel. Priority: P1 - Critical.</div>
@@ -881,9 +892,9 @@ nav.topnav a.internal-link::before { content: "🔒 "; }
 <p>Three quick checks confirm the pre-load worked:</p>
 <div class="step"><span class="step-num">1.</span><span class="step-text">Accounts tab: 4 MTA Accounts (NYCT, LIRR, MNR, B&amp;T).</span></div>
 <div class="step"><span class="step-num">2.</span><span class="step-text">Contacts tab: 4 Operations Dispatcher Contacts.</span></div>
-<div class="step"><span class="step-num">3.</span><span class="step-text">Cases tab, All list view: 10 seed Cases plus your Golden Case = 11 total.</span></div>
+<div class="step"><span class="step-num">3.</span><span class="step-text">Cases tab, All Cases list view: 10 seed Cases plus your Golden Case = 11 total.</span></div>
 <h3>If any records are missing</h3>
-<p>Tell your instructor. Missing records mean the pre-workshop deploy did not run cleanly on your org. The instructor can rerun the 01b-mta-sample-data loader against your org in about 10 seconds. In the meantime, you can continue to Lab 2 using the Golden Case; the seed records aren&#x27;t blockers for Lab 2&#x27;s main teaching moments.</p>
+<p>Tell your instructor. Missing records mean the pre-workshop deploy did not run cleanly on your org. In the meantime, you can continue to Lab 2 using the Golden Case; the seed records aren&#x27;t blockers for Lab 2&#x27;s main teaching moments.</p>
 <h3>What&#x27;s next</h3>
 <p>Lab 2 opens Lightning App Builder and configures Dynamic Forms visibility rules against your Golden Case. The seed Cases populate the Related Lists you build. Grab water, stretch, and continue.</p>
   </div>
@@ -2726,41 +2737,659 @@ If the Related List - Single is on the Details tab instead of the Other Related 
 
     <div class="instructor-downloads">
       <h3>Instructor Notes</h3>
-      <p class="instructor-downloads-lede">Teaching moments, pacing notes, common errors, and listen-for prompts for each lab. Not for participant distribution.</p>
-      <div class="instructor-downloads-grid">
-        <a class="instructor-dl" href="labs/Lab%2001%20-%20Instructor%20Notes.docx" download>
-          <div class="instructor-dl-lab">Lab 1</div>
-          <div class="instructor-dl-title">Extend Case for Multi-Agency Intake</div>
-        </a>
-        <a class="instructor-dl" href="labs/Lab%2001.5%20-%20Instructor%20Notes.docx" download>
-          <div class="instructor-dl-lab">Lab 1.5</div>
-          <div class="instructor-dl-title">Tour Pre-Loaded MTA Data</div>
-        </a>
-        <a class="instructor-dl" href="labs/Lab%2002%20-%20Instructor%20Notes.docx" download>
-          <div class="instructor-dl-lab">Lab 2</div>
-          <div class="instructor-dl-title">Lightning App Builder &amp; Dynamic Forms</div>
-        </a>
-        <a class="instructor-dl" href="labs/Lab%2003%20-%20Instructor%20Notes.docx" download>
-          <div class="instructor-dl-lab">Lab 3</div>
-          <div class="instructor-dl-title">Asset Hierarchy for MTA Infrastructure</div>
-        </a>
-        <a class="instructor-dl" href="labs/Lab%2004%20-%20Instructor%20Notes.docx" download>
-          <div class="instructor-dl-lab">Lab 4</div>
-          <div class="instructor-dl-title">Field Service Foundations</div>
-        </a>
-        <a class="instructor-dl" href="labs/Lab%2005%20-%20Instructor%20Notes.docx" download>
-          <div class="instructor-dl-lab">Lab 5</div>
-          <div class="instructor-dl-title">Service Disruption Custom Object</div>
-        </a>
-        <a class="instructor-dl" href="labs/Lab%2006%20-%20Instructor%20Notes.docx" download>
-          <div class="instructor-dl-lab">Lab 6</div>
-          <div class="instructor-dl-title">Platform Showcase</div>
-        </a>
-        <a class="instructor-dl" href="labs/Lab%2007%20-%20Instructor%20Notes.docx" download>
-          <div class="instructor-dl-lab">Lab 7</div>
-          <div class="instructor-dl-title">Agentforce Dispatcher Assistant</div>
-        </a>
+      <p class="instructor-downloads-lede">Teaching moments, pacing notes, common errors, and listen-for prompts for each lab. Not for participant distribution. Click Preview to expand a lab's notes inline.</p>
+
+      <div class="lab-card">
+      <div class="lab-head" onclick="toggleInstructor(1)">
+        <div class="lab-number">1</div>
+        <div class="lab-meta">
+          <p class="lab-name">Lab 1: Extend Case for Multi-Agency Intake</p>
+        </div>
+        <div class="lab-actions">
+          <a class="btn btn-download" href="labs/Lab%2001%20-%20Instructor%20Notes.docx" download onclick="event.stopPropagation();">Download .docx</a>
+          <button class="btn btn-toggle" id="itoggle-1" onclick="event.stopPropagation(); toggleInstructor(1);">Preview ▾</button>
+        </div>
       </div>
+      <div class="lab-body" id="ibody-1">
+<h2 class="lab-title">Lab 1: Instructor Notes</h2>
+<p class="lab-subtitle">Extend the Case Object for Multi-Agency Intake | ServicePulse 360 Workshop v0.7 (revision 12) | Facilitator guide: teaching moments, pacing, common errors, listen-for prompts.</p>
+<h3>Part 6: Configure the classic page layout (12 min)</h3>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>This is a critical reframe added in r6. Say explicitly: &#x27;Classic page layouts and Lightning record pages are two different rendering systems. The classic Case Layout we&#x27;re configuring now controls four things: (1) field order in the create-record modal, (2) which fields are available in the Lightning record page&#x27;s Fields palette, (3) Related Lists on the Related tab, (4) buttons available in record detail actions. It does NOT control the field arrangement on the Lightning record page itself. In Part 9 we&#x27;ll do that in a separate system called Dynamic Forms.&#x27; Many participants will try to use Part 6 to arrange their Lightning record page; call out this expectation gap now.</div>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>Case Record Type field placement, revised in r12: now goes to the System Information section (not Case Details). Say explicitly: &#x27;Case Details is for the user-chosen fields the agent cares about in triage. System Information groups the read-only system metadata like Created By, Last Modified, and the Record Type the record was filed under. Case Record Type is metadata, so System Information is its right home.&#x27;</div>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>Part 6.3 (confirm Case Comments is in Related Lists) is a prerequisite for Lab 2 Part 3. Explain explicitly: &#x27;We&#x27;re confirming Case Comments is in the Related Lists section here because Lab 2 will surface Case Comments on the Lightning record page via a Related List - Single component. That component only sees related lists that are already on this classic layout.&#x27;</div>
+<div class="callout callout-tip"><span class="callout-label">Tip</span>Part 6.4 is now a verify step, not an assign step. In 90% of orgs the Page Layout Assignment is already correct (because Part 5 selected Case Layout at Record Type creation time). Walk the Page Layout Assignment page to confirm, but don&#x27;t belabor it. If a participant does find a wrong assignment, use Shift-click to multi-select and Save.</div>
+<div class="callout callout-tip"><span class="callout-label">Tip</span>Part 6.5 adds a Note about Work Orders. Many Pronto orgs don&#x27;t have Work Orders in the Case Layout&#x27;s Related Lists section by default. Participants should drag it in from the palette if missing, because Lab 4 uses it.</div>
+<div class="callout callout-error"><span class="callout-label">Common error</span>Participant drags Section into the wrong place. Fix: click the section header, Edit Properties, or drag to the right position.</div>
+<div class="callout callout-error"><span class="callout-label">Common error</span>Participant skips Resolution Notes verify in 6.2. Fix: scroll to Description Information; if Resolution Notes isn&#x27;t there, drag it in from the palette.</div>
+<div class="callout callout-error"><span class="callout-label">Common error</span>Case Comments is missing from the Related Lists section. Fix: drag Case Comments from the palette into the Related Lists section, Save.</div>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>New 6.6 step removes leftover Pronto fields from the Case Layout: the Related Storefront section, the Business Account field, the Storefront field, and the Case Reason field. Say explicitly: &quot;These are starter-content leftovers from the Pronto template that don&#x27;t apply to MTA&#x27;s Case model. Removing them keeps the layout focused on what dispatchers actually use.&quot; This is a straightforward removal step; it shouldn&#x27;t need much airtime.</div>
+<h3>Part 7: Configure the compact layout (5 min)</h3>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>&#x27;The compact layout is what you see in Lightning&#x27;s highlights panel. It&#x27;s the record&#x27;s business card. Four or five fields max.&#x27;</div>
+<div class="callout callout-tip"><span class="callout-label">Tip</span>r12 adds an explicit nav preamble: Setup &gt; Object Manager &gt; Case &gt; Compact Layouts &gt; New. Participants coming from Part 6 may still be on Page Layouts, which has a different sidebar entry. Project the navigation.</div>
+<div class="callout callout-tip"><span class="callout-label">Tip</span>Field order matters on compact layouts. The r12 guide says &#x27;IN THIS EXACT ORDER&#x27; in uppercase. Call this out: the compact layout honors the Selected Fields order top-to-bottom when rendering the highlights panel.</div>
+<h3>Part 8: Create the list views (5 min)</h3>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>The clone pattern in 8.2 is a real-world admin shortcut.</div>
+<div class="callout callout-error"><span class="callout-label">Common error</span>Participant doesn&#x27;t change &quot;Filter by Owner&quot; from My Cases to All Cases. Symptom: empty list view.</div>
+<div class="callout callout-error"><span class="callout-label">Common error</span>Participant clicks &#x27;Done&#x27; in the filter dialog thinking it will save. The filter dialog button is labeled Save, not Done. Fix: click Save in the filter dialog.</div>
+<div class="callout callout-tip"><span class="callout-label">Tip</span>8.2 Filter icon: on wide monitors the Filter panel is already visible, so step 3 is a no-op. On smaller screens participants need to click the funnel icon to show the panel. The r12 guide adds this as a note.</div>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>New 8.1 step 8 adds an Account Name contains MTA filter alongside the Status filter. Without it, both list views show all 27 Cases in the org (16 leftover Pronto demo Cases plus the 10 seeded MTA Cases plus the Golden Record), not the 11 MTA Cases the lab expects. Call this out explicitly: &quot;We just told you to expect 11 Cases total once you have your Golden Record. This filter is what makes that true, otherwise you&#x27;d see the Pronto template&#x27;s own demo data mixed in.&quot;</div>
+<h3>Part 9: Place custom fields, Case Record Type, and Asset on the Lightning record page via Dynamic Forms (12 min)</h3>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>This is the lab&#x27;s most important Lightning concept and the piece most likely to confuse. Say it clearly: &#x27;The Lightning record page is a different surface than the classic page layout. The Pronto template already enabled Dynamic Forms on this record page, so our job isn&#x27;t to migrate anything. Our job is to add our custom fields (Reported Date/Time, Resolution Notes), the Case Record Type field, and the Asset field to the Lightning record page&#x27;s canvas.&#x27;</div>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>On adding Case Record Type to the Dynamic Forms canvas: &#x27;Record Type isn&#x27;t a custom field, it&#x27;s a standard metadata attribute, but by default it isn&#x27;t shown on the Lightning record page. Adding it here makes it visible AND editable, which Lab 2 uses to test field-level visibility rules by switching the Record Type right on your Golden Record. Watch out: in production, switching a Case&#x27;s Record Type can trigger validation rules and automation. In this workshop context, it&#x27;s safe.&#x27;</div>
+<div class="callout callout-tip"><span class="callout-label">Tip</span>Reported Date/Time is already placed on the canvas (the scaffolding pre-deploys it). 9.2 is now a verify step, not a drag-on step. Don&#x27;t let participants spend time hunting for a drag action that isn&#x27;t needed; have them confirm it&#x27;s visible in Case Details and move on. If it&#x27;s genuinely missing on someone&#x27;s org, that&#x27;s when they drag it in.</div>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>Call out the Fields panel versus Components panel in the App Builder. Participants new to the App Builder often don&#x27;t realize the Fields panel exists. Point to the two tabs (Components and Fields) at the top of the left sidebar: &#x27;Fields are what you drag onto a Dynamic Forms canvas to show individual fields. Components are reusable UI blocks like Related List - Single, Chatter Feed, Record Detail. You&#x27;ll use both.&#x27;</div>
+<div class="callout callout-listen"><span class="callout-label">Listen for</span>Someone asking &quot;why isn&#x27;t my Case Layout from Part 6 showing up here?&quot; Correct answer: &quot;The Case Layout from Part 6 controls other things, but Lightning record pages with Dynamic Forms don&#x27;t automatically mirror the classic layout. You have to explicitly place each field on the Lightning canvas. This is a common surprise for admins; you&#x27;re not alone.&quot;</div>
+<div class="callout callout-listen"><span class="callout-label">Listen for</span>Someone asking &quot;do I have to do this every time I add a custom field?&quot; Correct answer: &quot;If your Lightning record page uses Dynamic Forms, yes. Each custom field needs an explicit Field component on the canvas. If your Lightning record page uses the older Record Detail component instead, the custom field appears automatically. Modern best practice is Dynamic Forms, which is why we do it this way.&quot;</div>
+<div class="callout callout-error"><span class="callout-label">Common error</span>Participant drags from the Components tab instead of the Fields tab. Symptom: they can&#x27;t find Reported Date/Time or Resolution Notes anywhere. Fix: switch to the Fields tab (top of left sidebar).</div>
+<div class="callout callout-error"><span class="callout-label">Common error</span>Participant drags the field but drops it in an invalid location (outside a section). Symptom: the field doesn&#x27;t appear on the canvas. Fix: drop inside an existing section or create a new section first via the Components tab.</div>
+<div class="callout callout-error"><span class="callout-label">Common error</span>Participant forgets to Activate the page as Org Default. Fix: Save then Activation then Assign as Org Default then Save then Activate.</div>
+<h3>Part 10: Create the Golden Record (10 min)</h3>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>This is the lab&#x27;s single most important deliverable. Say it clearly: &#x27;The Golden Record is your central example for the next two days. Every subsequent lab will reference it. Lab 2 adds Dynamic Forms visibility rules on it. Lab 3 connects it to an Asset. Lab 5 ties it to a Service Disruption. Day 2&#x27;s Executive Scenario Simulation uses it as the F line disruption anchor. Keep this record.&#x27;</div>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>The Account and Contact choices anchor the narrative. &#x27;Account = MTA New York City Transit because our workshop story is an NYCT bus with components. Lab 3 will model an NYCT bus Asset. Lab 5 will use an F line (NYCT subway) disruption. One agency&#x27;s story woven through the whole workshop.&#x27;</div>
+<div class="callout callout-golden"><span class="callout-label">Golden Record spec</span>Record Type = NYCT, Priority = P3 - Medium (default), Status = New, Type = Track Defect, Case Origin = Phone, Reported Date/Time = (auto), Subject = &quot;Golden Record: Workshop reference case&quot;, Description = (short narrative the participant writes), Contact Name = (participant choice; MTA agency contacts preferred if available), Account Name = MTA New York City Transit.</div>
+<div class="callout callout-listen"><span class="callout-label">Listen for</span>Someone asking &quot;why do I need a specific Account?&quot; Validate the question. &quot;You don&#x27;t technically need THIS specific Account for Lab 1 to work. But Lab 2 and later labs assume Contact and Account are populated on the Golden Record. Using MTA New York City Transit keeps our workshop story coherent.&quot;</div>
+<div class="callout callout-error"><span class="callout-label">Common error</span>MTA New York City Transit isn&#x27;t in the Account picker. The scaffolding didn&#x27;t deploy the Accounts correctly on that org. This should be caught in pre-workshop setup; if it surfaces here, don&#x27;t have the participant create Accounts manually, pull them aside and investigate the org&#x27;s deploy state.</div>
+<div class="callout callout-error"><span class="callout-label">Common error</span>Participant forgets to populate Case Origin (required field). Symptom: validation error on Save. Fix: scroll up, populate Case Origin, retry Save.</div>
+<div class="callout callout-error"><span class="callout-label">Common error</span>Participant&#x27;s Golden Record doesn&#x27;t show Reported Date/Time or Resolution Notes on the canvas. They skipped Part 9. Fix: return to Part 9.</div>
+<h3>After Lab 01: before Lab 02</h3>
+<p>Fifteen minutes before Lab 02 starts, scan the room:</p>
+<div class="bullet">Who&#x27;s finished with the Golden Record? Confirm they have one well-populated case with MTA New York City Transit as the Account.</div>
+<div class="bullet">Who&#x27;s 2+ Parts behind? Offer a fallback: deploy the scaffolding to catch them up to the Case extension end-state, and create a Golden Record on their behalf.</div>
+      </div>
+      </div>
+
+      <div class="lab-card">
+      <div class="lab-head" onclick="toggleInstructor('15')">
+        <div class="lab-number" style="font-size: 15px;">1.5</div>
+        <div class="lab-meta">
+          <p class="lab-name">Lab 1.5: Tour Pre-Loaded MTA Data</p>
+        </div>
+        <div class="lab-actions">
+          <a class="btn btn-download" href="labs/Lab%2001.5%20-%20Instructor%20Notes.docx" download onclick="event.stopPropagation();">Download .docx</a>
+          <button class="btn btn-toggle" id="itoggle-15" onclick="event.stopPropagation(); toggleInstructor('15');">Preview ▾</button>
+        </div>
+      </div>
+      <div class="lab-body" id="ibody-15">
+<h2 class="lab-title">Lab 1.5: Instructor Notes</h2>
+<p class="lab-subtitle">Tour your Pre-Loaded MTA Data | ServicePulse 360 Workshop v0.7 (revision 3) | ~5 min of participant time | ~10 min of instructor time if you present every teaching moment</p>
+<h3>Why this mini-lab exists</h3>
+<p>Lab 1 teaches Case customization from a blank starting point. The downstream labs (2, 3, 7) and the Executive Scenario Simulation benefit from realistic sample data (10 MTA Cases, 4 agency Accounts, 4 Dispatcher Contacts). Originally Lab 1.5 taught participants to load this data via the Data Import Wizard. We discovered during dry-run testing that the Pronto Agentforce Reference template HIDES the Cases tile in the Data Import Wizard, which made the lab impossible to run as designed. Rather than ask participants to install Data Loader, we moved the data load to the pre-workshop deploy via sf data tree import. This mini-lab is now a tour of what&#x27;s already there.</p>
+<h3>Positioning before the mini-lab</h3>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>&#x27;In Lab 1 you built Case extensions and manually created one Golden Case. Your org also arrived with 4 agency Accounts, 4 Operations Dispatcher Contacts, and 10 realistic seed Cases pre-loaded by me before you got here. The rest of today and tomorrow benefits from this volume: related lists populate, reports have shape, dashboards show patterns.&#x27;</div>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment (admin tool choice)</span>&#x27;Admins choose between bulk-load tools based on scale and complexity: Data Import Wizard (up to 50k records, declarative, in Setup, but it doesn&#x27;t support every object in every edition), Data Loader (desktop tool, up to 5M records, requires install), and sf data tree import or a MuleSoft integration (CLI/scripted, portable across orgs, no install). In this org, I used sf data tree import before the workshop started, one command loaded all 18 records in about 10 seconds. In production you&#x27;d probably use a mix: Data Loader for one-time migrations, MuleSoft for ongoing integrations.&#x27;</div>
+<h3>Pacing</h3>
+<div class="bullet">Part 1 (Accounts): 1 min</div>
+<div class="bullet">Part 2 (Contacts): 1 min</div>
+<div class="bullet">Part 3 (Cases): 2 min</div>
+<div class="bullet">Part 4 (what&#x27;s next): 1 min</div>
+<div class="bullet">Total: 5 min</div>
+<h3>Part 1 - Tour the Accounts</h3>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>&#x27;The 4 agency Accounts anchor your workshop data model. In Lab 1 Part 10, your Golden Case already references MTA New York City Transit. The other 3 agency Accounts (LIRR, MNR, B&amp;T) exist for the seed Cases to link to and for Lab 3&#x27;s Asset hierarchy work in Day 2.&#x27;</div>
+<h3>Part 2 - Tour the Contacts</h3>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>&#x27;Each Contact is tied to its agency Account via a lookup relationship. This matters for Lab 2, where you&#x27;ll surface the Contact&#x27;s related Cases on the Dynamic Forms canvas. Marcus Chen (NYCT dispatcher) is the Contact on most NYCT Cases; Priya Patel on LIRR; Elena Rodriguez on MNR; James O&#x27;Brien on B&amp;T.&#x27;</div>
+<h3>Part 3 - Tour the Cases</h3>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment (Record Type = Master)</span>&#x27;Notice the Case Record Type column shows a dash for all 10 seed Cases, but shows NYCT for your Golden Case. The seed Cases loaded BEFORE Lab 1, which is when you built the agency Record Types. So the pre-load used Master (the default record type that always exists). This is realistic: in production, legacy data loaded before a Record Type reorg has a null Record Type until someone backfills it. Options for backfilling: a one-time Flow, an Apex script, or a Data Loader update. The workshop doesn&#x27;t do that backfill because the seed Cases don&#x27;t need agency Record Types for downstream labs to work.&#x27;</div>
+<div class="callout callout-listen"><span class="callout-label">Listen for</span>&#x27;Why don&#x27;t the seed Cases have agency Record Types?&#x27; Answer above. Follow-up if they want more depth: &#x27;The pre-workshop deploy uses sf data tree import, which lets you specify a Record Type by DeveloperName. We left it blank because the agency Record Types don&#x27;t exist in the org at pre-deploy time (participants build them in Lab 1 Part 5). We could have reversed the sequence: pre-deploy Record Types too, but that would short-circuit Lab 1&#x27;s Record Type teaching moment.&#x27;</div>
+<div class="callout callout-error"><span class="callout-label">Common error</span>Participant can&#x27;t find the Cases tab. Cause: Pronto template orgs don&#x27;t put Cases in the default nav. Fix: App Launcher &gt; type &#x27;Cases&#x27; &gt; click.</div>
+<h3>Part 4 - What&#x27;s next</h3>
+<div class="bullet">Lab 2 (Dynamic Forms): visibility rule tests use Golden Case; related-list components surface seed Cases on the Account.</div>
+<div class="bullet">Lab 3 (Asset Hierarchy): link one Case to an Asset. Having 11 Cases makes the Case lookup picker realistic.</div>
+<div class="bullet">Lab 5 (Service Disruption): build Service_Disruption__c + Record Types. Seed Cases get a Service Disruption lookup.</div>
+<div class="bullet">Lab 6 (Platform Showcase): Reports group Service Disruptions by agency. Dashboards visualize the agency distribution.</div>
+<div class="bullet">Lab 7 (Agentforce): the Dispatcher Assistant agent has real Cases to classify and reason about.</div>
+<div class="bullet">Executive Scenario Simulation (Day 2 wrap): Inject 2 (&#x27;an existing MNR Case tied to the Hudson Line&#x27;) uses one of the seeded MNR Cases.</div>
+<h3>Troubleshooting missing records</h3>
+<div class="callout callout-watch2"><span class="callout-label">Watch out</span>If a participant&#x27;s org is missing some or all of the sample data, the pre-workshop deploy did not complete cleanly on their org. Fastest fix: rerun the 01b-mta-sample-data loader against their org via the Execution Runner (or ./01b-mta-sample-data/scripts/load-sample-data.sh &lt;alias&gt; locally). ~10 seconds. Idempotent: if partial state is present, the script errors (exit 4) and asks for cleanup; you&#x27;d then delete the half-loaded records and rerun. In the meantime, the participant can continue to Lab 2 using just the Golden Case.</div>
+<h3>Why we moved away from the Data Import Wizard</h3>
+<p>Pronto Agentforce Reference orgs don&#x27;t expose the Cases tile in the Data Import Wizard picker. Confirmed during John Hill&#x27;s smoke test (2026-10-14). Rather than require participants to install Data Loader (a desktop tool with its own learning curve) or ship a different edition, we moved the full data load to the pre-workshop deploy. Participants lose the &#x27;hands-on with the Data Import Wizard&#x27; experience but gain a cleaner Lab 1.5 and a more realistic story about admin tool choice (which is covered in the teaching moment above).</p>
+      </div>
+      </div>
+
+      <div class="lab-card">
+      <div class="lab-head" onclick="toggleInstructor(2)">
+        <div class="lab-number">2</div>
+        <div class="lab-meta">
+          <p class="lab-name">Lab 2: Lightning App Builder &amp; Dynamic Forms</p>
+        </div>
+        <div class="lab-actions">
+          <a class="btn btn-download" href="labs/Lab%2002%20-%20Instructor%20Notes.docx" download onclick="event.stopPropagation();">Download .docx</a>
+          <button class="btn btn-toggle" id="itoggle-2" onclick="event.stopPropagation(); toggleInstructor(2);">Preview ▾</button>
+        </div>
+      </div>
+      <div class="lab-body" id="ibody-2">
+<h2 class="lab-title">Lab 2: Instructor Notes</h2>
+<p class="lab-subtitle">Lightning App Builder &amp; Dynamic Forms | ServicePulse 360 Workshop v0.7 (revision 6) | Facilitator guide to the Participant guide of the same name | about 55 min of participant time | about 70 min of instructor time if you present every teaching moment</p>
+<h3>What changed from r5</h3>
+<p>Round 9 feedback (Tim, 2026-10-09): cross-lab sweep.</p>
+<div class="bullet">Day 1 removed from the lab title.</div>
+<div class="bullet">API names (WorkOrder, Asset Relationship, etc.) replaced with object labels in prose.</div>
+<div class="bullet">&quot;Where you should be&quot; callouts removed throughout.</div>
+<div class="bullet">Em dashes replaced with commas in body text.</div>
+<div class="bullet">All r5 changes preserved.</div>
+<h3>How to use this document</h3>
+<p>This is the instructor-facing companion to the Lab 02 Participant guide. Participants should receive only the Participant guide. Four kinds of annotations: Pacing, Teaching moments, Listen for, Common errors.</p>
+<h3>Pre-workshop setup checklist</h3>
+<p>Lab 02 depends on Lab 01&#x27;s end-state. Confirm the following on every participant org before Lab 02 starts:</p>
+<div class="bullet">Every participant has a Golden Record created in Lab 01 Part 10: an NYCT Case with Account = MTA New York City Transit and a Contact Name populated.</div>
+<div class="bullet">Reported Date/Time, Resolution Notes, AND Case Record Type are all placed on the Case Lightning record page via Dynamic Forms (from Lab 01 r7 Part 9).</div>
+<div class="bullet">The scaffolding data load has been run (sf data tree import --plan data/plan.json) so the 4 MTA Accounts, 4 Contacts, and ~10 seeded Cases exist in each org.</div>
+<div class="bullet">ServicePulse 360 is the default app on login (set via Profile metadata in scaffolding).</div>
+<div class="bullet">If a participant fell significantly behind in Lab 01, use the fallback deploy and manually create a Golden Record on their behalf before Lab 02.</div>
+<h3>Pacing summary</h3>
+<div class="bullet">Part 1 (Open the App Builder from Golden Record): 3 min</div>
+<div class="bullet">Part 2 (Add visibility rule for NYCT, test via Record Type switch): 12 min</div>
+<div class="bullet">Part 3 (Create Other related cases tab + add Related List - Single showing Contact&#x27;s Cases): 15 min</div>
+<div class="bullet">Final Verification: 5 min</div>
+<div class="bullet">Buffer: about 25 min</div>
+<div class="bullet">Total participant time: about 60 min hands-on.</div>
+<h3>The arc of this lab: what to establish verbally before Part 1</h3>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>&#x27;Lab 1 built the data structure and the Golden Record. Lab 2 makes the UI adaptive. Everything we do uses the Golden Record as the central example. The adaptive patterns you learn here (field-level visibility and related-list surfacing) extend to every Lightning record page in your org.&#x27;</div>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>The main framing to repeat throughout: Dynamic Forms visibility rules are a UI concern, not a data concern. Say this at least twice.</div>
+<h3>Part 1: Open your Golden Record in the App Builder (3 min)</h3>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>&#x27;The App Builder is a different context from Setup. The App Builder is where Lightning UX lives; Setup is where data model and configuration live.&#x27; Also call out: &#x27;Open your Golden Record specifically. Opening a different case will make Part 2.3 hard to verify because our visibility rule targets NYCT.&#x27;</div>
+<div class="callout callout-error"><span class="callout-label">Common error</span>Participant opens a seeded Case (Subject starts with &#x27;Seed:&#x27;) instead of their Golden Case. Fix: close that case, return to the Cases list, click the Golden Case (Subject = Golden Record: Workshop reference case). Lab 2&#x27;s Dynamic Forms visibility rules target NYCT Record Type, which only the Golden Case has. The seed Cases are Master Record Type.</div>
+<h3>Part 2: Add a visibility rule and test via Record Type switch (12 min)</h3>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>&#x27;A visibility rule is three things: a target (the field), a filter (a condition that evaluates against the current record&#x27;s data), and a result (if the filter is TRUE, the target is visible; if FALSE, it&#x27;s hidden). The Advanced filter tab lets you walk the full record relationship to find any field the rule should evaluate against.&#x27;</div>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>Call out the Advanced vs Simple filter choice. &#x27;Simple filter is good for the Case&#x27;s own fields. Advanced lets you walk relationships: Record &gt; Case Record Type &gt; Name means we&#x27;re reading the Name field off the Case&#x27;s related RecordType object. In production, Advanced lets you build rules that reference the Case&#x27;s parent Account, the Case&#x27;s Owner&#x27;s Role, or any other related record.&#x27;</div>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>Part 2.3 (switching Record Type on the Golden Record): &#x27;This works because Lab 1 Part 9.4 placed Case Record Type on the Dynamic Forms canvas, making it editable from the record page. Without that step, you&#x27;d have to change Record Type from Setup, which breaks the flow.&#x27;</div>
+<div class="callout callout-listen"><span class="callout-label">Listen for</span>Someone asking &quot;why does the filter use Contains instead of Equals?&quot; Answer: &quot;Contains is more forgiving when the filter value doesn&#x27;t perfectly match. For Record Type Name, Equals also works. Contains is a safe default for text comparisons where you might want partial matches later.&quot;</div>
+<div class="callout callout-listen"><span class="callout-label">Listen for</span>Someone asking &quot;does the field data still get saved when hidden?&quot; Answer: &quot;Yes. Reports read it, SOQL queries it, automation fires on it. Only the UI changes.&quot;</div>
+<div class="callout callout-listen"><span class="callout-label">Listen for</span>Someone asking &quot;is it safe to change Record Type on an existing Case?&quot; Answer: &quot;In this workshop context, yes. In production, Record Type changes can trigger validation rules, flow automation, and approval processes attached to the originating or destination Record Type. Always analyze impact first.&quot;</div>
+<div class="callout callout-error"><span class="callout-label">Common error</span>Participant uses the Simple filter path (not the Advanced tab). Symptom: filter saves but doesn&#x27;t fire. Fix: delete the filter, click Add Filter again, click Advanced, follow the Record &gt; Case Record Type &gt; Name path.</div>
+<div class="callout callout-error"><span class="callout-label">Common error</span>Participant types the Record Type Name as &#x27;nyct&#x27; or &#x27;Nyct&#x27;. Symptom: filter doesn&#x27;t match. Fix: value must match the Record Type Name casing. NYCT, not nyct.</div>
+<div class="callout callout-error"><span class="callout-label">Common error</span>Participant can&#x27;t edit Case Record Type on the Golden Record. Symptom: field appears read-only. Fix: Lab 1 Part 9.4 should have placed Case Record Type on the Dynamic Forms canvas. If missing, return to Lab 1 Part 9 and add it, then save/activate the page.</div>
+<div class="callout callout-error"><span class="callout-label">Common error</span>Reported Date/Time still appears after changing Record Type to B&amp;T. Fix: refresh the browser; Lightning record pages can cache. If still showing, confirm the visibility rule was saved AND the page was activated.</div>
+<h3>Part 3: Create an Other related cases tab and add a Related List - Single component (15 min)</h3>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>&#x27;Related List - Single surfaces one specific related list prominently. The Parent Record field tells the component where to walk FROM. If Parent Record = Use This Case, you see the current Case&#x27;s related lists. If Parent Record = Contact Name, the component walks from the Case to its Contact and shows that Contact&#x27;s related lists. We use Contact Name so we can see all cases from the same person.&#x27;</div>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>The self-referential piece: &#x27;When you view your Golden Record, this Related List - Single will show at least one row, the Golden Record itself. The Golden Record is one of the Contact&#x27;s cases. That&#x27;s a feature, not a bug.&#x27;</div>
+<div class="callout callout-listen"><span class="callout-label">Listen for</span>Someone asking &quot;why not just use the Related tab that&#x27;s already there?&quot; Answer: &quot;Related tab shows every related list at once. Related List - Single lets you show just one specific list, prominently positioned on the Details tab. The point is to reduce clicks for the related list the user needs most often.&quot;</div>
+<div class="callout callout-error"><span class="callout-label">Common error</span>Wrong component picked (Related Lists plural, Related Record, or Dynamic Related List - Single). Fix: delete and re-drag Related List - Single. Confirm the name matches exactly.</div>
+<div class="callout callout-error"><span class="callout-label">Common error</span>Participant leaves Parent Record set to &quot;Use This Case&quot;. Symptom: component shows the current case&#x27;s related lists, but Cases isn&#x27;t a related list on Case itself. Fix: click the lookup icon on Parent Record and change to Contact Name.</div>
+<div class="callout callout-error"><span class="callout-label">Common error</span>Related List field defaulted to Activity History. Fix: click the lookup icon, pick Cases.</div>
+<h3>Final Verification (5 min)</h3>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>Reinforce the two main teaching moments: (1) Dynamic Forms is a UI concern, not a data concern; (2) Related List - Single surfaces specific related data without navigation. Tie it back to the Golden Record.</div>
+<div class="callout callout-listen"><span class="callout-label">Listen for</span>Someone asking &quot;when would I use this in production for Cassie?&quot; Answer: &quot;Dynamic Forms visibility rules collapse what would otherwise be multiple parallel record pages into one adaptive page. The Related List - Single pattern applies anywhere one specific related list would reduce clicks.&quot;</div>
+<h3>After Lab 02: before Lab 03</h3>
+<div class="bullet">Spend 5 extra minutes with any participant still behind from Lab 01.</div>
+<div class="bullet">Preview Lab 03 verbally: &#x27;In Lab 3 we model MTA infrastructure as Assets. One parent Asset (a bus) with child components (battery, HVAC, drive motor). Your Golden Record will be connected to that bus.&#x27;</div>
+<h3>Teaching register: Tim&#x27;s reminder to self</h3>
+<p>Dynamic Forms as a concept: Definition then Constraint then Unlock.</p>
+<div class="bullet">Definition: Dynamic Forms is a Lightning record page feature that lets you set per-field visibility rules based on conditions evaluated against the current record.</div>
+<div class="bullet">Constraint: UI-level only. The field data still exists; only the UI changes.</div>
+<div class="bullet">Unlock: One Lightning record page can serve many Record Types with the right fields in the right places.</div>
+      </div>
+      </div>
+
+      <div class="lab-card">
+      <div class="lab-head" onclick="toggleInstructor(3)">
+        <div class="lab-number">3</div>
+        <div class="lab-meta">
+          <p class="lab-name">Lab 3: Asset Hierarchy for MTA Infrastructure</p>
+        </div>
+        <div class="lab-actions">
+          <a class="btn btn-download" href="labs/Lab%2003%20-%20Instructor%20Notes.docx" download onclick="event.stopPropagation();">Download .docx</a>
+          <button class="btn btn-toggle" id="itoggle-3" onclick="event.stopPropagation(); toggleInstructor(3);">Preview ▾</button>
+        </div>
+      </div>
+      <div class="lab-body" id="ibody-3">
+<h2 class="lab-title">Lab 3: Instructor Notes</h2>
+<p class="lab-subtitle">Asset Hierarchy for MTA Infrastructure | ServicePulse 360 Workshop v0.7 (revision 3) | Facilitator guide to the Participant guide of the same name | about 90 min of participant time | about 110 min of instructor time if you present every teaching moment</p>
+<h3>What changed from r2</h3>
+<p>Round 9 feedback (Tim, 2026-10-09): cross-lab sweep plus a prerequisite for Lab 4.</p>
+<div class="bullet">New Part 3.6: add Work Orders related list to the Asset Layout so Lab 4 can rely on it. Columns: Work Order Number, Subject, Status, Priority, Start Date.</div>
+<div class="bullet">Day 1 reference removed from the lab title.</div>
+<div class="bullet">API names (Work Order, Asset Relationship, etc.) replaced with object labels (Work Order, Asset Relationship, etc.) throughout prose.</div>
+<div class="bullet">Where you should be callouts removed throughout.</div>
+<div class="bullet">Em dashes replaced with commas in prose body text (headers retain em dashes for separator clarity).</div>
+<div class="bullet">All r2 changes preserved; see r2 revision history in the manifest for details.</div>
+<h3>How to use this document</h3>
+<p>This is the instructor-facing companion to the Lab 03 Participant guide. Participants should receive only the Participant guide. Four kinds of annotations: Pacing, Teaching moments, Listen for, Common errors.</p>
+<h3>Pre-workshop setup checklist</h3>
+<p>Lab 03 depends on Lab 01 and Lab 02 outputs. Confirm the following on every participant org:</p>
+<div class="bullet">ServicePulse 360 Lightning App exists and is the user&#x27;s default app.</div>
+<div class="bullet">Four Case Record Types (NYCT, LIRR, MNR, B&amp;T) with the customize-before-extending Priority and Type picklists.</div>
+<div class="bullet">Golden Record exists for each participant: an NYCT Case tied to MTA New York City Transit with a Contact populated.</div>
+<div class="bullet">Lab 2 customizations are deployed: Dynamic Forms visibility rule on Reported Date/Time for NYCT, and Related List - Single component for Contact.Cases placed inside an Other related cases tab (Lab 2 r5).</div>
+<div class="bullet">Lab 1 r8+ ensures Asset is on both the classic Case Layout (Part 6.2) and the Lightning record page Dynamic Forms canvas (Part 9.5). Verify in a sample participant org before Day 1.</div>
+<div class="bullet">No pre-created Assets. Participants build them from scratch in Lab 3.</div>
+<h3>Pacing summary</h3>
+<div class="bullet">Part 1 (Add Assets tab to app, with fallback): 5 min</div>
+<div class="bullet">Part 2 (Tour Asset object): 5 min</div>
+<div class="bullet">Part 3 (Configure Asset Layout, layout-first): 15 min</div>
+<div class="bullet">Part 4 (Create parent Asset): 8 min</div>
+<div class="bullet">Part 5 (Create 4 component Assets via Child Assets related list): 18 min</div>
+<div class="bullet">Part 6 (Asset Relationship peer link): 8 min</div>
+<div class="bullet">Part 7 (Connect Golden Record to bus via Asset hyperlink): 8 min</div>
+<div class="bullet">Part 8 (Add Asset.Cases Related List - Single to Other related cases tab): 10 min</div>
+<div class="bullet">Final Verification: 5 min</div>
+<div class="bullet">Buffer: about 8 min</div>
+<div class="bullet">Total participant time: about 92 min hands-on.</div>
+<h3>The arc of this lab: what to establish verbally before Part 1</h3>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>&#x27;Lab 1 modeled Cases: operational issues reported against the system. Lab 2 made the Case record page adaptive. Lab 3 models the physical infrastructure those cases are about. Buses, HVAC units, batteries. Each is an Asset. The teaching: when you need to model physical things, Asset is your standard-first answer. You get hierarchy, state history, Case links, and Field Service integration all for free.&#x27;</div>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>The standard-first principle applied to physical infrastructure. Say explicitly: &#x27;Teams unfamiliar with Asset often build Equipment__c or Vehicle__c custom objects to model this. They lose the Asset Relationship hierarchy. They lose the Asset State Period state history. They lose the Case related list wiring. The custom object becomes an island. Standard Asset keeps everything connected.&#x27;</div>
+<h3>Part 1: Add the Assets tab to the ServicePulse 360 app (3 min)</h3>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>&#x27;In Lab 1 we scoped the app to Cases and Reports. Workshop labs are additive, as we add new objects, we add tabs. Participants in production would do the same when their org adopts a new object.&#x27;</div>
+<div class="callout callout-error"><span class="callout-label">Common error</span>Participant forgets to Save after moving Assets to Selected Items. Symptom: tab doesn&#x27;t appear. Fix: return to App Manager, edit ServicePulse 360, confirm Assets is in Selected Items, Save.</div>
+<h3>Part 2: Tour the standard Asset object (5 min)</h3>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>The Part 2 tour is deliberately short. Call out the 30+ standard fields and emphasize: &#x27;You will add zero custom fields in this lab. Everything we need is already there.&#x27;</div>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>Mention Install Date, Status, Serial Number, Parent Asset. &#x27;These aren&#x27;t just fields; they drive Field Service, warranty tracking, and asset-aging reports. The standard Asset is tightly integrated with downstream platform capabilities.&#x27;</div>
+<h3>Part 3: Create the parent Asset (10 min)</h3>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>Call out that Asset doesn&#x27;t require a Product. &#x27;Some orgs use Products as templates for Assets, where every Asset is an instance of some catalog Product. We&#x27;re not using Products in this workshop because MTA infrastructure is more one-of-a-kind than catalog-driven. For transit, Asset-without-Product is a valid pattern.&#x27;</div>
+<div class="callout callout-listen"><span class="callout-label">Listen for</span>Someone asking &quot;do I need a Product?&quot; Validate: &quot;Products are useful when you have a catalog of standardized assets (e.g., a fleet of identical commercial-grade HVAC units). For MTA, where each bus is somewhat unique and tracked by serial number, Asset-only is fine.&quot;</div>
+<div class="callout callout-error"><span class="callout-label">Common error</span>Participant fills out Serial Number as text that doesn&#x27;t match a pattern. Won&#x27;t break anything in the workshop; just mention in the real world you&#x27;d standardize this.</div>
+<h3>Part 4: Create the four component Assets (20 min)</h3>
+<p>Repetitive by design. Participants build muscle memory with the Asset creation flow.</p>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>&#x27;The Parent Asset lookup is what creates the hierarchy. Every component you create picks NYCT Bus 4521 as its parent. The one-to-many relationship is wired automatically. Nothing custom to build.&#x27;</div>
+<div class="callout callout-tip"><span class="callout-label">Pacing</span>If participants finish early, let them experiment with a sub-component (e.g., Battery Cell 4521-BP-C1 with Parent Asset = Battery Pack 4521-BP, creating a 3-level deep hierarchy). This reinforces the pattern and is a teaching moment about hierarchy depth.</div>
+<div class="callout callout-error"><span class="callout-label">Common error</span>Participant leaves Parent Asset empty on a component. Symptom: the component appears as its own root, not under the bus. Fix: edit the component, populate Parent Asset = NYCT Bus 4521, Save.</div>
+<div class="callout callout-error"><span class="callout-label">Common error</span>Participant creates all components with the same Serial Number. Fix: each component&#x27;s serial should be unique (NYCT-4521-BP, NYCT-4521-HV, etc.).</div>
+<h3>Part 5: Use Asset Relationship (10 min)</h3>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>This is the lab&#x27;s second structural concept. Parent Asset = ownership hierarchy; Asset Relationship = everything else. Say explicitly: &#x27;A battery is a component of the bus, that&#x27;s Parent Asset. A battery depends on the Battery Management System to charge, that&#x27;s AssetRelationship. Same objects, two different relationships, both standard, both needed.&#x27;</div>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>Call out that Asset Relationship is bidirectional. &#x27;When you create a relationship from Battery Pack to HVAC Unit, the inverse automatically appears on HVAC Unit. One record, two views.&#x27;</div>
+<div class="callout callout-listen"><span class="callout-label">Listen for</span>Someone asking &quot;why have both Parent Asset and Asset Relationship?&quot; Answer: &quot;Parent Asset is a simple one-to-many field directly on Asset. Asset Relationship is a separate object that holds qualifying information (Type, Begin Date, End Date). Use Parent Asset for structural hierarchy; use Asset Relationship when you need to describe HOW two Assets relate.&quot;</div>
+<div class="callout callout-error"><span class="callout-label">Common error</span>Asset Relationship related list has different labels in different Salesforce releases. &quot;Primary Asset Relationships,&quot; &quot;Related Assets,&quot; &quot;Asset Relationships&quot; are all variants of the same thing. Participants may be confused if the label doesn&#x27;t match the lab text. Reassure them.</div>
+<h3>Part 6: Connect the Golden Record to the bus (10 min)</h3>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>&#x27;Standard Asset has a direct wiring to Case. Every Case has an optional Asset lookup. Populating it makes the Case appear in the Asset&#x27;s Cases related list AND makes the Asset visible on the Case. This is bidirectional out-of-the-box. No custom work.&#x27;</div>
+<div class="callout callout-listen"><span class="callout-label">Listen for</span>Someone asking &quot;what if a Case affects multiple Assets?&quot; Answer: &quot;The standard Asset lookup is 1-to-1. For multi-asset cases, you&#x27;d use the custom object we build in Lab 5, Service_Disruption__c, which lets one disruption spawn multiple Cases and reference multiple Assets. That&#x27;s the right time for custom. For a single-asset case, standard Asset lookup is correct.&quot;</div>
+<div class="callout callout-error"><span class="callout-label">Common error</span>Asset field not visible on the Case record page. Lab 1&#x27;s classic Case Layout should include Asset. If missing, participant may need to add it to the Dynamic Forms canvas as a one-off. The participant guide&#x27;s &#x27;If you got stuck&#x27; section covers this.</div>
+<h3>Part 7: Surface Asset&#x27;s Cases on the Case page (10 min)</h3>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>&#x27;This is the same pattern you used in Lab 2 for Contact.Cases. Now applied to Asset.Cases. Related List - Single is the Swiss Army knife of related-data surfacing: whatever lookup field a record has, you can walk it to surface related lists.&#x27;</div>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>If time permits, mention component visibility rules on the Related List - Single. &#x27;You could set a visibility rule so this Asset.Cases list only appears when the Case has an Asset populated. Dynamic Forms visibility rules work on components too, not just fields.&#x27; This is a nice bridge back to Lab 2.</div>
+<div class="callout callout-error"><span class="callout-label">Common error</span>Participant drops Related List - Single and leaves Parent Record set to &#x27;Use This Case&#x27;, then picks Cases. Symptom: component shows the current Case&#x27;s cases, which Case doesn&#x27;t have as a related list, so it errors or shows nothing. Fix: Parent Record must be Asset (walking from Case to Asset), not Use This Case.</div>
+<h3>Final Verification (5 min)</h3>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>Reinforce the full arc: &#x27;Lab 1 built Cases. Lab 2 made the Case UI adaptive. Lab 3 added physical Assets and wired them to Cases. In 3 hours you have a working multi-agency Case management system with infrastructure modeling. All on standard objects. No custom objects. This is what standard-first delivers at scale.&#x27;</div>
+<h3>After Lab 03: before Lab 04</h3>
+<div class="bullet">Spend a few minutes with any participant whose Golden Record isn&#x27;t linked to NYCT Bus 4521. This connection is a prerequisite for Lab 4 (Field Service).</div>
+<div class="bullet">Preview Lab 04 verbally: &#x27;Next we add Field Service. Work Orders tied to Assets, ServiceAppointments scheduled to technicians. The maintenance workflow for the bus you just modeled.&#x27;</div>
+<h3>Teaching register: Tim&#x27;s reminder to self</h3>
+<p>Asset as a concept: Definition then Constraint then Unlock.</p>
+<div class="bullet">Definition: Asset is the standard Salesforce object for modeling individual physical or logical things that belong to a customer/account.</div>
+<div class="bullet">Constraint: Asset is per-instance (each thing is its own record), not per-type (each category of thing). For categorical modeling, use Product.</div>
+<div class="bullet">Unlock: Asset gets you hierarchy (Parent Asset), state history (Asset State Period), peer relationships (Asset Relationship), and Case linkage for free.</div>
+<div class="bullet">Analogy 1 (concrete): &#x27;Like a VIN for every vehicle in a fleet. Each VIN is one Asset. The whole fleet is many Assets.&#x27;</div>
+<div class="bullet">Analogy 2 (technical): &#x27;Like a serialized inventory table with built-in hierarchy and lifecycle fields.&#x27;</div>
+<div class="bullet">Analogy 3 (operational): &#x27;Like a physical asset ledger that also knows which service tickets touched each item.&#x27;</div>
+      </div>
+      </div>
+
+      <div class="lab-card">
+      <div class="lab-head" onclick="toggleInstructor(4)">
+        <div class="lab-number">4</div>
+        <div class="lab-meta">
+          <p class="lab-name">Lab 4: Field Service Foundations</p>
+        </div>
+        <div class="lab-actions">
+          <a class="btn btn-download" href="labs/Lab%2004%20-%20Instructor%20Notes.docx" download onclick="event.stopPropagation();">Download .docx</a>
+          <button class="btn btn-toggle" id="itoggle-4" onclick="event.stopPropagation(); toggleInstructor(4);">Preview ▾</button>
+        </div>
+      </div>
+      <div class="lab-body" id="ibody-4">
+<h2 class="lab-title">Lab 4: Instructor Notes</h2>
+<p class="lab-subtitle">Field Service Foundations | ServicePulse 360 Workshop v0.7 (revision 3) | Facilitator guide to the Participant guide of the same name | about 60 min of participant time | about 75 min of instructor time if you present every teaching moment</p>
+<h3>What changed from r2</h3>
+<p>Round 9 feedback (Tim, 2026-10-09): big restructure based on actual Pronto template layout.</p>
+<div class="bullet">Day 1 removed from title.</div>
+<div class="bullet">Object API names replaced with labels (Work Order, Work Type, Service Appointment).</div>
+<div class="bullet">&quot;Where you should be&quot; callouts removed throughout.</div>
+<div class="bullet">Em dashes replaced with commas in prose body text.</div>
+<div class="bullet">New Part 2.1: trim the Work Type Layout before creating the Signal Repair record. Removes layout clutter before participants have to deal with it.</div>
+<div class="bullet">Part 2.2: Timeframe Start / End steps removed (participants can save after Duration Type = Hours).</div>
+<div class="bullet">Part 3.2 removal list corrected to match actual Pronto standard layout (Parent Work Order, Service Contract, Contact, Entitlement are the real removals; the long list from r1/r2 was speculative).</div>
+<div class="bullet">Part 3.3 target structure: four clear sections (Information, Work Order Details, Description, System Information) matching Tim&#x27;s screenshot.</div>
+<div class="bullet">Part 5.3 (From Work Type, navigate to Work Orders) removed.</div>
+<div class="bullet">Verify callouts updated to &quot;Verified? Great job!&quot; with exclamation mark.</div>
+<div class="bullet">&quot;Day 2 extends this&quot; replaced with &quot;The subsequent hands-on labs extend this&quot; for schedule flexibility.</div>
+<div class="bullet">Depends on Lab 3 r3 adding Work Orders related list to the Asset Layout (Part 3.6).</div>
+<h3>How to use this document</h3>
+<p>This is the instructor-facing companion to the Lab 04 Participant guide. Participants should receive only the Participant guide. Four kinds of annotations: Pacing, Teaching moments, Listen for, Common errors.</p>
+<h3>Pre-workshop setup checklist</h3>
+<div class="bullet">Participants have completed Labs 1 through 3. Golden Case record exists and is linked to NYCT Bus 4521.</div>
+<div class="bullet">Participants have Field Service Standard, Dispatcher, or Scheduling PSL assigned (confirmed per org by Lab 1 scaffolding).</div>
+<div class="bullet">Setup &gt; Field Service &gt; Field Service Settings &gt; &#x27;Enable Field Service&#x27; is ON. Required for Work Type, Work Order, and other Field Service objects to be editable.</div>
+<div class="bullet">Verify in a sample participant org: Setup then Object Manager then Work Order should exist and be customizable.</div>
+<h3>Pacing summary</h3>
+<div class="bullet">Part 1 (Add Work Orders tab): 3 min</div>
+<div class="bullet">Part 2 (Create Signal Repair Work Type): 10 min</div>
+<div class="bullet">Part 3 (Trim Work Order Layout): 15 min</div>
+<div class="bullet">Part 4 (Escalate Case to Work Order): 12 min</div>
+<div class="bullet">Part 5 (Verify the chain): 10 min</div>
+<div class="bullet">Final Verification: 5 min</div>
+<div class="bullet">Buffer: about 5 min</div>
+<div class="bullet">Total participant time: about 60 min hands-on.</div>
+<h3>The arc of this lab: what to establish verbally before Part 1</h3>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>&#x27;In 3 labs we&#x27;ve built the WHAT: Cases describe operational issues, Assets model physical infrastructure, the two are linked. Lab 4 introduces the HOW: Work Orders coordinate the work. A Case says a problem exists; a Work Order says a specific response is scheduled. Field Service is the standard framework for that work coordination. Standard objects, standard relationships, no custom work.&#x27;</div>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>The three-way wiring is worth emphasizing early. &#x27;Every Work Order links to a Case (why we&#x27;re doing this work), an Asset (what we&#x27;re working on), and a Work Type (what kind of work this is). All three relationships are optional on Work Order itself but populating them unlocks reporting, dispatcher views, and the Maintenance Plan integration mentioned in Lab 3.&#x27;</div>
+<h3>Part 1: Add the Work Orders tab (3 min)</h3>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>&#x27;Each lab adds the tab for its new object. Admins in production would do the same when the org adopts a new object.&#x27;</div>
+<div class="callout callout-error"><span class="callout-label">Common error</span>Work Orders doesn&#x27;t appear in Available Items. Means Field Service hasn&#x27;t been enabled in the org. Fix: Setup then Field Service Settings then Enable Field Service. (If this fails, the org doesn&#x27;t have a Field Service PSL.)</div>
+<h3>Part 2: Create a Work Type (10 min)</h3>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>&#x27;Work Type is a catalog of kinds of work your organization dispatches. In MTA, you&#x27;d eventually have many Work Types: Signal Repair, Preventive Inspection, Catenary Maintenance, Bridge Lane Closure, Fare Equipment Service, Station Deep Clean, etc. For the workshop we just create one. In production Work Type is where business process standardization happens, if every Signal Repair has a known Estimated Duration, dispatchers plan more accurately.&#x27;</div>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>Call out the Estimated Duration + Duration Type pattern. &#x27;This is Salesforce&#x27;s way of saying how long work SHOULD take. The number drives Field Service scheduling: when a Work Order of this type is created, Field Service can calculate the Service Appointment length automatically.&#x27;</div>
+<div class="callout callout-listen"><span class="callout-label">Listen for</span>Someone asking &quot;why not just put duration on each Work Order?&quot; Answer: &quot;You can, but then every Work Order requires manual duration entry. Work Type gives you a default, so dispatchers only override it when a specific job is unusual. Same pattern as Case Record Types defaulting Status, standards reduce manual data entry.&quot;</div>
+<div class="callout callout-error"><span class="callout-label">Common error</span>Work Type creation Save fails with a Pricebook or Standard Pricebook error. Some orgs require a Standard Pricebook before Products or Work Types can be saved. Fix: Setup then Price Books then New Standard Price Book (if available). This is a one-time org setup; a workshop template should have the Standard Price Book active. If participants hit this, the template needs the pricebook enabled pre-workshop.</div>
+<h3>Part 3: Trim the Work Order Layout (15 min)</h3>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>This Part is where the &#x27;minimum viable layout&#x27; pattern lands. Say explicitly: &#x27;Standard objects ship with every possible field on the layout because Salesforce doesn&#x27;t know what your org cares about. Trim aggressively. The fields you don&#x27;t surface are still on the object, they just don&#x27;t clutter the UI. Trimming is a one-time admin task; the UX dividend lasts forever.&#x27;</div>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>The Why no Cases related list callout is a sneaky but important lesson. Say it out loud: &#x27;Related lists are a one-to-many surface. The parent record can have many children, and the related list lists them. Work Order-to-Case is many-to-one from Work Order&#x27;s side, each Work Order has at most one Case. The right surface for a many-to-one relationship is a lookup field on the many-side record, which the user clicks to navigate. Related lists where there would only ever be one row are a UX anti-pattern.&#x27;</div>
+<div class="callout callout-listen"><span class="callout-label">Listen for</span>Someone asking &quot;but what if I need Latitude/Longitude later?&quot; Answer: &quot;Add it back when you need it. Classic page layouts are easy to extend. The question is what should be on screen for a NEW Work Order today, not what MIGHT be useful six months from now.&quot;</div>
+<div class="callout callout-error"><span class="callout-label">Common error</span>Participant removes Status from the layout. Status is required on WorkOrder. Symptom: Save fails on Work Order creation. Fix: return to the layout, drag Status back onto the canvas, Save.</div>
+<div class="callout callout-error"><span class="callout-label">Common error</span>Participant removes required Field Service fields (varies by org). Fix: Salesforce will complain on Save. Add the required field back.</div>
+<div class="callout callout-tip"><span class="callout-label">Pacing</span>If Part 3 is running long: let participants remove &#x27;enough&#x27; fields rather than the full list. The teaching is the pattern, not the exhaustive removal. Fifteen fewer fields on screen is a win; the exact list is less important.</div>
+<h3>Part 4: Escalate your golden Case into a Work Order (12 min)</h3>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>This is the core Case-to-Work Order pattern. &#x27;Dispatchers triage Cases. Some Cases become Work Orders when the fix requires scheduled work. The Case stays open as the originating record; the Work Order becomes the actionable work item. The link lets any user navigate from one to the other.&#x27;</div>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>Call out the field auto-population behavior. &#x27;Salesforce doesn&#x27;t auto-copy Asset from Case to Work Order by default. In production you&#x27;d use a Flow or Lightning Record Action to pre-fill Work Order fields from the Case. For this workshop we&#x27;ll manually set Asset. Day 2 Lab 4 would be a natural place to add the Flow if we had more time.&#x27;</div>
+<div class="callout callout-listen"><span class="callout-label">Listen for</span>Someone asking &quot;when would I NOT escalate a Case to a Work Order?&quot; Answer: &quot;When the resolution doesn&#x27;t require physical work. A password reset Case closes without a WorkOrder. A FOIL request closes without a WorkOrder. Signal Repair, Equipment Failure, Track Defect, those escalate. The decision is: does this need a technician?&quot;</div>
+<div class="callout callout-error"><span class="callout-label">Common error</span>Participant can&#x27;t find the Work Orders related list on the Case. Means Case Layout doesn&#x27;t include it. Fix is in Participant 4.2: Setup then Object Manager then Case then Page Layouts then Case Layout then drag Work Orders into Related Lists then Save.</div>
+<div class="callout callout-error"><span class="callout-label">Common error</span>Work Type picker empty on the WorkOrder. Participant skipped Part 2. Create Signal Repair first.</div>
+<div class="callout callout-error"><span class="callout-label">Common error</span>Case doesn&#x27;t auto-populate on the WorkOrder. Fix: ensure participants are creating the Work Order FROM the Case&#x27;s Related tab (not from the Work Orders tab directly). Creating from the related list auto-populates Case.</div>
+<h3>Part 5: Verify the chain (10 min)</h3>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>&#x27;The three-way wiring between Case, Asset, and Work Order means every entry point lands you in the full context. From the Case you see the dispatched work. From the Asset you see the operational history. From the Work Type you see the dispatcher&#x27;s queue. One data model, three navigation paths.&#x27;</div>
+<div class="callout callout-listen"><span class="callout-label">Listen for</span>Someone asking &quot;what about Service Appointments?&quot; Answer: &quot;Day 2 morning. Service Appointment is the specific scheduled time slot for the work. The Work Order is WHAT needs doing; the Service Appointment is WHEN and WHO. We stop at the Work Order today so the lab fits in 60 minutes.&quot;</div>
+<h3>Final Verification (5 min)</h3>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>Use Final Verification to tie Day 1 together: &#x27;In six hours of hands-on work, you&#x27;ve built a multi-agency Case management system (Lab 1), made the record page adaptive (Lab 2), modeled MTA infrastructure as Assets (Lab 3), and dispatched a Work Order tied to a specific Asset (Lab 4). All on standard objects. All MTA-shaped. This is a working ServicePulse 360 foundation. Day 2 adds the service-disruption custom object and the AI layer.&#x27;</div>
+<h3>After Lab 04: Day 1 close</h3>
+<p>Lab 4 is the last build of Day 1. Before closing:</p>
+<div class="bullet">Confirm every participant has a Work Order tied to their golden Case record. This becomes a prerequisite for Lab 5 and Lab 6.</div>
+<div class="bullet">Spend a few minutes previewing Day 2: Service_Disruption__c as the one deliberate custom object; Agentforce agent action + Prompt Template that generates rider messages; Executive Scenario Simulation ties it all together.</div>
+<div class="bullet">Address any Day 1 cleanup questions (e.g., &#x27;where should I keep notes for the Asset-maintenance scenario?&#x27;). The Golden Record pattern makes this easier, remind participants their golden Case record is the thread through the whole workshop.</div>
+<h3>Teaching register: Tim&#x27;s reminder to self</h3>
+<p>Field Service as a concept: Definition then Constraint then Unlock.</p>
+<div class="bullet">Definition: Field Service is Salesforce&#x27;s standard framework for coordinating work done against physical assets. Core objects: Work Type, Work Order, WorkOrderLineItem, Service Appointment, Service Resource, ServiceTerritory.</div>
+<div class="bullet">Constraint: Requires a Field Service PSL (Standard, Dispatcher, Scheduling, or Mobile) assigned to users. Pricebook may be required for WorkType.</div>
+<div class="bullet">Unlock: Case-to-Work Order-to-Asset wiring is standard. Maintenance Plan auto-generates Work Orders on schedule. Mobile Field Service app lets technicians work offline on their phones.</div>
+<div class="bullet">Analogy 1 (concrete): &#x27;Dispatch ticket in a help desk. Case is the complaint; Work Order is the ticket; Service Appointment is the technician slot.&#x27;</div>
+<div class="bullet">Analogy 2 (technical): &#x27;Like Jira tickets with a scheduling layer, bound to physical assets.&#x27;</div>
+<div class="bullet">Analogy 3 (operational): &#x27;Like a work queue at a mechanic shop. Customer brings in a car (Case about an Asset). Mechanic triages it (Work Order created). A bay and a time slot get assigned (Service Appointment).&#x27;</div>
+      </div>
+      </div>
+
+      <div class="lab-card">
+      <div class="lab-head" onclick="toggleInstructor(5)">
+        <div class="lab-number">5</div>
+        <div class="lab-meta">
+          <p class="lab-name">Lab 5: Service Disruption Custom Object</p>
+        </div>
+        <div class="lab-actions">
+          <a class="btn btn-download" href="labs/Lab%2005%20-%20Instructor%20Notes.docx" download onclick="event.stopPropagation();">Download .docx</a>
+          <button class="btn btn-toggle" id="itoggle-5" onclick="event.stopPropagation(); toggleInstructor(5);">Preview ▾</button>
+        </div>
+      </div>
+      <div class="lab-body" id="ibody-5">
+<h2 class="lab-title">Lab 5: Instructor Notes</h2>
+<p class="lab-subtitle">Build the Service Disruption Custom Object | ServicePulse 360 Workshop v0.7 (revision 4) | Facilitator guide to the Participant guide of the same name | about 78 min of participant time | about 85 min of instructor time if you present every teaching moment</p>
+<h3>What changed from r3</h3>
+<p>Round 19 feedback: Publish Status (originally built in Lab 6 Part 4.1) belongs in the Service Disruption data model, not as a Lab 6 add-on.</p>
+<div class="bullet">Field 10: Publish Status (Picklist with Draft, Pending Approval, Approved, Rejected; Draft default) added to Part 3.</div>
+<div class="bullet">Service Disruption Layout Communication section now includes Publish Status alongside Description and Rider-Facing Message.</div>
+<div class="bullet">Field count: 9 to 10. Part 3 time: 25 to 28 min. Lab total: 75 to 78 min.</div>
+<div class="bullet">Checkbox wording updated: &#x27;Auto add to custom report type&#x27; is actually labeled &#x27;Add this field to existing custom report types that contain this entity&#x27; in the UI. Applied to Field 10 only; other fields may still use the old wording and will need a sweep in a future revision.</div>
+<h3>How to use this document</h3>
+<p>This is the instructor-facing companion to the Lab 05 Participant guide. Participants should receive only the Participant guide. Four kinds of annotations: Pacing, Teaching moments, Listen for, Common errors.</p>
+<h3>Pre-workshop setup checklist</h3>
+<div class="bullet">Participants have completed Labs 1 through 4. Golden Case record exists and is linked to NYCT Bus 4521 (Asset) and the Work Order from Lab 4.</div>
+<div class="bullet">No pre-created Service Disruption records. Participants build everything from scratch.</div>
+<div class="bullet">ServicePulse 360 app is the default on login.</div>
+<h3>Pacing summary</h3>
+<div class="bullet">Part 1 (Walk through the standard-fit test): 10 min, discussion-heavy</div>
+<div class="bullet">Part 2 (Create the custom object + tab): 10 min</div>
+<div class="bullet">Part 3 (10 fields including timestamps, Duration, Publish Status + 4 Record Types): 28 min</div>
+<div class="bullet">Part 4 (Case lookup to Service Disruption + Dynamic Forms placement): 8 min</div>
+<div class="bullet">Part 5 (Configure the Service Disruption Layout and Lightning record page): 12 min</div>
+<div class="bullet">Part 6 (Create disruption + link Golden Case): 10 min</div>
+<div class="bullet">Final Verification: 5 min</div>
+<div class="bullet">Buffer: about 5 min</div>
+<div class="bullet">Total participant time: about 78 min hands-on.</div>
+<h3>The arc of this lab, what to establish verbally before Part 1</h3>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>This is the only custom object in the workshop. Make the moment land verbally: &#x27;Yesterday we built everything on standard objects. Case, Asset, Work Order. Even where it felt tempting to go custom (that custom Issue_Type field some of you asked about on Day 1), we resisted. Today we build one deliberate custom object, Service_Disruption__c. The point of today is NOT that custom is bad. The point is that custom should be a conscious decision, not a reflex. Standard-first means we test standard first. If no standard object fits, custom wins. We walked that test every time with standard objects. Today we walk it and conclude custom is the answer.&#x27;</div>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>The &#x27;one deliberate custom object&#x27; framing is a useful anchor for the whole workshop. &#x27;If a real MTA implementation has 1 custom object for every 10 standard objects used, you&#x27;re probably in good shape. If you have 10 custom for every 1 standard, you&#x27;ve probably invented work. Today&#x27;s Service Disruption passes the test. The exercise is practicing the test, not just the build.&#x27;</div>
+<h3>Part 1: Walk the standard-fit test (10 min)</h3>
+<p>Part 1 is deliberately discussion-heavy. Participants read the four standard-object candidates, hear why each one fails, and conclude custom is justified. Use this time to generate dialogue, not just read the lab.</p>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>Make this interactive. For each of the four candidates (Case, Asset, Knowledge, Work Order), ask the room &#x27;what would be wrong with modeling a service disruption as this?&#x27; before showing the answer. Participants who try and fail to force-fit standard objects internalize the standard-fit test better than participants who just read it.</div>
+<div class="callout callout-listen"><span class="callout-label">Listen for</span>Someone saying &quot;but Case is a lot like a disruption.&quot; Validate the observation. &quot;You&#x27;re right that a Case and a disruption look similar: both have status, both are reported, both affect operations. The difference is the one-to-many: a disruption affects many riders, each of whom gets their own Case. The disruption is the parent event; Cases are children. If we modeled the disruption as a Case, we&#x27;d have no clean way to represent that one event spawned ten Cases.&quot;</div>
+<div class="callout callout-listen"><span class="callout-label">Listen for</span>Someone asking &quot;could we use a different standard object like Problem (ITIL) or Incident?&quot; Honest answer: &quot;Those exist in some Salesforce Cloud SKUs (Service Cloud Incident Management has an Incident object), but not reliably in every org. Also they&#x27;re ITIL-shaped, which maps to IT ops, not transit ops. For an MTA audience, Service_Disruption__c as a custom object is more legible and more flexible than the ITIL standard. If MTA were an IT shop, that answer would be different.&quot;</div>
+<h3>Part 2: Create the custom object + tab (10 min)</h3>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>Walk through the object definition fields and call out which are consequential. &#x27;Allow Reports means this object appears in the Reports builder. Allow Activities means Tasks and Events can be logged against it. Track Field History means Service Disruption field changes get audit-logged. For a disruption that affects public communications, Track Field History is particularly valuable: you want to know who changed the Headline from Signal Issue to Equipment Failure.&#x27;</div>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>The auto-number pattern SD-{00000} is a convention worth calling out. &#x27;Service Disruption Number auto-populates as SD-00001, SD-00002, etc. The 5-digit format gives us up to 99,999 records before rollover. For MTA&#x27;s volume (a few disruptions per week per agency) this is overkill, but better to have padding than to run out.&#x27;</div>
+<div class="callout callout-error"><span class="callout-label">Common error</span>Participant forgets to check &#x27;Launch New Custom Tab Wizard&#x27; and the tab wizard doesn&#x27;t launch after Save. Fix: Setup then Tabs then New under Custom Object Tabs. Or add via the App Manager pencil icon as a user-side nav item.</div>
+<div class="callout callout-error"><span class="callout-label">Common error</span>Participant doesn&#x27;t add the tab to the ServicePulse 360 app. Fix: Setup then App Manager then ServicePulse 360 then edit, add Service Disruption to Navigation Items.</div>
+<h3>Part 3: 6 fields + 4 Record Types (18 min)</h3>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>&#x27;We&#x27;re adding six fields, not sixty. The temptation when building a custom object is to add every field that might one day be useful. Resist. Each field has a maintenance cost: FLS, page layouts, reports, automation. Add the smallest set that makes the object useful; add more only when a real use case demands them.&#x27;</div>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>Call out the Rider-Facing Message field explicitly. &#x27;This field is deliberately left empty for now. In the next lab, Prompt Builder will fill it in automatically from the Headline and Public Description. The pattern is: raw operational data in Headline + Public Description, AI-generated public communication in Rider-Facing Message. Humans curate the operational data; AI drafts the public text; humans approve before send. This is the Digital Communications Team workflow, automated.&#x27;</div>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>Record Types on custom objects work identically to Record Types on standard objects. &#x27;This is the same pattern as Case Record Types in Lab 1. The Record Type is just a differentiator. One Service Disruption record is one disruption; which agency Record Type it uses tells us which agency owns it.&#x27;</div>
+<div class="callout callout-listen"><span class="callout-label">Listen for</span>Someone asking &quot;why not just have an Agency picklist field instead of Record Types?&quot; Answer: &quot;Record Types give you more than a picklist. They let you have different page layouts per agency, different picklist values per agency (NYCT disruptions might have different Severity values than B&amp;T), and different automation per agency. Agency as a picklist is simpler but loses those options. Both patterns are valid; Record Types gain flexibility at the cost of initial complexity.&quot;</div>
+<div class="callout callout-error"><span class="callout-label">Common error</span>Participant creates fields but forgets Required=yes on Status and Headline. Fix: edit each field, check Required, Save.</div>
+<div class="callout callout-error"><span class="callout-label">Common error</span>Participant forgets to check Make Available for System Administrator on Record Type creation (silent failure as always). Fix: Setup then Service Disruption then Record Types then edit the RT then Make Available then check System Administrator.</div>
+<h3>Part 4: Case lookup to Service Disruption (8 min)</h3>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>&#x27;This is the moment where the custom object stops being an island. We add a Service Disruption lookup on Case so a Case can optionally point to its parent disruption. This creates a one-to-many: one disruption, many Cases. Participants will see this is just like Case.Account or Case.Contact. Lookups work the same way regardless of whether the target is standard or custom.&#x27;</div>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>The Related List label &#x27;Rider Cases&#x27; is a soft but important UX choice. &#x27;When you add the lookup, Salesforce proposes a default Related List Label like Cases. We rename it to Rider Cases to make the meaning explicit: these are the per-rider manifestations of the disruption, not just any Cases. In production, naming related lists intentionally pays off because dispatchers read labels at speed.&#x27;</div>
+<div class="callout callout-error"><span class="callout-label">Common error</span>Participant skips the Related List step in the lookup wizard. Symptom: Service_Disruption__c doesn&#x27;t show a Rider Cases related list. Fix: Setup then Case then Service Disruption field then Edit, re-run the related list creation.</div>
+<h3>Part 5: Configure the Service Disruption Layout and Lightning record page (12 min)</h3>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>The layout-first pattern is now a cross-Day pattern. We did it with the Asset Layout in Lab 3 and the Work Order Layout in Lab 4. Now we do it on the one custom object. Say explicitly: &#x27;Trimming and organizing the layout before you have any records means every record you create afterwards is already clean. Zero wasted layout clicks after you&#x27;ve got data in the object.&#x27;</div>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>The section organization (Information, Communication, System Information) reflects the mental model of the data. &#x27;Operational data goes in Information. Public communication fields go in Communication. Audit fields go in System Information. The section names tell dispatchers what each cluster of fields is for.&#x27;</div>
+<div class="callout callout-error"><span class="callout-label">Common error</span>Lightning record page shows a different field arrangement than the classic layout. Dynamic Forms may not be on this object&#x27;s Lightning record page. If participants see monolithic Record Detail instead of sections, open the Lightning record page in Edit Page and migrate to Dynamic Forms (same pattern as Lab 1 Part 9).</div>
+<h3>Part 6: Create disruption + link Golden Case (10 min)</h3>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>&#x27;Creating the Service Disruption record is where the object comes alive. Up to now, participants have built the schema; now they populate it with a realistic example. The 7 Line signal fault at Vernon Blvd is specifically chosen because it maps to a known NYCT geography. In production, dispatchers would be entering disruptions constantly; this one record is representative.&#x27;</div>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>The Rider-Facing Message is deliberately left empty. &#x27;In the real MTA workflow, the Digital Communications Team drafts the rider-facing message by hand. Lab 6 automates this with Prompt Builder: given the Headline and Public Description, generate the Rider-Facing Message in the tone and format MTA uses for public alerts.&#x27;</div>
+<div class="callout callout-listen"><span class="callout-label">Listen for</span>Someone asking &quot;do all MTA Cases get a Service Disruption lookup?&quot; Answer: &quot;Not necessarily. A password reset Case has no parent disruption. A FOIL request has no parent disruption. The lookup is optional. In production, you&#x27;d expect maybe 30-40% of Cases to roll up to a disruption during an active event, and near-zero outside of events. The lookup is there when you need it.&quot;</div>
+<h3>Final Verification (5 min)</h3>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>Use Final Verification to close the standard-first arc. &#x27;In five labs you&#x27;ve extended four standard objects (Case, Asset, Work Order, Work Type) and built one deliberate custom object (Service Disruption). The ratio is intentional. Standard-first means standard until proven otherwise. You proved otherwise today, with Service Disruption. That&#x27;s the pattern you take back to production.&#x27;</div>
+<h3>After Lab 05: before Lab 06</h3>
+<div class="bullet">Confirm every participant&#x27;s Golden Case now has a Service Disruption lookup populated with their SD-00001 record. Lab 6 depends on it.</div>
+<div class="bullet">Deploy the v08-sla-extension scaffolding package to each org (one sf project deploy command). It adds three SLA formula fields to Service_Disruption__c: SLA Target (Minutes), SLA Breach, and Minutes Over SLA. The fields reference Severity and Duration (both built in this lab), so this deploy only works AFTER Lab 5 is complete. Participants will see these fields appear in their Report column pickers during Lab 6 Part 5. See scaffolding-package/v08-sla-extension/README.md for the deploy command and layout recommendation.</div>
+<div class="bullet">Preview Lab 06 verbally: &#x27;Next we add Agentforce. Build an agent action that reads the active Service Disruptions for an agency. Build a Prompt Template that generates the Rider-Facing Message from the Headline and Public Description. Then run the agent and watch it work.&#x27;</div>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>&#x27;The SLA fields that just appeared in your Service Disruption object were added via scaffolding. You&#x27;ll see them in Lab 6 when you build Reports. In a real engagement you&#x27;d build them exactly the way you built Duration (Minutes) today: pick target thresholds by severity, write a formula. The native Salesforce alternative is Entitlement Management, which lives on the Case object and ships a Milestone Tracker UI. That&#x27;s a Phase 2 topic for a focused SLA deep-dive, not for this foundational workshop.&#x27;</div>
+<h3>Teaching register: Tim&#x27;s reminder to self</h3>
+<p>Custom object decision-making as a concept: Definition then Constraint then Unlock.</p>
+<div class="bullet">Definition: A custom object is justified when standard Salesforce objects genuinely cannot model your business concept.</div>
+<div class="bullet">Constraint: Standard-first is the default. The test for custom is: does the standard set FAIL? If no, standard wins. If yes, custom is correct.</div>
+<div class="bullet">Unlock: Deliberate custom objects fit cleanly into the standard-object data model via lookups. The custom object isn&#x27;t an island; it&#x27;s a specific node in a larger graph.</div>
+      </div>
+      </div>
+
+      <div class="lab-card">
+      <div class="lab-head" onclick="toggleInstructor(6)">
+        <div class="lab-number">6</div>
+        <div class="lab-meta">
+          <p class="lab-name">Lab 6: Platform Showcase</p>
+        </div>
+        <div class="lab-actions">
+          <a class="btn btn-download" href="labs/Lab%2006%20-%20Instructor%20Notes.docx" download onclick="event.stopPropagation();">Download .docx</a>
+          <button class="btn btn-toggle" id="itoggle-6" onclick="event.stopPropagation(); toggleInstructor(6);">Preview ▾</button>
+        </div>
+      </div>
+      <div class="lab-body" id="ibody-6">
+<h2 class="lab-title">Lab 6: Instructor Notes</h2>
+<p class="lab-subtitle">Platform Showcase | ServicePulse 360 Workshop v0.7 (revision 12) | Facilitator guide to the Participant guide of the same name | about 115 min of participant time | about 140 min of instructor time if you present every teaching moment</p>
+<h3>What changed from r11</h3>
+<p>Round 19 feedback (Tim, 2026-10-11, 25+ item batch): tightened UI alignment and formatting across every Part. Big structural moves:</p>
+<div class="bullet">Part 2 (Flow): formula box wording fixed; added the &#x27;Only when a record is updated to meet the condition requirements&#x27; radio button; filter block clarified with explicit Record ID picker drill (Quick Resources &gt; Triggering Service Disruption &gt; Record ID) and a second Status Does Not Equal Closed condition.</div>
+<div class="bullet">Part 3.4 (Screen Flow): renumbered as 3.4.1 through 3.4.7 with proper h3 subsection headers (previously flat &#x27;Step 1:&#x27; paragraphs). Public_Description__c now used throughout (was Description__c). Update Records now has a Label (Update Rider Message), field is Record ID not Id, and picker drill is spelled out. Added new 3.4.6 Confirmation Screen so users see &#x27;The Rider-Facing Message has been updated&#x27; before Finish.</div>
+<div class="bullet">Part 3.6: rewrote as a Dynamic Actions upgrade flow (Upgrade Now &gt; Migrate &gt; Service Disruption Layout &gt; Finish &gt; Add Action &gt; Draft Rider Message &gt; drag to top &gt; Save). This is the real UX; previous r11 wording assumed static Highlights actions.</div>
+<div class="bullet">Part 4.1: no longer creates Publish Status. That field is now built in Lab 5 r4. Lab 6 Part 4.1 is just confirmation of its existence.</div>
+<div class="bullet">Part 4.2: added the step about keeping the &#x27;Add Submit for Approval button to all Service Disruption page layouts&#x27; checkbox checked after Save.</div>
+<div class="bullet">Part 4.6: because the Highlights Panel is now Dynamic, Submit for Approval must also be added as a Dynamic Action alongside Draft Rider Message. New steps spell this out.</div>
+<div class="bullet">Part 5.1: added Category = All click (so Service Disruption Report Type appears); Update Preview Automatically toggle ON; noted Service Disruption Number is pre-populated.</div>
+<div class="bullet">Part 5.2: switched to Save As clone of Report 1 (rather than New Report from scratch).</div>
+<div class="bullet">Part 5.3: folder = Private Dashboards (was Public); Widget 2 chart type = Vertical Bar (was Horizontal).</div>
+<div class="bullet">Participant time: 115 min (was 110). The confirmation screen in 3.4.6, the Dynamic Actions upgrade in 3.6, and the Submit for Approval Dynamic Action in 4.6 add roughly 5 min.</div>
+<h3>Instructor Notes addendum: 2026-10-12</h3>
+<p>Addressing a gap called out in the MTA concept doc review: the workshop teaches AI as a feature (Prompt Builder in Lab 6 Part 3, Agentforce in Lab 7), but did not teach AI as a developer productivity tool. Added an optional 10-min opening demo to Part 2 showing Einstein for Flow generating a Record-Triggered Flow from a plain-English prompt. See the &quot;Optional opening: AI-assisted Flow development demo&quot; section inside Part 2 for the demo script and teaching moments.</p>
+<h3>How to use this document</h3>
+<p>Participants should receive only the Participant guide. Four kinds of annotations: Pacing, Teaching moments, Listen for, Common errors.</p>
+<h3>The arc of this lab, what to establish verbally before Part 1</h3>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>&#x27;For five labs we built the data model. Today we add the platform layer. Six capabilities on top of the Service Disruption object: Validation Rules, Flow automation, Prompt Builder AI, Quick Actions, Approval Processes, Reports and Dashboards. By the end of this lab, Service Disruption is not just a record. It is a working production surface with data integrity, cascading automation, AI-assisted content generation, human-in-the-loop governance, and leadership-visible reporting.&#x27;</div>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>The lab is deliberately paced to be the densest in the workshop. Call out the time budget: &#x27;This lab is 115 minutes. If you fall behind on one Part, do not try to catch up on the next. Move on. Everything we build in Lab 7 (Executive Scenario Simulation) uses what Lab 6 produces, but it degrades gracefully if some pieces are missing.&#x27;</div>
+<h3>Pacing summary</h3>
+<div class="bullet">Part 1 (Validation Rule): 10 min</div>
+<div class="bullet">Part 2 (Record-Triggered Flow): 20 min hands-on, plus optional 10-min AI-assisted Flow demo opening</div>
+<div class="bullet">Part 3 (Prompt Builder + Screen Flow + Quick Action): 35 min, longest block</div>
+<div class="bullet">Part 4 (Approval Process): 20 min</div>
+<div class="bullet">Part 5 (Two Reports + Dashboard with two components): 15 min</div>
+<div class="bullet">Final Verification: 5 min</div>
+<div class="bullet">Buffer: about 10 min</div>
+<div class="bullet">Total participant time: about 115 min hands-on.</div>
+<h3>Pre-workshop setup checklist</h3>
+<div class="bullet">Participants completed Labs 1 through 5. SD-00001 exists with Headline, Description, and (after Lab 6 Part 3) Rider-Facing Message populated.</div>
+<div class="bullet">Golden Case exists and is linked to SD-00001 via the Service Disruption lookup.</div>
+<div class="bullet">Einstein Prompt Templates PSL assigned to the user (verified in the v3 inventory, 2 of 10 used).</div>
+<div class="bullet">Agentforce (Default) PSL assigned.</div>
+<div class="bullet">Verify a sample participant org can create a Prompt Template; some orgs need the Prompt Builder feature flipped on in Einstein Setup even after PSL assignment.</div>
+<h3>Part 1 - Validation Rule (10 min)</h3>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>&#x27;Validation Rules are the simplest form of business logic enforcement in Salesforce. One formula, applied at save time. No code, no Flows, no Apex. If the formula evaluates to TRUE, the save fails. If FALSE, save succeeds. In MTA&#x27;s context, we use it to enforce that Disruption Cleared Date/Time is after Disruption Start Date/Time, so Operations can trust the duration math. Dozens of these across every production org.&#x27;</div>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>&#x27;The Duration (Minutes) formula field is where this lab stops being about recordkeeping and starts being about measurement. Average Duration by Agency is the single most important operational metric for MTA&#x27;s responsiveness. We compute it with a one-line formula and surface it on a Dashboard chart. Four fields, two Reports, one chart. Measurement unlocked.&#x27;</div>
+<div class="callout callout-listen"><span class="callout-label">Listen for</span>Someone asking &quot;when should I use a Validation Rule vs a Flow?&quot; Answer: &quot;Validation Rules are the right choice when you want to BLOCK a save based on data conditions. Flows are the right choice when you want to CHANGE data or trigger downstream actions. If the goal is prevention, Validation Rule. If the goal is reaction, Flow.&quot;</div>
+<div class="callout callout-error"><span class="callout-label">Common error</span>Formula errors on Save of the Validation Rule. Common causes: typo in field API name, missing parentheses, wrong operator (= vs ==). Fix: use the Insert Field picker to avoid typos; double-check field API names end with __c for custom fields.</div>
+<h3>Part 2 - Record-Triggered Flow (20 min + optional 10-min AI demo)</h3>
+<h4>Optional opening: AI-assisted Flow development demo (10 min)</h4>
+<p>Before participants start building the Record-Triggered Flow by hand, run a quick demo of Einstein for Flow. This lands the message that AI accelerates developer productivity, not just end-user experience. Budget 10 minutes; skip it if the room is already behind.</p>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>&#x27;So far today we&#x27;ve seen AI as a feature for users: Prompt Builder generates a rider-facing message, Agentforce converses with a dispatcher. But Salesforce also puts AI into the hands of the builder. Watch what happens when I describe this Flow in plain English before any of us touches the canvas.&#x27;</div>
+<p>Demo script:</p>
+<div class="bullet">From Setup &gt; Flows, click New Flow.</div>
+<div class="bullet">Look for the &#x27;Build with AI&#x27; or &#x27;Describe your flow&#x27; entry point (exact label depends on your org&#x27;s release; sometimes shown as &#x27;Einstein&#x27; panel on the right of the flow-type selection modal). If your org does not show this entry point, open the Flow editor and click Einstein in the top toolbar.</div>
+<div class="bullet">Type a prompt verbatim and read it aloud as you type: &#x27;When a Service Disruption&#x27;s Status changes to Active, find all related Cases where the Service Disruption lookup matches the triggering record, and update each one to a Status of Escalated.&#x27;</div>
+<div class="bullet">Click Generate (or Submit). Einstein for Flow produces a draft flow in a few seconds: a Record-Triggered Flow on Service_Disruption__c, an Entry Condition, an Update Records element with a filter.</div>
+<div class="bullet">Walk through the generated draft out loud. Call out what Einstein got right (the trigger object, the general shape, the Update Records intent). Call out what it got wrong or missed: usually the ISCHANGED guard, the correct lookup field API name, the &quot;only when conditions are met&quot; radio, the filter needs a second condition on Status not equal to Closed, the Record ID picker nuance from Lab 7 territory. Expect roughly 70-85 percent accuracy on the first draft.</div>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>&#x27;This is where the human still earns their keep. The first draft is faster than typing from scratch. But every production Flow needs a human who understands ISCHANGED, who understands post-save versus pre-save, who understands governor limits. AI gives you a running start. You still need to be the engineer who verifies, tunes, and ships.&#x27;</div>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>&#x27;The same pattern applies to Apex. Code Builder in VS Code has an Einstein assistant that will scaffold trigger classes, test methods, and SOQL queries from natural language prompts. If anyone on your team writes Apex regularly, that&#x27;s a 20-percent productivity bump before you touch a line of code.&#x27;</div>
+<div class="callout callout-listen"><span class="callout-label">Listen for</span>Someone asking &quot;is Einstein for Flow available in our production org?&quot; Answer: &quot;Yes, if your org has Agentforce or Einstein for Service enabled. It is part of the Einstein 1 Platform licensing. If you cannot see the Build with AI entry point, check your license and the Einstein Setup page. If your org does not have it yet, you can preview the capability in a Developer Edition org.&quot;</div>
+<div class="callout callout-error"><span class="callout-label">Common error</span>The &#x27;Build with AI&#x27; entry point moves between seasonal releases. If it is not where this demo describes, open the regular New Flow dialog and look for an Einstein icon in the toolbar once the Flow Builder loads. Worst case, skip the demo for this session and come back to it when the UI stabilizes.</div>
+<p>After the demo, close the AI-generated draft (do NOT save it, participants will build their own from scratch) and transition to the standard Part 2 lab build.</p>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>&#x27;Record-Triggered Flows are the backbone of modern Salesforce automation. They run on record create, update, or delete. They can update other records (like we do here, escalating related Cases), send emails, invoke Apex, call external services. One Flow builder, many patterns. This is the single most important automation capability in Salesforce.&#x27;</div>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>&#x27;The Entry Condition we built (ISCHANGED(Status) AND Status equals Active) is a critical pattern. ISCHANGED means the Flow only fires when the field actually changes value, not every time the record saves. Without ISCHANGED, this Flow would re-escalate Cases every time the Service Disruption gets saved while Status is already Active. ISCHANGED is a cheap guard against runaway automation.&#x27;</div>
+<div class="callout callout-listen"><span class="callout-label">Listen for</span>Someone asking &quot;why not use a Trigger (Apex)?&quot; Answer: &quot;You could. For 95% of this kind of logic, Flow is sufficient and visible to admins. Apex Triggers are warranted when (a) performance matters at scale, (b) logic is complex enough that visual Flow becomes unreadable, (c) you need capabilities Flow does not support like custom SOAP calls. For MTA&#x27;s volume, Flow is the right call.&quot;</div>
+<div class="callout callout-error"><span class="callout-label">Common error</span>Flow saves but doesn&#x27;t fire. 99% chance it was not activated. Fix: open the Flow, click Activate (top-right).</div>
+<div class="callout callout-error"><span class="callout-label">Common error</span>Flow fires but doesn&#x27;t update any Cases. Common cause: the filter on Service_Disruption__c Equals $Record.Id was mapped wrong, or the Case Service_Disruption__c field is empty on the related Case. Verify the Case has the lookup populated.</div>
+<h3>Part 3 - Prompt Builder + Screen Flow + Quick Action (35 min)</h3>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>&#x27;This is the lab&#x27;s biggest teaching block. Three capabilities (Prompt Builder, Screen Flow, Quick Action) composed into one workflow. The pattern is production-ready: user clicks a button on a record page, a Screen Flow runs, the Screen Flow calls Prompt Builder, Prompt Builder generates AI content grounded on the record, the Screen Flow lets the user review and edit, the Screen Flow updates the record. This is the standard Salesforce pattern for AI-assisted content generation in production.&#x27;</div>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>&#x27;The Insert Resource button in the Prompt editor is how merge fields get added without hand-typing API names. Participants are new to Prompt Builder and have not memorized the {!$Input:...} syntax; Insert Resource opens a picker that generates the correct syntax. Teach the button, not the syntax.&#x27;</div>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>&#x27;The three-pane editor is Prompt Builder&#x27;s core UI. Left: Template Details. Middle: Prompt (where you author). Right: Resolved Prompt and Generated Response (preview panes activated by Preview). This mental model helps participants find things when they get lost.&#x27;</div>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>&#x27;The Prompt Template is grounded on the record. That means the AI sees the specific disruption&#x27;s Headline, Description, Affected Line, Severity. The AI&#x27;s output reflects THAT disruption, not a generic one. This is what distinguishes Prompt Builder from off-the-shelf LLMs: the grounding happens inside Salesforce with your data, your security model, your audit trail.&#x27;</div>
+<div class="callout callout-listen"><span class="callout-label">Listen for</span>Someone asking &quot;where does the AI model actually run?&quot; Answer: &quot;Salesforce routes the grounded prompt through the Einstein Trust Layer to a hosted LLM. The response comes back through the Trust Layer, which includes safeguards like PII masking and audit logging. Your data does not train the model and does not leave the Salesforce boundary.&quot;</div>
+<div class="callout callout-listen"><span class="callout-label">Listen for</span>Someone asking &quot;could the AI get the message wrong?&quot; Answer: &quot;Yes. That is why Part 4 (Approval Process) exists. We assume AI drafts are good enough to be reviewed, not good enough to be published. A human approver sees the draft before the record moves to Approved state.&quot;</div>
+<div class="callout callout-error"><span class="callout-label">Common error</span>Prompt Template Preview returns an error. If participants used Insert Resource (as the lab now teaches), merge field syntax should be correct automatically. If they typed by hand: common typos include missing __c suffix, wrong case (API names are case-sensitive).</div>
+<div class="callout callout-error"><span class="callout-label">Common error</span>Insert Resource button not visible or picker shows no fields. Confirm the Inputs section of the template definition (Part 3.1) attached Service Disruption as an input with Require when template runs checked. Without the input attached, the picker has nothing to insert.</div>
+<div class="callout callout-error"><span class="callout-label">Common error</span>Prompt Template doesn&#x27;t surface as an Action in the Screen Flow. Cause: template not Activated. Fix: return to Prompt Builder, open the template, click Activate.</div>
+<div class="callout callout-error"><span class="callout-label">Common error</span>Screen Flow fails on Save with &#x27;variable missing&#x27;: the recordId variable wasn&#x27;t marked Available for Input. Fix: open the recordId variable and check the Available for Input checkbox.</div>
+<div class="callout callout-error"><span class="callout-label">Common error</span>Quick Action modal opens but shows an error about recordId. Cause: Quick Action is passing the recordId but the Screen Flow variable name does not match &#x27;recordId&#x27; exactly. Fix: rename the Screen Flow variable to recordId (exact spelling, camelCase).</div>
+<div class="callout callout-tip"><span class="callout-label">Pacing</span>Part 3 is the biggest block. If running long, you can skip Section 3.6 (adding the Quick Action to the Highlights Panel) and demo it from the Related tab actions menu instead. Loses the UI polish, keeps the pedagogy.</div>
+<h3>Part 4 - Approval Process (20 min)</h3>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>&#x27;Approval Processes are Salesforce&#x27;s standard way to require human review before data changes state. The pattern is: user submits a record for approval, record gets locked (no edits), approver reviews, approver clicks Approve or Reject, record changes state and unlocks. For AI-generated content specifically, Approval Processes are the right governance pattern. The AI drafts; the human approves; the system publishes. Nobody skips the human.&#x27;</div>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>&#x27;The Publish Status field (added in Lab 5 Part 1) is the state machine. Draft, Pending Approval, Approved, Rejected. The Approval Process transitions the record through those states. In production you would wire a downstream Flow to the Approved state that pushes the message to the public communications channel (web, app push, Twitter, etc.). We stop at Approved for the workshop.&#x27;</div>
+<div class="callout callout-listen"><span class="callout-label">Listen for</span>Someone asking &quot;could we automate the approval too?&quot; Answer: &quot;You could, but then you have an AI drafting and an AI approving, with no human in the loop. That is exactly the governance gap Approval Processes exist to prevent. For public-facing content specifically, keep the human.&quot;</div>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>&#x27;The empty-Value idiom in Salesforce filter builders catches participants off guard. Not-equal-to + empty Value means field is NOT blank. Equal-to + empty Value means field IS blank. This idiom appears in Validation Rules, Workflow Rules, Flows, and Approval Processes. Internalize it once.&#x27;</div>
+<div class="callout callout-error"><span class="callout-label">Common error</span>Participant types the word &#x27;blank&#x27; into the Value field. Symptom: approval process fires when Rider-Facing Message = &#x27;blank&#x27; (the string), not when it&#x27;s actually empty. Fix: edit the entry criteria, delete the word blank, leave the Value field empty.</div>
+<div class="callout callout-error"><span class="callout-label">Common error</span>Submit for Approval button missing from the record. Fix: add it to the Service Disruption Layout&#x27;s Buttons section via Setup, Object Manager, Service Disruption, Page Layouts, Service Disruption Layout.</div>
+<div class="callout callout-error"><span class="callout-label">Common error</span>Approval doesn&#x27;t fire. Cause: approver was set to a user that is not themselves (so the current user cannot approve). For the workshop, set the approver to the current user so participants can approve their own request.</div>
+<h3>Part 5 - Report + Dashboard (15 min)</h3>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>&#x27;Reports and Dashboards are where leadership gets its visibility. We built two Reports and one Dashboard with two widgets in this lab, but in production you would have dozens of each. The pattern we used (Group By Record Type to split agencies, filter to Active, Duration summarized as Average) is the pattern dispatchers would use for the live state wall.&#x27;</div>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>&#x27;Lightning Dashboards call their visualization units widgets, not components. + Add Widget opens a type picker: Chart or Table (for report-sourced visualizations), Text (static), Image (static), Lightning Web Component (custom code). For report-driven dashboards, Chart or Table is the only widget type you need in Part 5.&#x27;</div>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>&#x27;The custom report type for Service Disruption appeared automatically because we checked Allow Reports when creating the custom object in Lab 5. If we had not checked it, we would need to create a custom report type in Setup before this report would work.&#x27;</div>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>&#x27;Report Builder has two left-side tabs: Outline and Filters. Outline is where you shape the report (groups, columns, aggregates). Filters is where you narrow which records appear. Participants new to the tool often miss the tab switcher and look for group settings in Filters or vice versa. Point at the tabs explicitly the first time.&#x27;</div>
+<div class="callout callout-error"><span class="callout-label">Common error</span>Report returns no records. Cause: filter too tight, or SD-00001&#x27;s Status was changed in a previous Part to a value that excludes it. Fix: adjust the Status filter to not equal to Cleared, or just show all Service Disruptions.</div>
+<h3>After Lab 06, before Lab 07</h3>
+<div class="bullet">Confirm every participant has: Validation Rule active, Flow activated, Prompt Template activated, Quick Action on the record page, Approval Process activated, Dashboard visible.</div>
+<div class="bullet">Participants who got stuck at Part 3 (longest block) may have incomplete AI pieces. That&#x27;s OK; Lab 7 can degrade gracefully.</div>
+<div class="bullet">Preview Lab 07 verbally: &#x27;The capstone. We run SD-00001 through the full workflow end to end, as a dispatcher would in production. Watch everything you built come alive together.&#x27;</div>
+<h3>Teaching register - Tim&#x27;s reminder to self</h3>
+<p>Platform capabilities as a concept: Definition then Constraint then Unlock, applied to each capability.</p>
+<div class="bullet">Validation Rule: Definition = block save on condition. Constraint = can only block, not change. Unlock = bulletproof data integrity.</div>
+<div class="bullet">Record-Triggered Flow: Definition = react to record changes. Constraint = runs post-save (not pre-save by default). Unlock = cross-record automation.</div>
+<div class="bullet">Prompt Builder: Definition = grounded AI prompts on records. Constraint = depends on activation and PSL assignment. Unlock = AI-assisted content generation inside the trust boundary.</div>
+<div class="bullet">Quick Action: Definition = button on a record page that runs a Flow. Constraint = runs synchronously in a modal. Unlock = compressed workflow.</div>
+<div class="bullet">Approval Process: Definition = human review gate. Constraint = adds friction for the user submitting. Unlock = governance for high-stakes content.</div>
+<div class="bullet">Reports and Dashboards: Definition = aggregated visibility. Constraint = read-only, no actions. Unlock = leadership-visible operational state.</div>
+      </div>
+      </div>
+
+      <div class="lab-card">
+      <div class="lab-head" onclick="toggleInstructor(7)">
+        <div class="lab-number">7</div>
+        <div class="lab-meta">
+          <p class="lab-name">Lab 7: Agentforce Dispatcher Assistant</p>
+        </div>
+        <div class="lab-actions">
+          <a class="btn btn-download" href="labs/Lab%2007%20-%20Instructor%20Notes.docx" download onclick="event.stopPropagation();">Download .docx</a>
+          <button class="btn btn-toggle" id="itoggle-7" onclick="event.stopPropagation(); toggleInstructor(7);">Preview ▾</button>
+        </div>
+      </div>
+      <div class="lab-body" id="ibody-7">
+<h2 class="lab-title">Lab 7: Instructor Notes</h2>
+<p class="lab-subtitle">Agentforce Dispatcher Assistant | ServicePulse 360 Workshop v0.7 (revision 2) | Facilitator guide to the Participant guide of the same name | about 70 min of participant time | about 85 min of instructor time if you present every teaching moment</p>
+<h3>What changed from r1</h3>
+<p>Round 2 feedback (Tim, 2026-10-11, 15+ UI corrections after a full smoke-test build in the v3 reference org):</p>
+<div class="bullet">Part 2 Flow Builder updates: removed non-existent &quot;Start From Scratch&quot; screen; SObject Type Name and Record Type Name field labels corrected; no Done button on Get Records; Manually dropdown hides How Many Records; Record Type ID label; $Flow drill via &quot;Running Flow Interview&quot; &gt; CurrentDateTime; picker drill labels use &quot;Outputs from Generate Rider Message&quot; (space form).</div>
+<div class="bullet">Part 3 restructure: title renamed from &quot;Clone the agent&quot; to &quot;Create the agent&quot;; 3.1 split into 3.1.1 (Agent Settings) and 3.1.2 (Agent-Level Instructions); 3.2 renamed Topic to Subagent terminology; 3.2 field is Reasoning Instructions (not Agent Instructions); 3.3 Inputs now alphabetical (affectedLine, agencyRecordType, description, headline); 3.3 Outputs now alphabetical (draftedMessage, newSDName); removed non-existent &quot;Save on action detail view&quot; step (saves are automatic).</div>
+<div class="bullet">Part 3.5 added: Grant Agent Access via Permission Set. The single most important Lab 7 fix. Without this step, the agent is Active but doesn&#x27;t appear in the panel&#x27;s agent dropdown. See the Common Error callout in Part 4.</div>
+<p>Lab total time unchanged.</p>
+<h3>How to use this document</h3>
+<p>Participants should receive only the Participant guide. This document adds pacing, teaching moments, listen-fors, and common errors. Four kinds of annotations throughout: Pacing, Teaching moments, Listen for, Common errors.</p>
+<h3>The arc of this lab</h3>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>&#x27;For six labs you built the capabilities. Today you build the surface that makes those capabilities feel inevitable. Agentforce doesn&#x27;t replace what you built; it unlocks it. The dispatcher doesn&#x27;t learn Salesforce. The dispatcher types a sentence. Behind the scenes everything you built in Labs 1 through 6 fires in order: the data model holds the record, the validation ensures integrity, the automation cascades, the AI drafts the content, the approval process routes to the right person. Agentforce is the thin layer that collapses what was once a form into a conversation.&#x27;</div>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>&#x27;The dispatcher persona is deliberate. We could have built this as an external rider-facing agent for self-service, but that is the wrong demo for this room. The MTA&#x27;s dispatchers, communications leads, and operations directors are the users whose working day Agentforce changes. External agents belong in a different workshop. Internal, employee-facing agents are where enterprise Salesforce lives today.&#x27;</div>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>&#x27;Watch what happens on the record page when the agent fires the action. The record appears. The Rider-Facing Message fills in. Publish Status flips to Pending Approval. One sentence, one agent reply, three sides of the UI updating in sync. That is the memorable moment. Call it out verbally when it happens so no one misses it.&#x27;</div>
+<h3>Pacing summary</h3>
+<div class="bullet">Part 1 (Agent panel + prerequisites): 5 min</div>
+<div class="bullet">Part 2 (File Service Disruption Flow): 25 min, biggest build block</div>
+<div class="bullet">Part 3 (Create agent + Subagent + Action): 20 min, trickiest UX block</div>
+<div class="bullet">Part 4 (Test wow moment + slot-filling): 15 min, highest-energy block</div>
+<div class="bullet">Part 5 (Stretch - Resolve Disruption): 10 min, optional for fast movers</div>
+<div class="bullet">Part 6 (Where to go next tour): 5 min</div>
+<div class="bullet">Final Verification: 5 min</div>
+<div class="bullet">Total participant time: about 70 min with stretch, 60 min without. The stretch is a safety valve: fast movers get something more to build; slow movers skip it with no narrative cost.</div>
+<h3>Pre-workshop setup checklist</h3>
+<div class="bullet">Participants completed Lab 6 r12. The Rider Facing Message Generator prompt template is Active. The Approval Process is Active. SD-00001 has Rider-Facing Message populated and Publish Status = Approved.</div>
+<div class="bullet">Agentforce (Default) permission set is assigned to the participant&#x27;s user. (Confirmed in v3 inventory, but verify once per org at setup time.)</div>
+<div class="bullet">Einstein Prompt Templates permission set is assigned.</div>
+<div class="bullet">Agentforce is enabled on the org. (Setup &gt; Agentforce &gt; confirm toggle is on. On fresh Pronto orgs this is on by default.)</div>
+<div class="bullet">Open the Agent panel in your demo org once before the workshop; some orgs need a one-time acceptance of the Agentforce user terms the first time a human opens the panel.</div>
+<div class="bullet">Pre-flight the full flow in your demo org the day before: build the Flow, create the agent, test one full-sentence invocation. This catches surprises like the Record Type DeveloperName typo trap before 20 participants hit it simultaneously.</div>
+<h3>Part 1 - Open the Agent panel and confirm prerequisites (5 min)</h3>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>&#x27;The Agentforce icon (dark-blue robot face in the top-right utility bar) is Agentforce&#x27;s entry point in the standard Salesforce UI. Note that Salesforce renamed Einstein Copilot to Agentforce; some docs and screenshots still show the old name but the current product is Agentforce. In Pronto orgs you&#x27;ll see the Merchant Management Assistant respond; that&#x27;s the template default. We&#x27;ll clone and specialize it rather than build from scratch, because cloning is faster and we&#x27;re not shipping to production.&#x27;</div>
+<div class="callout callout-listen"><span class="callout-label">Listen for</span>Someone asking &#x27;why isn&#x27;t the agent in a separate app?&#x27; Answer: &#x27;Agentforce lives wherever the user already is. The utility bar in Salesforce, a Slack DM, a Service Cloud console, an Experience Cloud site. The deployment surface is a choice, not a constraint. For dispatchers who already work in Salesforce all day, the utility bar is the right surface. For communications leads who live in Slack, Slack is right.&#x27;</div>
+<div class="callout callout-error"><span class="callout-label">Common error</span>Agentforce icon missing from the utility bar. Cause: Agentforce (Default) PSL not assigned, or the Agentforce feature not enabled on the org. Fix: Setup &gt; Permission Set Assignments, add Agentforce (Default). Also Setup &gt; Agentforce (or Einstein Copilot in older orgs) &gt; confirm it&#x27;s on. Refresh browser.</div>
+<div class="callout callout-error"><span class="callout-label">Common error</span>Prompt template shows Status = Draft. The agent action will fail silently because the template is not callable. Fix: Setup &gt; Prompt Builder &gt; open template &gt; Activate.</div>
+<h3>Part 2 - Build the File Service Disruption autolaunched Flow (25 min)</h3>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>&#x27;This Flow is where the lab earns its keep. Seven elements, four inputs, two outputs. Every element is something you&#x27;ve seen in Labs 2 and 6: Get Records, Create Records, Action calling a Prompt Template, Update Records, Assignment, Submit for Approval core action. Nothing new. What&#x27;s new is wiring them into a single invocable unit that the agent will call.&#x27;</div>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>&#x27;Note the input variables are typed Text, not Record. Agents pass strings. The Flow does the translation from string (NYCT) to record ID (via Get Records on RecordType). This is a recurring Agentforce pattern: agents reason in natural language, Flows translate to Salesforce internals.&#x27;</div>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>&#x27;The Get Created SD element exists because the Prompt Template needs an entire Service Disruption record as input, not just an ID. This is the same Entire Resource drill from Lab 6 Part 3.4. Reuse the same mental model.&#x27;</div>
+<div class="callout callout-listen"><span class="callout-label">Listen for</span>Someone asking &#x27;why not use Update Triggering Record?&#x27; Answer: &#x27;This Flow is autolaunched (no trigger). There is no triggering record because the record is being created inside the Flow. That&#x27;s why we assign the new ID to a variable (newSDId) and then Get Records to fetch it as a record. Record-Triggered Flows have a triggering record; autolaunched Flows don&#x27;t.&#x27;</div>
+<div class="callout callout-error"><span class="callout-label">Common error</span>Record Type DeveloperName not found. Cause: participant typed Service_Disruption__c with the wrong case or missed the __c, or typed the Record Type DeveloperName as &#x27;NYCT &#x27; with a trailing space. Fix: open the Flow debug trace, confirm the Get Records filter values. The agent passes &#x27;NYCT&#x27; as a string; participant must have DeveloperNames exactly NYCT, LIRR, MNR, B_T.</div>
+<div class="callout callout-error"><span class="callout-label">Common error</span>Manually assign variables unchecked on Create Records. Participant builds the Flow, saves, and discovers newSDId is empty when Get Created SD runs. Fix: open Create Records, check Manually assign variables, map newSDId to the record Id output.</div>
+<div class="callout callout-error"><span class="callout-label">Common error</span>Submit for Approval action throws &#x27;No active approval process&#x27; at runtime. Cause: Lab 6 Approval Process is Inactive. Fix: Setup &gt; Approval Processes &gt; Rider Message Approval &gt; click Activate.</div>
+<h3>Part 3 - Create the agent and add the File Service Disruption Action (20 min)</h3>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>&#x27;We create a new MTA Dispatcher Agent rather than cloning the Pronto Merchant Management Agent. In the current Agentforce Builder UI, Clone is no longer exposed on the agent header or Setup list, and creating new is actually faster than clone-and-cleanup because every new agent ships with four generic scaffolding subagents (Agent Router, General FAQ, Off Topic, Ambiguous Question) that we leave in place and build our Service Disruption Management subagent alongside.&#x27;</div>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>&#x27;Three concepts in Agentforce Builder: Agent, Subagent (what older docs call Topic), Action. The Agent is the persona and the Agentforce connection. Subagents are decision clusters: the Classification Description tells the main agent WHEN to route to this subagent. Actions are the capabilities the agent can invoke inside a subagent. One agent, many subagents, many actions. For Lab 7 we build one new subagent (Service Disruption Management) alongside the four pre-built scaffolding subagents (Agent Router, General FAQ, Off Topic, Ambiguous Question) that ship with every new agent.&#x27;</div>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>&#x27;The Classification Description is the single most important text in the Topic. If it&#x27;s too narrow, the agent won&#x27;t activate the Topic when it should. Too broad, and the Topic activates on unrelated queries. We&#x27;ve written one that mentions the four MTA agencies and the four input fields explicitly, which anchors the agent to our scope.&#x27;</div>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>&#x27;The Instructions on the Topic and the Agent Action Instructions are the agent&#x27;s playbook. Slot-filling (ask only for missing fields), agency inference (7 Line means NYCT), reply format (quote the drafted message). These are prose, not code. If the agent&#x27;s behavior is wrong, the fix is almost always to tighten the Instructions text.&#x27;</div>
+<div class="callout callout-listen"><span class="callout-label">Listen for</span>Someone asking &#x27;why not have the agent call the Prompt Template directly as an Action?&#x27; Answer: &#x27;You can, in some agent types. But for Flex prompt templates that take a record as input, the cleanest path is to wrap the whole lifecycle in a Flow and expose the Flow as the Action. The Flow handles the record creation and the template call in sequence. One action for the agent to pick, less for the agent to reason about.&#x27;</div>
+<div class="callout callout-error"><span class="callout-label">Common error</span>Attendees may try to Clone the Pronto Merchant Agent instead of creating a new one. Fix: ensure they follow Part 3.1&#x27;s &#x27;Create&#x27; path, not Clone. Current Agentforce Builder UI no longer exposes Clone on the agent header anyway, so this is unlikely but worth watching.</div>
+<div class="callout callout-error"><span class="callout-label">Common error</span>Activate is grayed out. Cause: at least one validation failed. Common causes: Topic has no Actions, Action is missing input mapping, Agent has no active Topics. Scroll to the top for the red validation banner.</div>
+<div class="callout callout-error"><span class="callout-label">Common error</span>Agent Builder UI differs from what the lab describes. The Agentforce product evolves quickly; menu positions and button labels shift between seasonal releases. If the UI deviates, the concepts (Agent &gt; Topic &gt; Classification Description &gt; Instructions &gt; Action &gt; Flow &gt; Inputs) stay stable. Guide participants by concept, not by click.</div>
+<div class="callout callout-error"><span class="callout-label">Common error</span>The single most common Lab 7 blocker: participant activates the agent, hard-refreshes the browser, and still doesn&#x27;t see MTA Dispatcher Agent in the Agent panel&#x27;s Select Agent dropdown. Cause: the auto-created &quot;Agentforce Agent {Name} Permissions&quot; permset grants metadata access but NOT user conversation access. Fix (now Lab 7 Part 3.5): Setup &gt; Permission Sets &gt; New &gt; scroll to Apps &gt; Agent Access &gt; Edit &gt; move MTA Dispatcher Agent to Enabled Agents &gt; Save &gt; Manage Assignments &gt; Add Assignment to the participant&#x27;s user. Then hard-refresh. If every participant hits this at the same time, pause and show the fix on the shared screen; it saves 10 min of 1-on-1 troubleshooting.</div>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>&#x27;Agentforce has two permission layers. The platform-level permset (Agentforce (Default)) lets a user open the panel. The per-agent Agent Access entry in a user-facing permset lets that user see and converse with a specific agent. Both are required. This is a real production governance pattern: you create the agent once, then grant access to specific user groups via Agent Access, so Communications Leads see different agents than Dispatchers. For the workshop we only grant Dispatcher access, but call out the pattern.&#x27;</div>
+<h3>Part 4 - Test the wow moment in the Agent panel (15 min)</h3>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>&#x27;This is the moment the room remembers. Narrate it: &#x27;One sentence. The agent decides what to do, picks the action, fills the inputs, invokes the Flow. The Flow creates the record, calls the AI, writes back, submits for approval. The agent replies with the record name and the drafted message. If any of us had to do that manually in Lab 6, it was 90 seconds and 15 clicks. Here it is in three seconds and one sentence.&#x27; Then wait for the pause. Let it land.&#x27;</div>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>&#x27;The slot-filling test is almost as important as the wow test. Dispatchers in real operations centers do not type complete sentences. They type fragments. The agent&#x27;s ability to carry on a conversation until it has the four fields is what makes this deployable, not just demonstrable.&#x27;</div>
+<div class="callout callout-listen"><span class="callout-label">Listen for</span>Someone asking &#x27;what if the agent hallucinates a bad message?&#x27; Answer: &#x27;That&#x27;s why we built the approval process in Lab 6. Nothing goes to riders without the Communications Lead&#x27;s explicit approval. The agent drafts, the human approves. For critical use cases, human-in-the-loop is non-negotiable. For low-stakes drafts, you can relax it. The approval architecture scales to the risk level.&#x27;</div>
+<div class="callout callout-listen"><span class="callout-label">Listen for</span>Someone asking &#x27;can the agent file disruptions without supervision?&#x27; Answer: &#x27;Technically yes - set the Submit for Approval step to Approve for low-severity records. But that&#x27;s a governance decision, not a technical one. For the MTA, we&#x27;d want every rider-facing message to pass a human. For an internal operations note, autonomous may be fine. Agentforce lets you place the human review wherever risk demands it.&#x27;</div>
+<div class="callout callout-error"><span class="callout-label">Common error</span>Agent doesn&#x27;t invoke the action, just chats. Cause: Topic Classification Description doesn&#x27;t match the dispatcher&#x27;s sentence closely enough. Fix: open the Topic, widen the Classification Description, save, reactivate the agent.</div>
+<div class="callout callout-error"><span class="callout-label">Common error</span>Agent invokes the action but passes an empty value for one input. Cause: Agent Action Instructions on that input are vague. Fix: open the Action, tighten the input Instructions to describe exactly what the agent should extract.</div>
+<div class="callout callout-error"><span class="callout-label">Common error</span>Agent fires the action but replies without quoting the drafted message. Cause: the Topic&#x27;s reply Instructions don&#x27;t mention quoting draftedMessage, or the Agent Action&#x27;s output Instructions don&#x27;t describe draftedMessage well. Fix: both locations should mention &#x27;quote the draftedMessage verbatim in your reply.&#x27;</div>
+<h3>Part 5 - Stretch (10 min, optional)</h3>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>&#x27;If every participant hit Part 4 wow by minute 50, run the stretch. If more than three participants are still debugging their Part 2 Flow at minute 55, skip it. The Where to Go Next tour (Part 6) is a better use of the final minutes than a half-built second action.&#x27;</div>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>&#x27;Resolve Disruption rounds out the lifecycle. In Lab 6 and Lab 7 Part 4 the dispatcher creates and submits. In the stretch, the dispatcher clears. Together they are the full operational loop. In a production deployment this is where you start measuring: how long between agent-created disruption and agent-resolved disruption? The Duration (Minutes) formula field surfaces this on your Lab 6 dashboard.&#x27;</div>
+<div class="callout callout-listen"><span class="callout-label">Listen for</span>Someone asking &#x27;does the agent have memory across turns?&#x27; Answer: &#x27;In the panel, yes - within a single session. If the dispatcher creates SD-00042 and then says &#x27;close it out&#x27;, the agent can resolve the SD-00042 it just created without being told the name again. Cross-session memory requires more wiring. For most dispatcher workflows, in-session memory is enough.&#x27;</div>
+<h3>Part 6 - Where to go next (5 min)</h3>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>&#x27;The three examples in Part 6 are the natural next moves for an MTA Agentforce engagement. Summarize for leadership, notify downstream, proactively draft. Each is a Topic + Action pattern you now know how to build. Each unlocks a new capability class: data reasoning, outbound integration, proactive behavior.&#x27;</div>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>&#x27;This is a good moment to position Phase 2 of the engagement verbally. &#x27;In this workshop you built the foundation. The next quarter would layer on data reasoning actions (so leadership can ask the agent operational questions), outbound integrations (so approved messages flow to Slack, X, or the public alerts API), and proactive agent behavior (so field service alerts from Lab 4 trigger the agent to pre-draft disruptions). Each is a one- to two-week focused build.&#x27;&#x27; Shape the follow-up conversation here.&#x27;</div>
+<h3>Final verification (5 min)</h3>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>&#x27;The three checks walk back through the Flow, the Agent, and the end-to-end. Treat each check as a mini-demo moment. &#x27;My Flow is active? Yes. My Agent is active with one Topic? Yes. Can I file a disruption through natural language and watch the record appear with the drafted message and Pending Approval status? Yes.&#x27; That cadence lands the completeness.&#x27;</div>
+<div class="callout callout-listen"><span class="callout-label">Listen for</span>Someone asking &#x27;is this production-ready?&#x27; Answer: &#x27;For a pilot with a specific team and a bounded set of use cases, yes. For enterprise rollout you&#x27;d add: audit logging on every agent action, cost monitoring on prompt template calls, A/B testing of Classification Descriptions and Instructions, user-level feedback capture on agent replies, and a formal governance review of each new Topic you add. The platform is there; the operational maturity is the next six months of work.&#x27;</div>
+<h3>Lab 7 wraps the workshop</h3>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>&#x27;The last two days have been a Standard-First architecture arc. Lab 1 extended Case. Lab 2 polished the layout. Lab 3 built the Asset hierarchy. Lab 4 added Field Service dispatch. Lab 5 was the single deliberate custom object. Lab 6 added the platform layer: Validation, Flow, Prompt Builder, Approval, Reports. Lab 7 wrapped it all in an Agentforce agent. From a Standard objects + 1 custom object + out-of-the-box platform capabilities + an agent persona starting point, you now have an operational platform. That&#x27;s the shape of modern Salesforce.&#x27;</div>
+<div class="callout callout-teaching"><span class="callout-label">Teaching moment</span>&#x27;Close the workshop by naming what the participants did. &#x27;Over two days you built a complete multi-agency operational platform in Salesforce. Each of you can go back to your team on Monday and explain what Standard-First architecture is, when to add a custom object, how to layer platform capabilities, and what Agentforce changes about dispatcher workflow. That is a workshop that pays off every week it informs your next decision.&#x27;&#x27;</div>
+      </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -2774,6 +3403,17 @@ If the Related List - Single is on the Details tab instead of the Other Related 
 function toggleLab(n) {
   const body = document.getElementById('body-' + n);
   const toggle = document.getElementById('toggle-' + n);
+  if (body.classList.contains('open')) {
+    body.classList.remove('open');
+    toggle.innerHTML = 'Preview ▾';
+  } else {
+    body.classList.add('open');
+    toggle.innerHTML = 'Collapse ▴';
+  }
+}
+function toggleInstructor(n) {
+  const body = document.getElementById('ibody-' + n);
+  const toggle = document.getElementById('itoggle-' + n);
   if (body.classList.contains('open')) {
     body.classList.remove('open');
     toggle.innerHTML = 'Preview ▾';
