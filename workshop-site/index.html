@@ -707,6 +707,15 @@ nav.topnav a.internal-link::before { content: "🔒 "; }
 <div class="callout callout-tip"><span class="callout-label">Tip</span>Common related lists to remove: Open Activities, Activity History, Milestones, Approval History, Case Teams, External Content, Content Deliveries. Keep whatever your dispatchers actually use.</div>
 <div class="step"><span class="step-num">3.</span><span class="step-text">Click Save at the top. Confirm Yes if prompted.</span></div>
 <div class="callout callout-verify"><span class="callout-label">Verified? Great job!</span>The Case Layout&#x27;s Related Lists section is now focused on just what MTA dispatchers reference during triage.</div>
+<h4>6.6: Remove unused Pronto fields from the Case Layout</h4>
+<p class="nav-preamble"><strong>Navigate:</strong> Still on the Case Layout (Setup, Object Manager, Case, &#x27;Case Page Layouts&#x27;, &#x27;Case Layout&#x27;).</p>
+<p>The Case Layout carries fields left over from the Pronto starter content that don&#x27;t apply to MTA&#x27;s Case model. Removing them now keeps the layout focused.</p>
+<div class="step"><span class="step-num">1.</span><span class="step-text">Scroll to the Related Storefront section. Hover over its header and click the minus icon to remove the entire section from the layout.</span></div>
+<div class="step"><span class="step-num">2.</span><span class="step-text">Locate the Business Account field on the layout. Hover over it and click the minus icon to remove it.</span></div>
+<div class="step"><span class="step-num">3.</span><span class="step-text">Locate the Storefront field on the layout. Hover over it and click the minus icon to remove it.</span></div>
+<div class="step"><span class="step-num">4.</span><span class="step-text">Locate the Case Reason field on the layout. Hover over it and click the minus icon to remove it.</span></div>
+<div class="step"><span class="step-num">5.</span><span class="step-text">Click Save at the top. Confirm Yes if prompted.</span></div>
+<div class="callout callout-verify"><span class="callout-label">Verified? Great job!</span>The Case Layout no longer shows Related Storefront, Business Account, Storefront, or Case Reason. Everything remaining on the layout is relevant to MTA&#x27;s Case model.</div>
 <h3>Part 7: Configure the compact layout (5 min)</h3>
 <p>The compact layout drives the highlights panel and list-view hover tiles. Four or five fields max.</p>
 <div class="step"><span class="step-num">1.</span><span class="step-text">Navigate: From Setup, Object Manager, Case, in the left sidebar click &#x27;Compact Layouts&#x27;.</span></div>
@@ -745,20 +754,20 @@ nav.topnav a.internal-link::before { content: "🔒 "; }
 <p>Your custom fields (Reported Date/Time, Resolution Notes) now exist on the Case object, and you added them to the classic Case Layout in Part 6. But the Case Lightning record page in your org is a separate rendering surface that uses Dynamic Forms. Its field sections don&#x27;t automatically mirror the classic layout. We need to explicitly place Reported Date/Time, Resolution Notes, Case Record Type, AND Asset on the Lightning record page&#x27;s canvas. Having Case Record Type on the canvas lets users see (and change) which agency a case belongs to without leaving the record page (which Lab 2 will use). Having Asset on the canvas lets users link cases to physical infrastructure (which Lab 3 will use).</p>
 <div class="callout callout-why"><span class="callout-label">Why this matters</span>This is where many admins get confused. The classic Case Layout from Part 6 controls several things (field order in the create-record modal, Related Lists, available fields in the Lightning palette), but it does NOT drive the Lightning record page&#x27;s field display when Dynamic Forms is in use. Dynamic Forms requires you to explicitly place each field as a component on the Lightning record page&#x27;s canvas.</div>
 <h4>9.1: Open a case and launch the App Builder</h4>
-<div class="step"><span class="step-num">1.</span><span class="step-text">Navigate: Return to the ServicePulse 360 app. Click the App Launcher then Cases. Click any existing case (if your org has none, come back to Part 9 after Final Verification Check 1 creates one).</span></div>
+<div class="step"><span class="step-num">1.</span><span class="step-text">Navigate: Return to the ServicePulse 360 app. Click the App Launcher then Cases. Click any existing case (if your org has none, come back to Part 9 after you complete Part 10, Final Verification, which creates one).</span></div>
 <div class="step"><span class="step-num">2.</span><span class="step-text">On the case record page, click the gear icon (top-right) then Edit Page. The Lightning App Builder opens.</span></div>
 <h4>9.2: Add Reported Date/Time to the canvas</h4>
 <div class="step"><span class="step-num">1.</span><span class="step-text">In the left sidebar, click the Fields tab (next to the Components tab). The Fields panel shows every Case field as draggable items.</span></div>
-<div class="step"><span class="step-num">2.</span><span class="step-text">In the Quick Find box at the top of the Fields panel, type Reported. Reported Date/Time appears in the list.</span></div>
-<div class="step"><span class="step-num">3.</span><span class="step-text">Drag Reported Date/Time onto the canvas. A natural placement is inside the existing Case Details section (if present) or at the top of the main field section.</span></div>
+<div class="step"><span class="step-num">2.</span><span class="step-text">In the Search box at the top of the Fields panel, type Reported. Reported Date/Time appears in the list.</span></div>
+<div class="step"><span class="step-num">3.</span><span class="step-text">Reported Date/Time is already placed on the canvas. Confirm it&#x27;s visible, ideally in the Case Details section. If it&#x27;s missing, drag it from the Fields panel onto the canvas now.</span></div>
 <h4>9.3: Add Resolution Notes to the canvas</h4>
-<div class="step"><span class="step-num">1.</span><span class="step-text">In the Fields panel&#x27;s Quick Find, clear the previous search and type Resolution. Resolution Notes appears.</span></div>
+<div class="step"><span class="step-num">1.</span><span class="step-text">In the Fields panel&#x27;s Search box, clear the previous search and type Resolution. Resolution Notes appears.</span></div>
 <div class="step"><span class="step-num">2.</span><span class="step-text">Drag Resolution Notes onto the canvas. Place it near the bottom of the main field area (below Description or in a resolution-related section).</span></div>
 <h4>9.4: Add Case Record Type to the canvas</h4>
-<div class="step"><span class="step-num">1.</span><span class="step-text">In the Fields panel&#x27;s Quick Find, clear the previous search and type Record Type. Case Record Type appears.</span></div>
+<div class="step"><span class="step-num">1.</span><span class="step-text">In the Fields panel&#x27;s Search box, clear the previous search and type Record Type. Case Record Type appears.</span></div>
 <div class="step"><span class="step-num">2.</span><span class="step-text">Drag Case Record Type onto the canvas. A sensible placement is near the top of the main field area, so users can see at a glance which agency the Case belongs to.</span></div>
 <h4>9.5: Add Asset to the canvas</h4>
-<div class="step"><span class="step-num">1.</span><span class="step-text">In the Fields panel&#x27;s Quick Find, clear the previous search and type Asset. Asset appears.</span></div>
+<div class="step"><span class="step-num">1.</span><span class="step-text">In the Fields panel&#x27;s Search box, clear the previous search and type Asset. Asset appears.</span></div>
 <div class="step"><span class="step-num">2.</span><span class="step-text">Drag Asset onto the canvas. A sensible placement is in the Case Details section or near Reported Date/Time, so users can see at a glance which Asset the Case is about.</span></div>
 <h4>9.6: Save and activate</h4>
 <div class="step"><span class="step-num">1.</span><span class="step-text">Click Save (top-right).</span></div>
@@ -769,12 +778,11 @@ nav.topnav a.internal-link::before { content: "🔒 "; }
 <div class="callout callout-tip"><span class="callout-label">Tip</span>If your Lightning record page needs more structure (dedicated sections for groups of fields), you can drag the Field Section component from the Components tab onto the canvas, give it a label, and drag fields into it. For this workshop, placing the two custom fields directly is sufficient.</div>
 <h3>Part 10: Final Verification: Create your Golden Record (10 min)</h3>
 <p>You&#x27;ve built the full Case extension. Now create one well-populated Case record that you&#x27;ll use throughout the rest of the two-day workshop as your central example. We call this your Golden Record. Every subsequent lab will reference it: Lab 2 shows Dynamic Forms visibility rules on it, Lab 3 connects it to an Asset, Lab 5 ties it to a Service Disruption, and so on.</p>
-<div class="callout callout-golden"><span class="callout-label">Golden Record spec</span>Your Golden Record will have: Record Type = NYCT, Priority = P3 - Medium, Status = New, Type = Track Defect, Case Origin = Phone, Reported Date/Time = (auto), Subject = &quot;Golden Record: Workshop reference case&quot;, Contact Name = (one of your workshop org&#x27;s contacts; agency-aligned contacts like Marcus Chen, Priya Patel, Elena Rodriguez, or James O&#x27;Brien are pre-populated if available), Account Name = &quot;MTA New York City Transit&quot;.</div>
+<div class="callout callout-golden"><span class="callout-label">Golden Record spec</span>Your Golden Record will have: Record Type = NYCT, Priority = P3 - Medium, Status = New, Type = Track Defect, Case Origin = Phone, Reported Date/Time = (auto), Subject = &quot;Golden Record: Workshop reference case&quot;, Description = (a short narrative of the reported issue), Contact Name = (one of your workshop org&#x27;s contacts; agency-aligned contacts like Marcus Chen, Priya Patel, Elena Rodriguez, or James O&#x27;Brien are pre-populated if available), Account Name = &quot;MTA New York City Transit&quot;.</div>
 <h4>10.1: Confirm the MTA agency Accounts exist (or create them)</h4>
 <div class="step"><span class="step-num">1.</span><span class="step-text">Navigate: Return to the ServicePulse 360 app. Click the App Launcher then Accounts.</span></div>
 <div class="step"><span class="step-num">2.</span><span class="step-text">Switch the list view to All Accounts (via the dropdown).</span></div>
 <div class="step"><span class="step-num">3.</span><span class="step-text">In the search box above the list, type MTA. Confirm you see four Accounts: MTA New York City Transit, MTA Long Island Rail Road, MTA Metro-North Railroad, MTA Bridges and Tunnels.</span></div>
-<div class="callout callout-tip"><span class="callout-label">If the MTA Accounts are missing</span>Your workshop org may not have been pre-deployed with them. Create them yourself before continuing. Click New (top-right) then pick any Account record type if prompted (standard Account is fine). Account Name: MTA New York City Transit. Industry: Transportation (optional). Save. Repeat for MTA Long Island Rail Road, MTA Metro-North Railroad, MTA Bridges and Tunnels. (For today, you only strictly need MTA New York City Transit for your Golden Record; the others are useful for later labs.)</div>
 <h4>10.2: Create the Golden Record</h4>
 <div class="step"><span class="step-num">1.</span><span class="step-text">Navigate: From the ServicePulse 360 app, click the Cases tab, then click New (top-right of the page).</span></div>
 <div class="step"><span class="step-num">2.</span><span class="step-text">Record Type picker: pick NYCT then Next.</span></div>
@@ -787,8 +795,9 @@ nav.topnav a.internal-link::before { content: "🔒 "; }
 <div class="step"><span class="step-num">8.</span><span class="step-text">Subject: enter &quot;Golden Record: Workshop reference case&quot;.</span></div>
 <div class="step"><span class="step-num">9.</span><span class="step-text">Contact Name: click into the field. Type a few letters and let the picker suggest. Pick any contact from the list. (Your workshop org includes sample contacts. If you&#x27;d like your Golden Record to feel MTA-specific, pick one of the agency-aligned contacts pre-populated for you: names like Marcus Chen, Priya Patel, Elena Rodriguez, or James O&#x27;Brien.)</span></div>
 <div class="step"><span class="step-num">10.</span><span class="step-text">Account Name: click into the field. Type MTA New York. The picker suggests &quot;MTA New York City Transit&quot;. Select it.</span></div>
-<div class="step"><span class="step-num">11.</span><span class="step-text">Scroll down to any additional required fields on the layout (red asterisk) and populate them with reasonable test values.</span></div>
-<div class="step"><span class="step-num">12.</span><span class="step-text">Click Save.</span></div>
+<div class="step"><span class="step-num">11.</span><span class="step-text">Description: enter a sentence or two describing the reported issue, for example &quot;Track circuit fault reported near 125th St interlocking; dispatcher holding trains on affected track pending inspection.&quot;</span></div>
+<div class="step"><span class="step-num">12.</span><span class="step-text">Scroll down to any additional required fields on the layout (red asterisk) and populate them with reasonable test values.</span></div>
+<div class="step"><span class="step-num">13.</span><span class="step-text">Click Save.</span></div>
 <p>The case opens. The highlights panel at the top shows your compact layout fields (Case Number, Type, Priority, Status, Reported Date/Time).</p>
 <h4>10.3: Verify everything is wired</h4>
 <div class="step"><span class="step-num">1.</span><span class="step-text">On the Golden Record page, confirm:</span></div>
@@ -796,6 +805,7 @@ nav.topnav a.internal-link::before { content: "🔒 "; }
 <div class="substep">Type shows Track Defect, and the picklist is restricted to the six NYCT values if you click Edit (proves Type customization + per-Record-Type restriction)</div>
 <div class="substep">Reported Date/Time is populated and visible on the canvas (proves Part 9 placed it correctly)</div>
 <div class="substep">Resolution Notes is visible on the canvas but empty (proves Part 9 placed it correctly)</div>
+<div class="substep">Description is populated with the narrative you entered</div>
 <div class="substep">Contact Name is populated with the contact you chose</div>
 <div class="substep">Account Name shows MTA New York City Transit</div>
 <div class="step"><span class="step-num">2.</span><span class="step-text">Switch to the All Cases list view. Your Golden Record appears there.</span></div>
@@ -813,7 +823,7 @@ nav.topnav a.internal-link::before { content: "🔒 "; }
 <div class="bullet">Type picklist on a Record Type shows all 13 values: you missed the picklist-editing step on that Record Type.</div>
 <div class="bullet">&quot;Support Process&quot; picker is empty when creating a Record Type: you skipped Part 4.2.</div>
 <div class="bullet">Reported Date/Time or Resolution Notes don&#x27;t appear on the Lightning record page: you skipped Part 9. Return to any case then gear then Edit Page then drag the field onto the canvas from the Fields panel then Save then Activate.</div>
-<div class="bullet">MTA New York City Transit doesn&#x27;t appear in the Account Name picker: it wasn&#x27;t pre-deployed. Follow the &quot;If the MTA Accounts are missing&quot; callout in Part 10.1 to create it.</div>
+<div class="bullet">MTA New York City Transit doesn&#x27;t appear in the Account Name picker: tell your instructor, your org may not have been pre-deployed correctly.</div>
 <div class="bullet">If you fall significantly behind, your instructor can fast-forward your org with a deploy of the completed extension.</div>
   </div>
 </div>
