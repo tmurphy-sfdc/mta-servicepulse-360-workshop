@@ -676,8 +676,8 @@ nav.topnav a.internal-link::before { content: "🔒 "; }
 <h3>Part 6: Configure the classic page layout (12 min)</h3>
 <div class="callout callout-why"><span class="callout-label">Why this matters</span>Classic page layouts and Lightning record pages are two different rendering systems. The classic page layout controls: (1) field order in the create-record modal (the New Case popup), (2) which fields are available in the Lightning record page&#x27;s Fields palette, (3) Related Lists that appear on the Related tab, (4) buttons available in record detail actions. It does NOT control the field arrangement on the Lightning record page itself. In Part 9 we&#x27;ll place fields on the Lightning record page via Dynamic Forms (which is a separate system). Right now in Part 6 we&#x27;re configuring the classic Case Layout for its real jobs.</div>
 <h4>6.1: Open the Case Layout</h4>
-<div class="step"><span class="step-num">1.</span><span class="step-text">Navigate: From Setup, in the Quick Find box, type &#x27;Object Manager&#x27;, click it. Click Case. In the left sidebar, click &#x27;Page Layouts&#x27; (NOT Lightning Record Pages or Compact Layouts, specifically Page Layouts).</span></div>
-<div class="step"><span class="step-num">2.</span><span class="step-text">In the Page Layouts list, click the layout named &#x27;Case Layout&#x27; (there may be other layouts named like &#x27;Case (Marketing) Layout&#x27;, click the one simply called &#x27;Case Layout&#x27;).</span></div>
+<div class="step"><span class="step-num">1.</span><span class="step-text">Navigate: From Setup, in the Quick Find box, type &#x27;Object Manager&#x27;, click it. Click Case. In the left sidebar, click &#x27;Case Page Layouts&#x27;.</span></div>
+<div class="step"><span class="step-num">2.</span><span class="step-text">In the Page Layouts list, click the layout named &#x27;Case Layout&#x27;.</span></div>
 <h4>6.2: Add a new section and arrange fields</h4>
 <div class="step"><span class="step-num">1.</span><span class="step-text">From the palette at the top, drag Section onto the canvas just above the Description Information section.</span></div>
 <div class="step"><span class="step-num">2.</span><span class="step-text">Section Properties: Section Name = Case Details, Layout = 2-Column, then OK.</span></div>
@@ -692,14 +692,14 @@ nav.topnav a.internal-link::before { content: "🔒 "; }
 <div class="step"><span class="step-num">5.</span><span class="step-text">Verify: scroll to the Description Information section near the bottom. Confirm Resolution Notes is already there (it was placed automatically when you created it in Part 3.1). If it&#x27;s missing for any reason, drag it into Description Information just below Description now.</span></div>
 <div class="step"><span class="step-num">6.</span><span class="step-text">Click Save (top-left). If prompted to overwrite existing customizations, click Yes.</span></div>
 <h4>6.3: Confirm Case Comments is in the Related Lists section</h4>
-<p class="nav-preamble"><strong>Navigate:</strong> Still on the Case Layout from section 6.2 (if you clicked away, return to Setup, Object Manager, Case, Page Layouts, click &#x27;Case Layout&#x27;).</p>
+<p class="nav-preamble"><strong>Navigate:</strong> Still on the Case Layout from section 6.2 (if you clicked away, return to Setup, Object Manager, Case, Case Page Layouts, click &#x27;Case Layout&#x27;).</p>
 <p>Scroll down the Case Layout canvas to the Related Lists section. Confirm Case Comments is listed there (standard Case Layout includes it by default). If it&#x27;s missing, drag Case Comments from the palette into the Related Lists section and Save.</p>
 <div class="callout callout-why"><span class="callout-label">Why this matters</span>Lab 2 will use the Related List - Single Lightning component to surface Case Comments on the Lightning record page. For that component to find Case Comments, it must be present in this layout&#x27;s Related Lists section first.</div>
 <h4>6.4: Verify Case Layout assignments (usually no changes needed)</h4>
-<div class="step"><span class="step-num">1.</span><span class="step-text">Navigate: From Setup, Object Manager, Case, click &#x27;Page Layouts&#x27; in the left sidebar, then click the &#x27;Page Layout Assignment&#x27; button at the top of the Page Layouts list.</span></div>
+<div class="step"><span class="step-num">1.</span><span class="step-text">Navigate: From Setup, Object Manager, Case, click &#x27;Case Page Layouts&#x27; in the left sidebar, then click the &#x27;Page Layout Assignment&#x27; button at the top of the Page Layouts list.</span></div>
 <div class="step"><span class="step-num">2.</span><span class="step-text">On the Page Layout Assignment page, confirm each System Administrator x Record Type cell (NYCT, LIRR, MNR, B&amp;T) shows &#x27;Case Layout&#x27;. If any cell shows a different layout, click to select those rows (Shift-click to multi-select), set the &#x27;Page Layout to Use&#x27; dropdown at the top to &#x27;Case Layout&#x27;, and click Save. In most cases the assignments are already correct from Part 5 and no changes are needed.</span></div>
 <h4>6.5 - Clean up the Related Lists section</h4>
-<p class="nav-preamble"><strong>Navigate:</strong> From Setup, Object Manager, Case, click &#x27;Page Layouts&#x27; in the left sidebar, click &#x27;Case Layout&#x27;, then scroll down to the Related Lists section near the bottom of the canvas.</p>
+<p class="nav-preamble"><strong>Navigate:</strong> From Setup, Object Manager, Case, click &#x27;Case Page Layouts&#x27; in the left sidebar, click &#x27;Case Layout&#x27;, then scroll down to the Related Lists section near the bottom of the canvas.</p>
 <p>The Case Layout&#x27;s Related Lists section ships with many related lists we won&#x27;t use. Trimming it now means every Case opens with a focused Related tab.</p>
 <div class="step"><span class="step-num">1.</span><span class="step-text">Still on the Case Layout, scroll down to the Related Lists section.</span></div>
 <div class="step"><span class="step-num">2.</span><span class="step-text">For each related list EXCEPT Case Comments, Case History, Attachments, and Work Orders, hover over it and click the minus icon to remove it from the layout.</span></div>
@@ -1285,7 +1285,7 @@ If the Related List - Single is on the Details tab instead of the Other Related 
 <p>Before we create a Work Type, trim the Work Type Layout so participants only see the fields they&#x27;ll actually populate. Cleaner creation experience.</p>
 <div class="step"><span class="step-num">1.</span><span class="step-text">From Setup, Quick Find: Object Manager then click the result.</span></div>
 <div class="step"><span class="step-num">2.</span><span class="step-text">Find Work Type in the list and click the label.</span></div>
-<div class="step"><span class="step-num">3.</span><span class="step-text">Click Page Layouts in the left sidebar.</span></div>
+<div class="step"><span class="step-num">3.</span><span class="step-text">Click Case Page Layouts in the left sidebar.</span></div>
 <div class="step"><span class="step-num">4.</span><span class="step-text">Click the layout named Work Type Layout.</span></div>
 <div class="step"><span class="step-num">5.</span><span class="step-text">From the canvas, remove any fields that aren&#x27;t in this keep set (hover and click the minus icon):</span></div>
 <div class="substep">Work Type Name</div>
@@ -1310,7 +1310,7 @@ If the Related List - Single is on the Details tab instead of the Other Related 
 <h4>3.1 - Open the Work Order Layout</h4>
 <div class="step"><span class="step-num">1.</span><span class="step-text">From Setup, Quick Find: Object Manager then click the result.</span></div>
 <div class="step"><span class="step-num">2.</span><span class="step-text">Find Work Order in the list and click the label.</span></div>
-<div class="step"><span class="step-num">3.</span><span class="step-text">Click Page Layouts in the left sidebar.</span></div>
+<div class="step"><span class="step-num">3.</span><span class="step-text">Click Case Page Layouts in the left sidebar.</span></div>
 <div class="step"><span class="step-num">4.</span><span class="step-text">Click the layout named Work Order Layout.</span></div>
 <h4>3.2 - Remove the fields we don&#x27;t need</h4>
 <div class="step"><span class="step-num">1.</span><span class="step-text">From the canvas, remove these fields (hover each, click the minus icon):</span></div>
@@ -1354,7 +1354,7 @@ If the Related List - Single is on the Details tab instead of the Other Related 
 <h4>4.2 - Add the Work Orders related list to the Case Layout (if missing)</h4>
 <p class="nav-preamble"><strong>Navigate:</strong> You just opened your golden Case record in 4.1.</p>
 <div class="step"><span class="step-num">1.</span><span class="step-text">First, confirm whether Work Orders already appears on your Case record&#x27;s Related tab. Click the Related tab. If Work Orders is listed, skip to 4.3.</span></div>
-<div class="step"><span class="step-num">2.</span><span class="step-text">If Work Orders is missing: gear icon then Edit Object then Page Layouts in the left sidebar then Case Layout.</span></div>
+<div class="step"><span class="step-num">2.</span><span class="step-text">If Work Orders is missing: gear icon then Edit Object then Case Page Layouts in the left sidebar then Case Layout.</span></div>
 <div class="step"><span class="step-num">3.</span><span class="step-text">Scroll to the Related Lists section. If Work Orders isn&#x27;t there, drag it in from the palette. Save.</span></div>
 <h4>4.3 - Create a Work Order from the Case</h4>
 <div class="step"><span class="step-num">1.</span><span class="step-text">Return to your golden Case record.</span></div>
@@ -1617,7 +1617,7 @@ If the Related List - Single is on the Details tab instead of the Other Related 
 <p>Before creating any Service Disruption records, trim and organize the classic Service Disruption Layout so each record opens with a focused view, then confirm the Lightning record page matches.</p>
 <h4>5.1 - Open the Service Disruption Layout</h4>
 <div class="step"><span class="step-num">1.</span><span class="step-text">From Setup, Quick Find: Object Manager, click Object Manager, then click Service Disruption.</span></div>
-<div class="step"><span class="step-num">2.</span><span class="step-text">Click Page Layouts in the left sidebar.</span></div>
+<div class="step"><span class="step-num">2.</span><span class="step-text">Click Case Page Layouts in the left sidebar.</span></div>
 <div class="step"><span class="step-num">3.</span><span class="step-text">Click the layout named Service Disruption Layout.</span></div>
 <h4>5.2 - Organize the layout into clear sections</h4>
 <p class="nav-preamble"><strong>Navigate:</strong> You are still on the Service Disruption Layout editor from the preceding sub-section.</p>
