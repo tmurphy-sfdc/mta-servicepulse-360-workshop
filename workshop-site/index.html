@@ -95,6 +95,11 @@ section .section-lede { font-size: 15px; color: #4a4a4a; margin: 8px 0 24px; max
 .prereq-list { background: #fff; border: 1px solid #e0e0e0; border-radius: 10px; padding: 20px 24px; }
 .prereq-list ul { padding-left: 20px; margin: 0; }
 .prereq-list li { margin: 8px 0; font-size: 15px; }
+.deck-embed-wrap { margin: 0 0 24px; }
+.deck-embed-wrap iframe { display: block; width: 100%; aspect-ratio: 16 / 9; border: 1px solid #e0e0e0; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.12); }
+.deck-embed-caption { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: 10px; font-size: 14px; color: #666; flex-wrap: wrap; }
+.deck-embed-caption a { color: #0053A0; text-decoration: none; font-weight: 700; border-bottom: 1px dotted #0053A0; }
+.deck-embed-caption a:hover { color: #003d7a; border-bottom-color: #003d7a; }
 /* Labs */
 .lab-card { background: #fff; border: 1px solid #e0e0e0; border-radius: 10px; margin-bottom: 16px; overflow: hidden; }
 .lab-head { display: flex; align-items: center; gap: 16px; padding: 18px 22px; cursor: pointer; user-select: none; }
@@ -398,6 +403,13 @@ nav.topnav a.internal-link::before { content: "🔒 "; }
 <section id="prereqs">
   <h2 class="section-title">Prerequisites</h2>
   <p class="section-lede">A quick checklist to confirm before Day 1. If anything is missing, flag it on your intake form so the instructor team can get it sorted before 9:30 AM Monday.</p>
+  <div class="deck-embed-wrap">
+    <iframe src="assets/docs/servicepulse-360-overview-deck.pdf" title="NY MTA ServicePulse 360 Workshop Overview Deck" loading="lazy"></iframe>
+    <div class="deck-embed-caption">
+      <span>The overview deck covering what this workshop is and what you&#x27;ll build.</span>
+      <a href="assets/docs/servicepulse-360-overview-deck.pdf" target="_blank" rel="noopener">Download the deck (PDF)</a>
+    </div>
+  </div>
   <div class="prereq-list">
     <ul>
       <li><strong>Complete the pre-work Trailmix.</strong> Finish the <a href="https://trailhead.salesforce.com/users/h4ccz3afq7q00uerpi/trailmixes/mta-service-pulse-360-workshop-required-pre-work" target="_blank" rel="noopener">MTA ServicePulse 360 pre-work Trailmix</a> before Day 1. About 2.5 hours total; see the Resources section below for the module breakdown.</li>
