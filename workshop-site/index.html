@@ -58,13 +58,22 @@ a.hero-fact-cta .fact-value::after { content: " →"; }
   .hero h1 { padding-right: 72px; }
 }
 nav.topnav { position: sticky; top: 0; background: #000; border-bottom: 3px solid #ffb81c; z-index: 50; padding: 10px 16px; }
-nav.topnav ul { max-width: 1400px; margin: 0 auto; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 4px; align-items: center; justify-content: center; }
+nav.topnav > ul { max-width: 1400px; margin: 0 auto; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 4px; align-items: center; justify-content: center; }
 nav.topnav a { color: #fff; text-decoration: none; font-size: 14px; font-weight: 600; letter-spacing: 0.1px; padding: 6px 12px; border-radius: 2px; transition: background 0.15s; white-space: nowrap; }
 nav.topnav a:hover { background: #0053A0; color: #fff; }
 @media (max-width: 860px) {
-  nav.topnav ul { justify-content: flex-start; gap: 2px; }
+  nav.topnav > ul { justify-content: flex-start; gap: 2px; }
   nav.topnav a { font-size: 13px; padding: 5px 8px; }
 }
+.nav-more { position: relative; }
+.nav-more-btn { color: #fff; background: none; border: none; font: inherit; letter-spacing: 0.1px; font-size: 14px; font-weight: 600; padding: 6px 12px; border-radius: 2px; cursor: pointer; transition: background 0.15s; white-space: nowrap; display: inline-flex; align-items: center; gap: 4px; }
+.nav-more-btn:hover { background: #0053A0; }
+.nav-more-btn::after { content: "▾"; font-size: 11px; }
+.nav-more.open .nav-more-btn::after { content: "▴"; }
+.nav-more-menu { display: none; position: absolute; top: calc(100% + 6px); left: 0; background: #000; border: 1px solid #ffb81c; border-radius: 6px; min-width: 180px; padding: 6px; list-style: none; margin: 0; flex-direction: column; gap: 2px; z-index: 60; }
+.nav-more.open .nav-more-menu { display: flex; }
+.nav-more-menu li { width: 100%; }
+.nav-more-menu a { display: block; width: 100%; box-sizing: border-box; }
 main { max-width: 1100px; margin: 0 auto; padding: 48px 24px; }
 section { margin-bottom: 56px; }
 section h2.section-title { font-size: 28px; font-weight: 800; color: #000; margin: 0 0 8px; border-bottom: 3px solid #0053A0; padding-bottom: 8px; display: inline-block; }
@@ -297,10 +306,15 @@ nav.topnav a.internal-link::before { content: "🔒 "; }
     <li><a href="#prereqs">Prerequisites</a></li>
     <li><a href="#journey">Lab Overviews</a></li>
     <li><a href="#labs">Lab Guides</a></li>
-    <li><a href="#resources">Resources</a></li>
-    <li><a href="#day2-verify">Day 2 Verify</a></li>
-    <li><a href="#team">Instructor Team</a></li>
-    <li><a href="#internal" class="internal-link">Internal Prep</a></li>
+    <li class="nav-more" id="nav-more">
+      <button type="button" class="nav-more-btn" onclick="toggleNavMore(event)">More</button>
+      <ul class="nav-more-menu">
+        <li><a href="#resources">Resources</a></li>
+        <li><a href="#day2-verify">Day 2 Verify</a></li>
+        <li><a href="#team">Instructor Team</a></li>
+        <li><a href="#internal" class="internal-link">Internal Prep</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 
@@ -3545,6 +3559,21 @@ If the Related List - Single is on the Details tab instead of the Other Related 
 </footer>
 
 <script>
+function toggleNavMore(evt) {
+  evt.stopPropagation();
+  document.getElementById('nav-more').classList.toggle('open');
+}
+document.addEventListener('click', function(evt) {
+  const navMore = document.getElementById('nav-more');
+  if (navMore && navMore.classList.contains('open') && !navMore.contains(evt.target)) {
+    navMore.classList.remove('open');
+  }
+});
+document.querySelectorAll('.nav-more-menu a').forEach(function(link) {
+  link.addEventListener('click', function() {
+    document.getElementById('nav-more').classList.remove('open');
+  });
+});
 function toggleLab(n) {
   const body = document.getElementById('body-' + n);
   const toggle = document.getElementById('toggle-' + n);
